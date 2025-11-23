@@ -10,12 +10,18 @@ def save_markdown(text, filename):
         f.write(text)
 
 def main():
-    all_posts = (
+    posts = (
         fetch_competitor_posts() +
         fetch_reddit_posts() +
         fetch_hn_posts()
     )
-    summary = generate_summary(all_posts)
+    summary = generate_summary(posts)
+
+    # Print summary to GitHub Actions log
+    print("\n===== 📄 Market Watch Summary =====\n")
+    print(summary)
+    print("\n===== ✅ End of Summary =====\n")
+
     os.makedirs("reports", exist_ok=True)
     today = datetime.now().strftime("%Y-%m-%d")
     save_markdown(summary, f"reports/{today}.md")
