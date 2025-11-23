@@ -1,0 +1,38 @@
+name: Market Watch Agent
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs daily at 09:00 UTC
+  workflow_dispatch:     # Allow manual runs
+
+jobs:
+  run-scraper:
+    runs-on: ubuntu-latest
+
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Debug OpenAI Key presence
+        run: echo "OPENAI_API_KEY is ${OPENAI_API_KEY:0:4}********"
+
+      - name: Run scraper
+        run: python main.py
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-market-report
+          path: reports/*.md

@@ -1,0 +1,4 @@
+- name: Vercel
+  url: https://vercel.com/changelog/rss.xml
+- name: Netlify
+  url: https://www.netlify.com/changelog/feed.xml
