@@ -1,6 +1,6 @@
 # summarize_only.py
 
-from utils import group_posts_by_type, write_report
+from utils import group_posts_by_topic, write_report
 from summarizer import generate_summary, extract_insights_from_social
 from scraper.trend_classifier import classify_trends
 import json
@@ -12,22 +12,22 @@ print("✍️ Generating summary...")
 with open("data/posts.json", "r") as f:
     posts = json.load(f)
 
-# --- Trend classification fix (IMPORTANT) ---
+# --- Trend classification fix ---
 for post in posts:
-    result = classify_trends([post])  # classifier expects a LIST of dicts
+    result = classify_trends([post])  # classifier expects a LIST
     post["is_trend"] = len(result) > 0
 
-# Re-group AFTER classification
-grouped = group_posts_by_type(posts)
+# Regroup AFTER classification
+grouped = group_posts_by_topic(posts)
 
-# Generate summaries with links in markdown format
+# Generate summaries
 summary_sections = {
     "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
     "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
     "📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
 }
 
-# Debug output
+# Debug links
 print("📌 Collected Links:")
 for post in posts:
     link = post.get("link") or post.get("url")
