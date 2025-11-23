@@ -12,10 +12,15 @@ def fetch_competitor_updates():
         for url in feed_urls:
             feed = feedparser.parse(url)
             for entry in feed.entries:
+                title = entry.get("title")
+                link = entry.get("link")
+                if not title or not link:
+                    print(f"⚠️ Skipping entry missing title or link in {brand}: {entry}")
+                    continue
                 posts.append({
                     "source": brand,
-                    "title": entry.title,
-                    "url": entry.link,
+                    "title": title,
+                    "url": link,
                     "summary": entry.get("summary", ""),
                     "type": "🚀 Product Updates"
                 })
