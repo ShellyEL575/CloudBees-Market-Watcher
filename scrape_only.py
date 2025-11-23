@@ -1,52 +1,42 @@
 import os
+import json
+import time
+from datetime import datetime
 from scraper.hn import fetch_hn_stories
 from scraper.competitor import fetch_competitor_updates
-from scraper.reddit import fetch_reddit_posts
 from scraper.google_watcher import fetch_google_results
 from scraper.linkedin_watcher import fetch_linkedin_results
 from scraper.trend_classifier import classify_trends
+
+def try_fetch(func, name, retries=2, delay=2):
+    for attempt in range(retries):
+        try:
+            print(f"➡️  Fetching {name} (attempt {attempt+1})...")
+            return func()
+        except Exception as e:
+            print(f"❌ {name} failed: {e}")
+            time.sleep(delay)
+    return []
 
 all_posts = []
 
 print("\n📥 Collecting posts...")
 
-# Collect posts from all sources
-try:
-    all_posts.extend(fetch_hn_stories())
-except Exception as e:
-    print(f"❌ Hacker News scraping failed: {e}")
+all_posts.extend(try_fetch(fetch_hn_stories, "Hacker News"))
+all_posts.extend(try_fetch(fetch_competitor_updates, "Competitors"))
+all_posts.extend(try_fetch(fetch_google_results, "Google"))
+all_posts.extend(try_fetch(fetch_linkedin_results, "LinkedIn"))
 
-try:
-    all_posts.extend(fetch_competitor_updates())
-except Exception as e:
-    print(f"❌ Competitor scraping failed: {e}")
-
-try:
-    all_posts.extend(fetch_reddit_posts())
-except Exception as e:
-    print(f"❌ Reddit scraping failed: {e}")
-
-try:
-    all_posts.extend(fetch_google_results())
-except Exception as e:
-    print(f"❌ Google scraping failed: {e}")
-
-try:
-    all_posts.extend(fetch_linkedin_results())
-except Exception as e:
-    print(f"❌ LinkedIn scraping failed: {e}")
+print(f"\n📌 Total posts collected: {len(all_posts)}")
 
 # Classify trends
 for post in all_posts:
-    post["is_trend"] = classify_trends(post.get("title", "") + " " + post.get("summary", ""))
+    text = (post.get("title") or "") + " " + (post.get("summary") or "")
+    post["is_trend"] = classify_trends(text)
 
-# Save scraped posts to a file
-import json
-from datetime import datetime
-
+# Save scraped posts
 os.makedirs("data", exist_ok=True)
-date_str = datetime.utcnow().strftime("%Y-%m-%d")
-output_path = f"data/posts_{date_str}.json"
+output_path = "data/posts.json"
 
 with open(output_path, "w") as f:
     json.dump(all_posts, f, indent=2)
