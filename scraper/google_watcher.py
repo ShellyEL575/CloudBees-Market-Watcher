@@ -1,53 +1,57 @@
-# scraper/google_watcher.py
-
+# utils.py (patched)
 import os
-import requests
 from datetime import datetime
 
-SEARCH_QUERIES = [
-    'jenkins OR cloudbees upgrade issues OR plugin problems',
-    '"ci/cd success" OR cloudbees experience OR stable pipeline',
-    'cloudbees vs gitlab OR github actions vs jenkins',
-    'moved to harness OR migrated from jenkins OR ci/cd migration',
-    'dora metrics OR platform analytics OR flow metrics',
-    'devops tooling OR internal dev platform reviews',
-]
-
-def fetch_google_results():
-    api_key = os.getenv("SERPER_API_KEY")
-    if not api_key:
-        raise ValueError("SERPER_API_KEY not set in environment")
-
-    headers = {
-        "X-API-KEY": api_key,
-        "Content-Type": "application/json"
+def group_posts_by_topic(posts):
+    """
+    Group posts into Product Updates, Social Buzz, and Trends.
+    Classification is based on the `type` value assigned by scrapers.
+    """
+    grouped = {
+        "🚀 Product Updates": [],
+        "💬 Social Buzz": [],
+        "📈 Trends": []
     }
 
-    all_results = []
-    for query in SEARCH_QUERIES:
-        print(f"\n🔎 Searching (new, recent-only): {query}")
-        payload = {
-            "q": query,
-            "num": 10,
-            "gl": "us",
-            "hl": "en",
-            "autocorrect": True,
-            "type": "search"
-        }
-        response = requests.post("https://google.serper.dev/search", headers=headers, json=payload)
-        data = response.json()
-        for result in data.get("organic", []):
-            title = result.get("title")
-            link = result.get("link")
-            if title and link:
-                print(f"📌 Found (recent): {title} ({link})")
-                all_results.append({
-                    "title": title,
-                    "url": link,
-                    "source": "Google",
-                    "type": "💬 Social Buzz",
-                    "timestamp": datetime.utcnow().isoformat()
-                })
+    for p in posts:
+        t = p.get("type")
+        if t == "🚀 Product Updates":
+            grouped["🚀 Product Updates"].append(p)
+        elif t == "📈 Trends":
+            grouped["📈 Trends"].append(p)
+        else:
+            grouped["💬 Social Buzz"].append(p)
 
-    print(f"\n✅ Google posts: {len(all_results)}")
-    return all_results
+    return grouped
+
+
+def write_report(sections):
+    """
+    Write a Markdown report with clean formatting.
+    Sections auto-skip empty content.
+    """
+    os.makedirs("reports", exist_ok=True)
+    report_date = datetime.utcnow().strftime("%Y-%m-%d")
+    path = f"reports/{report_date}.md"
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"# 📰 CloudBees Market Watch – {report_date}\n\n")
+
+        order = ["🚀 Product Updates", "💬 Social Buzz", "📈 Trends", "🧠 Insights"]
+        for section in order:
+            content = sections.get(section, "").strip()
+            if not content or content == "No updates found.":
+                continue  # skip empty
+
+            f.write(f"## {section}\n")
+            f.write(content + "\n")
+            f.write("\n---\n\n")
+
+    print(f"✅ Report written to {path}")
+
+    # Optional console preview
+    print("\n===== 📝 Report Preview =====\n")
+    with open(path, "r", encoding="utf-8") as f:
+        print(f.read())
+
+    return path
