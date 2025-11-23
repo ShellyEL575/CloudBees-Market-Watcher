@@ -1,36 +1,48 @@
 import os
-import json
-from datetime import datetime
 from openai import OpenAI
+from dotenv import load_dotenv
 
+load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_summary(posts):
-    text_input = "\n".join(f"- {post['title']}: {post['link']}" for post in posts)
-    prompt = f"Summarize the following posts into product updates, social buzz, and key trends:\n{text_input}"
+    if not posts:
+        return "No content available to summarize."
 
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "You are an expert tech industry analyst."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.5
-    )
-
-    return response.choices[0].message.content.strip()
+    try:
+        text_input = "\n".join(
+            f"- {post.get('title', 'No Title')} ({post.get('source', 'Unknown Source')}): {post.get('link', 'No Link')}"
+            for post in posts
+        )
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant that summarizes recent DevOps and CI/CD posts."},
+                {"role": "user", "content": f"Summarize these items:\n{text_input}"}
+            ],
+            temperature=0.7
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        return f"Summary generation failed: {e}"
 
 def extract_insights_from_social(posts):
-    text_input = "\n".join(f"- {post['title']}: {post['link']}" for post in posts)
-    prompt = f"Analyze these social posts and summarize key concerns, sentiments, or insights about developer experience or CI/CD trends:\n{text_input}"
+    if not posts:
+        return "No social posts to extract insights from."
 
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "You are a DevOps strategist analyzing community sentiment and insights."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.5
-    )
-
-    return response.choices[0].message.content.strip()
+    try:
+        insights_input = "\n".join(
+            f"- {post.get('title', 'No Title')} ({post.get('source', 'Unknown')}): {post.get('link', '')}"
+            for post in posts
+        )
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You're an expert DevOps analyst extracting key trends and sentiment from community discussions."},
+                {"role": "user", "content": f"Extract insights and sentiment from the following posts:\n{insights_input}"}
+            ],
+            temperature=0.7
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        return f"Insight extraction failed: {e}"
