@@ -1,84 +1,52 @@
-# summarizer.py
-
-import os
 from openai import OpenAI
+import os
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI()
 
-
+# --- Summary Generator ---
 def generate_summary(posts):
-    """
-    Produce a clean summary of posts using Markdown links.
-    """
     if not posts:
-        return "_No posts available for this section._"
+        return "No updates found.\n"
 
-    # Markdown-formatted list of posts
-    formatted_posts = "\n".join(
-        f"- [{post.get('title','Untitled')}]({post.get('link') or post.get('url','')})"
-        for post in posts
-    )
+    lines = []
+    for post in posts:
+        title = post.get("title", "Untitled")
+        summary = post.get("summary", "").strip()
+        url = post.get("url") or post.get("link") or ""
+        lines.append(f"- [{title}]({url}) — {summary}")
 
-    prompt = f"""
-You are a DevOps market analyst. Summarize the following posts **clearly and concisely**.
+    return "\n".join(lines) + "\n"
 
-Posts:
-{formatted_posts}
-
-Your summary should:
-- Capture the important themes
-- Avoid repeating all items
-- Remain objective
-"""
-
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=300,
-        temperature=0.4,
-    )
-
-    return response.choices[0].message.content.strip()
-
-
-
+# --- Insights Extractor ---
 def extract_insights_from_social(posts):
-    """
-    Extract insights: trends, pain points, opportunities, sentiment.
-    """
-    if not posts:
-        return "_No social buzz posts available for insights._"
-
-    formatted_posts = "\n".join(
-        f"- [{post.get('title','Untitled')}]({post.get('link') or post.get('url','')})"
-        for post in posts
-    )
+    text_blob = "\n".join([
+        f"Title: {p.get('title')}\nSummary: {p.get('summary')}" for p in posts
+    ])
 
     prompt = f"""
-You are a senior DevOps strategist. Read the following social posts:
+    You are an expert DevOps market analyst. Extract the key insights from the following posts.
+    Return four sections in clean Markdown:
 
-{formatted_posts}
+    ### Key Trends
+    - bullets
 
-Return insights in this structure:
+    ### Pain Points
+    - bullets
 
-### Key Trends:
-- ...
+    ### Opportunities for CloudBees
+    - bullets
 
-### Pain Points:
-- ...
+    ### Indicators of DevOps Market Sentiment
+    - bullets
 
-### Opportunities for CloudBees:
-- ...
-
-### Indicators of DevOps Market Sentiment:
-- ...
-"""
+    TEXT:
+    {text_blob}
+    """
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=500,
         temperature=0.4,
     )
 
-    return response.choices[0].message.content.strip()
+    return response.choices[0].message["content"]
