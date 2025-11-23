@@ -7,12 +7,12 @@ from summarizer import generate_summary
 
 def main():
     print("📥 Collecting posts...")
-    posts = (
-        fetch_competitor_posts() +
-        fetch_hn_posts() +
-        fetch_google_results()
-    )
-    print(f"📦 Total posts collected: {len(posts)}")
+    competitor_posts = fetch_competitor_posts()
+    hn_posts = fetch_hn_posts()
+    google_posts = fetch_google_results()
+
+    all_posts = competitor_posts + hn_posts + google_posts
+    print(f"📦 Total posts collected: {len(all_posts)}")
 
     grouped = {
         "🚀 Product Updates": [],
@@ -20,7 +20,7 @@ def main():
         "📈 Trends": []
     }
 
-    for post in posts:
+    for post in all_posts:
         url = post.get("link", "").lower()
         source = post.get("source", "").lower()
 
@@ -38,15 +38,29 @@ def main():
         print(f"- {post['title']} ({post['link']})")
 
     print("\n===== 📄 Market Watch Summary =====")
-    summary = generate_summary(posts)
+    summary = generate_summary(all_posts)
     print(summary)
 
+    # Debug breakdown
+    social_buzz_debug = [
+        "## 🧪 Debug Info",
+        f"- Total competitor posts: {len(competitor_posts)}",
+        f"- Total HN posts: {len(hn_posts)}",
+        f"- Total Google results: {len(google_posts)}",
+        f"  - Filtered by recency: YES",
+        f"- Total posts passed to summarizer: {len(all_posts)}",
+        f"- Final Social Buzz entries: {len(grouped['💬 Social Buzz'])}"
+    ]
+
+    # Save to Markdown
     date_str = datetime.utcnow().strftime("%Y-%m-%d")
     report_path = f"reports/{date_str}.md"
     os.makedirs("reports", exist_ok=True)
     with open(report_path, "w") as f:
         f.write(f"# Market Watch Report – {date_str}\n\n")
         f.write(summary)
+        f.write("\n\n")
+        f.write("\n".join(social_buzz_debug))
 
     print(f"\n✅ Report saved to {report_path}")
 
