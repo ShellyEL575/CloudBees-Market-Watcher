@@ -1,68 +1,84 @@
+# main.py (optional legacy entrypoint – now split into two phases)
 import os
+import json
 from datetime import datetime
-from scraper.competitor import fetch_competitor_posts
-from scraper.hn import fetch_hn_posts
+from scraper.competitor import fetch_competitor_updates
+from scraper.reddit import fetch_reddit_discussions
+from scraper.hn import fetch_hn_stories
 from scraper.google_watcher import fetch_google_results
-from summarizer import generate_summary
+from summarizer import generate_summary, extract_insights_from_social
+from utils import group_posts_by_topic
 
-def main():
-    print("📥 Collecting posts...")
-    competitor_posts = fetch_competitor_posts()
-    hn_posts = fetch_hn_posts()
-    google_posts = fetch_google_results()
 
-    all_posts = competitor_posts + hn_posts + google_posts
-    print(f"📦 Total posts collected: {len(all_posts)}")
+def run_scraper():
+    print("\n📥 Collecting posts...")
+    all_posts = []
 
-    grouped = {
-        "🚀 Product Updates": [],
-        "💬 Social Buzz": [],
-        "📈 Trends": []
-    }
+    try:
+        competitor_posts = fetch_competitor_updates()
+        print(f"✅ Competitor posts: {len(competitor_posts)}")
+        all_posts.extend(competitor_posts)
+    except Exception as e:
+        print("❌ Competitor scraping failed:", e)
 
-    for post in all_posts:
-        url = post.get("link", "").lower()
-        source = post.get("source", "").lower()
+    try:
+        reddit_posts = fetch_reddit_discussions()
+        print(f"✅ Reddit posts: {len(reddit_posts)}")
+        all_posts.extend(reddit_posts)
+    except Exception as e:
+        print("❌ Reddit scraping failed:", e)
 
-        if any(domain in url for domain in ["reddit.com", "linkedin.com", "youtube.com", "medium.com"]):
-            grouped["💬 Social Buzz"].append(post)
-        elif source == "google search" and any(domain in url for domain in ["reddit.com", "linkedin.com", "youtube.com", "medium.com"]):
-            grouped["💬 Social Buzz"].append(post)
-        elif "blog" in source or "changelog" in source or "devops" in source:
-            grouped["🚀 Product Updates"].append(post)
-        else:
-            grouped["📈 Trends"].append(post)
+    try:
+        hn_posts = fetch_hn_stories()
+        print(f"✅ HN posts: {len(hn_posts)}")
+        all_posts.extend(hn_posts)
+    except Exception as e:
+        print("❌ HN scraping failed:", e)
 
-    print("\n===== 🧪 Social Buzz Posts =====")
-    for post in grouped["💬 Social Buzz"]:
-        print(f"- {post['title']} ({post['link']})")
+    try:
+        google_posts = fetch_google_results()
+        print(f"✅ Google posts: {len(google_posts)}")
+        all_posts.extend(google_posts)
+    except Exception as e:
+        print("❌ Google search failed:", e)
 
-    print("\n===== 📄 Market Watch Summary =====")
-    summary = generate_summary(all_posts)
-    print(summary)
+    os.makedirs("data", exist_ok=True)
+    with open("data/raw_posts.json", "w") as f:
+        json.dump(all_posts, f, indent=2)
 
-    # Debug breakdown
-    social_buzz_debug = [
-        "## 🧪 Debug Info",
-        f"- Total competitor posts: {len(competitor_posts)}",
-        f"- Total HN posts: {len(hn_posts)}",
-        f"- Total Google results: {len(google_posts)}",
-        f"  - Filtered by recency: YES",
-        f"- Total posts passed to summarizer: {len(all_posts)}",
-        f"- Final Social Buzz entries: {len(grouped['💬 Social Buzz'])}"
-    ]
+    print(f"\n✅ Saved {len(all_posts)} posts to data/raw_posts.json")
 
-    # Save to Markdown
-    date_str = datetime.utcnow().strftime("%Y-%m-%d")
-    report_path = f"reports/{date_str}.md"
+
+def run_summarizer():
+    print("\n🧠 Loading raw posts for summarization...")
+
+    with open("data/raw_posts.json") as f:
+        all_posts = json.load(f)
+
+    print(f"✅ Loaded {len(all_posts)} posts")
+
+    print("\n📊 Grouping posts...")
+    grouped = group_posts_by_topic(all_posts)
+
+    print("\n✍️ Generating summary...")
+    summary = generate_summary(grouped)
+
+    print("\n🔍 Extracting insights from social buzz...")
+    social_insights = extract_insights_from_social(grouped.get("💬 Social Buzz", []))
+
+    report_date = datetime.utcnow().strftime("%Y-%m-%d")
     os.makedirs("reports", exist_ok=True)
+    report_path = f"reports/{report_date}.md"
+
     with open(report_path, "w") as f:
-        f.write(f"# Market Watch Report – {date_str}\n\n")
+        f.write(f"# Market Watch Report – {report_date}\n\n")
         f.write(summary)
-        f.write("\n\n")
-        f.write("\n".join(social_buzz_debug))
+        f.write("\n\n===== 📊 Social Buzz Insights =====\n")
+        f.write(social_insights)
 
     print(f"\n✅ Report saved to {report_path}")
 
+
 if __name__ == "__main__":
-    main()
+    run_scraper()
+    run_summarizer()
