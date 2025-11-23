@@ -1,5 +1,6 @@
 from scraper.competitor import fetch_competitor_posts
 from scraper.hn import fetch_hn_posts
+from scraper.google_watcher import fetch_google_results
 from summarizer import generate_summary
 from datetime import datetime
 import os
@@ -11,12 +12,12 @@ def save_markdown(text, filename):
 def main():
     posts = (
         fetch_competitor_posts() +
-        fetch_hn_posts()
+        fetch_hn_posts() +
+        fetch_google_results()
     )
 
     summary = generate_summary(posts)
 
-    # Print to GitHub Actions log
     print("\n===== 📄 Market Watch Summary =====\n")
     print(summary)
     print("\n===== ✅ End of Summary =====\n")
