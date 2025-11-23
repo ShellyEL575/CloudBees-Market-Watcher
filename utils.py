@@ -1,28 +1,37 @@
-# utils.py
+import os
+import re
+import json
+from datetime import datetime
+from collections import defaultdict
 
-def group_posts_by_topic(all_posts):
-    """
-    Groups posts into categories: Product Updates, Social Buzz, Trends
-    all_posts: list of dicts each with keys 'source', 'title', 'link', 'summary'
-    Returns a dict: { "🚀 Product Updates": [...], "💬 Social Buzz": [...], "📈 Trends": [...] }
-    """
-    grouped = {
-        "🚀 Product Updates": [],
-        "💬 Social Buzz": [],
-        "📈 Trends": []
-    }
 
-    for post in all_posts:
-        url = post.get("link", "").lower()
-        source = post.get("source", "").lower()
+def group_posts_by_topic(posts):
+    topics = defaultdict(list)
 
-        if any(domain in url for domain in ["reddit.com", "linkedin.com", "youtube.com", "medium.com"]):
-            grouped["💬 Social Buzz"].append(post)
-        elif source == "google search" and any(domain in url for domain in ["reddit.com", "linkedin.com", "youtube.com", "medium.com"]):
-            grouped["💬 Social Buzz"].append(post)
-        elif "blog" in source or "changelog" in source or "devops" in source:
-            grouped["🚀 Product Updates"].append(post)
+    for post in posts:
+        title = post.get("title", "").lower()
+        content = f"{title} {post.get('content', '').lower()}"
+
+        if any(keyword in content for keyword in ["cloudbees", "jenkins", "ci/cd", "pipeline"]):
+            topics["CloudBees & CI/CD"].append(post)
+        elif any(keyword in content for keyword in ["copilot", "ai", "openai"]):
+            topics["AI & Dev Experience"].append(post)
+        elif any(keyword in content for keyword in ["gitlab", "github", "bitbucket", "azure devops"]):
+            topics["Competitor Updates"].append(post)
+        elif any(keyword in content for keyword in ["devops metrics", "dora", "space metrics", "flow"]):
+            topics["Metrics & Analytics"].append(post)
         else:
-            grouped["📈 Trends"].append(post)
+            topics["General"].append(post)
 
-    return grouped
+    return topics
+
+
+def write_report(summary_text):
+    date_str = datetime.now().strftime("%Y-%m-%d")
+    os.makedirs("reports", exist_ok=True)
+    report_path = f"reports/{date_str}.md"
+
+    with open(report_path, "w") as f:
+        f.write(summary_text)
+
+    print(f"✅ Report saved to {report_path}")
