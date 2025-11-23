@@ -1,10 +1,3 @@
-name: Market Watch Agent
-
-on:
-  schedule:
-    - cron: '0 9 * * *'  # Runs every day at 09:00 UTC
-  workflow_dispatch:     # Allows manual runs
-
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
@@ -22,22 +15,14 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Scrape data
+      - name: Run scraper
         run: python scrape_only.py
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
 
-      - name: Summarize data
+      - name: Run summarizer
         run: python summarize_only.py
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: cloudbees-market-report
+          name: daily-market-report
           path: reports/*.md
-
-      - name: Print report in console
-        run: cat reports/*.md
