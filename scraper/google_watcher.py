@@ -1,73 +1,46 @@
 import os
-import requests
+from serpapi import GoogleSearch
+from datetime import datetime, timedelta
 
-# ✅ Optimized natural-language search terms for CloudBees and DevOps
-QUERIES = [
-    # Frustration / Problems
-    'site:reddit.com jenkins OR cloudbees upgrade issues OR plugin problems',
-    
-    # Praise / Success stories
-    'site:linkedin.com "ci/cd success" OR cloudbees experience OR stable pipeline',
-    
-    # Platform comparisons
-    'site:medium.com cloudbees vs gitlab OR github actions vs jenkins',
-    
-    # Migration stories
-    'site:reddit.com moved to harness OR migrated from jenkins OR ci/cd migration',
-
-    # Metrics & Analytics
-    'site:linkedin.com dora metrics OR platform analytics OR flow metrics',
-    
-    # DevOps trends and tooling reviews
-    'site:youtube.com devops tooling OR internal dev platform reviews'
+SEARCH_QUERIES = [
+    'jenkins OR cloudbees upgrade issues OR plugin problems',
+    '"ci/cd success" OR cloudbees experience OR stable pipeline',
+    'cloudbees vs gitlab OR github actions vs jenkins',
+    'moved to harness OR migrated from jenkins OR ci/cd migration',
+    'dora metrics OR platform analytics OR flow metrics',
+    'devops tooling OR internal dev platform reviews',
 ]
 
-SERPER_URL = "https://google.serper.dev/search"
-
-def fetch_google_results(top_n=5):
+def fetch_google_posts():
     api_key = os.getenv("SERPER_API_KEY")
     if not api_key:
-        raise ValueError("🚨 SERPER_API_KEY is not set. Add it to GitHub Secrets to enable Google search.")
+        raise ValueError("SERPER_API_KEY not set in environment")
 
-    results = []
-    headers = {"X-API-KEY": api_key}
-
-    for query in QUERIES:
-        print(f"\n🔎 Searching (new, recent-only): {query}")
-
-        payload = {
-            "q": query,
+    all_results = []
+    for query in SEARCH_QUERIES:
+        print(f"\n🔎 Searching (new, recent-only): site:reddit.com {query}")
+        search = GoogleSearch({
+            "q": f"site:reddit.com {query}",
+            "location": "United States",
+            "hl": "en",
             "gl": "us",
             "num": 10,
-            "tbs": "qdr:w"   # 🔥 Past week only
-        }
+            "api_key": api_key
+        })
 
-        resp = requests.post(SERPER_URL, json=payload, headers=headers)
-        
-        try:
-            data = resp.json()
-        except Exception as e:
-            print("⚠️ Failed to parse JSON from Serper response.")
-            continue
+        results = search.get_dict()
+        if "organic_results" in results:
+            for result in results["organic_results"]:
+                title = result.get("title")
+                link = result.get("link")
+                if title and link:
+                    print(f"📌 Found (recent): {title} ({link})")
+                    all_results.append({
+                        "title": title,
+                        "link": link,
+                        "source": "Google",
+                        "category": "💬 Social Buzz",
+                        "timestamp": datetime.utcnow().isoformat()
+                    })
 
-        organic = data.get("organic", [])
-        if not organic:
-            print("⚠️ No results found.")
-            continue
-
-        for item in organic[:top_n]:
-            title = item.get("title", "No title")
-            link = item.get("link", "")
-            snippet = item.get("snippet", "")
-
-            print(f"📌 Found (recent): {title} ({link})")
-
-            results.append({
-                "source": "Google Search",
-                "title": title,
-                "link": link,
-                "summary": snippet[:300]
-            })
-
-    print(f"\n✅ Total recent Google results fetched: {len(results)}")
-    return results
+    return all_results
