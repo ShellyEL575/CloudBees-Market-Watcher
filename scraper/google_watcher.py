@@ -1,57 +1,103 @@
-# utils.py (patched)
+# scraper/google_watcher.py (HARDENED VERSION)
+
 import os
+import time
+import requests
 from datetime import datetime
 
-def group_posts_by_topic(posts):
-    """
-    Group posts into Product Updates, Social Buzz, and Trends.
-    Classification is based on the `type` value assigned by scrapers.
-    """
-    grouped = {
-        "🚀 Product Updates": [],
-        "💬 Social Buzz": [],
-        "📈 Trends": []
+API_URL = "https://google.serper.dev/search"
+
+SEARCH_QUERIES = [
+    'jenkins OR cloudbees upgrade issues OR plugin problems',
+    '"ci/cd success" OR cloudbees experience OR stable pipeline',
+    'cloudbees vs gitlab OR github actions vs jenkins',
+    'moved to harness OR migrated from jenkins OR ci/cd migration',
+    'dora metrics OR platform analytics OR flow metrics',
+    'devops tooling OR internal dev platform reviews',
+]
+
+
+# --------------------------
+# Helper: Retry Wrapper
+# --------------------------
+def safe_post(url, headers, payload, retries=3, delay=2):
+    for attempt in range(1, retries + 1):
+        try:
+            resp = requests.post(url, headers=headers, json=payload, timeout=12)
+            resp.raise_for_status()
+            return resp.json()
+
+        except Exception as e:
+            print(f"❌ Serper request failed (attempt {attempt}/{retries}): {e}")
+            if attempt < retries:
+                time.sleep(delay)
+            else:
+                print("⚠️ Giving up on this query.")
+                return None
+
+
+# --------------------------
+# Main Fetcher
+# --------------------------
+def fetch_google_results():
+    api_key = os.getenv("SERPER_API_KEY")
+    if not api_key:
+        raise ValueError("SERPER_API_KEY not set in environment")
+
+    headers = {
+        "X-API-KEY": api_key,
+        "Content-Type": "application/json",
     }
 
-    for p in posts:
-        t = p.get("type")
-        if t == "🚀 Product Updates":
-            grouped["🚀 Product Updates"].append(p)
-        elif t == "📈 Trends":
-            grouped["📈 Trends"].append(p)
-        else:
-            grouped["💬 Social Buzz"].append(p)
+    all_posts = []
+    seen_urls = set()
 
-    return grouped
+    for query in SEARCH_QUERIES:
+        print(f"\n🔎 Searching (Serper): {query}")
 
+        payload = {
+            "q": query,
+            "num": 10,
+            "gl": "us",
+            "hl": "en",
+            "autocorrect": True,
+            "type": "search",
+        }
 
-def write_report(sections):
-    """
-    Write a Markdown report with clean formatting.
-    Sections auto-skip empty content.
-    """
-    os.makedirs("reports", exist_ok=True)
-    report_date = datetime.utcnow().strftime("%Y-%m-%d")
-    path = f"reports/{report_date}.md"
+        data = safe_post(API_URL, headers, payload)
 
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(f"# 📰 CloudBees Market Watch – {report_date}\n\n")
+        if not data:
+            continue
 
-        order = ["🚀 Product Updates", "💬 Social Buzz", "📈 Trends", "🧠 Insights"]
-        for section in order:
-            content = sections.get(section, "").strip()
-            if not content or content == "No updates found.":
-                continue  # skip empty
+        organic = data.get("organic", [])
+        if not organic:
+            print("⚠️ No organic results returned.")
+            continue
 
-            f.write(f"## {section}\n")
-            f.write(content + "\n")
-            f.write("\n---\n\n")
+        for result in organic:
+            title = result.get("title")
+            url = result.get("link")
+            snippet = result.get("snippet", "")
 
-    print(f"✅ Report written to {path}")
+            # Required fields
+            if not title or not url:
+                continue
 
-    # Optional console preview
-    print("\n===== 📝 Report Preview =====\n")
-    with open(path, "r", encoding="utf-8") as f:
-        print(f.read())
+            # Dedupe URLs across all queries
+            if url in seen_urls:
+                continue
+            seen_urls.add(url)
 
-    return path
+            print(f"📌 Found: {title} ({url})")
+
+            all_posts.append({
+                "title": title,
+                "url": url,
+                "summary": snippet,
+                "source": "Google",
+                "type": "💬 Social Buzz",
+                "timestamp": datetime.utcnow().isoformat(),
+            })
+
+    print(f"\n✅ Google posts collected: {len(all_posts)}")
+    return all_posts
