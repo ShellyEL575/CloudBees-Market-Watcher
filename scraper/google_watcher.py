@@ -20,27 +20,45 @@ QUERIES = [
     'site:youtube.com "ci/cd platform showdown" OR "internal developer platform reviews"'
 ]
 
+SERPER_URL = "https://google.serper.dev/search"
+
 def fetch_google_results(top_n=5):
     api_key = os.getenv("SERPER_API_KEY")
     if not api_key:
         raise ValueError("🚨 SERPER_API_KEY is not set. Add it to GitHub Secrets to enable Google search.")
 
     results = []
-    for query in QUERIES:
-        print(f"\n🔎 Searching: {query}")
-        resp = requests.post(
-            "https://google.serper.dev/search",
-            headers={"X-API-KEY": api_key},
-            json={"q": query}
-        )
-        data = resp.json()
+    headers = {"X-API-KEY": api_key}
 
-        for item in data.get("organic", [])[:top_n]:
+    for query in QUERIES:
+        print(f"\n🔎 Searching (new, recent-only): {query}")
+
+        payload = {
+            "q": query,
+            "gl": "us",
+            "num": 10,
+            "tbs": "qdr:w"   # <-- 🔥 Past week only
+        }
+
+        resp = requests.post(SERPER_URL, json=payload, headers=headers)
+        
+        try:
+            data = resp.json()
+        except:
+            print("⚠️ Could not decode JSON response from Serper.")
+            continue
+
+        organic = data.get("organic", [])
+        if not organic:
+            print("⚠️ No results found.")
+            continue
+
+        for item in organic[:top_n]:
             title = item.get("title", "No title")
-            link = item.get("link", "#")
+            link = item.get("link", "")
             snippet = item.get("snippet", "")
 
-            print(f"📌 Found: {title} ({link})")
+            print(f"📌 Found (recent): {title} ({link})")
 
             results.append({
                 "source": "Google Search",
@@ -49,5 +67,5 @@ def fetch_google_results(top_n=5):
                 "summary": snippet[:300]
             })
 
-    print(f"\n✅ Total Google results fetched: {len(results)}")
+    print(f"\n✅ Total recent Google results fetched: {len(results)}")
     return results
