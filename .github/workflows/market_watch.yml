@@ -2,7 +2,7 @@ name: Market Watch Agent
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs daily at 09:00 UTC
+    - cron: '0 9 * * *'  # Daily at 09:00 UTC
   workflow_dispatch:     # Allow manual runs
 
 jobs:
@@ -11,6 +11,7 @@ jobs:
 
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
 
     steps:
       - name: Checkout repo
@@ -24,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-
-      - name: Debug OpenAI Key presence
-        run: echo "OPENAI_API_KEY is ${OPENAI_API_KEY:0:4}********"
 
       - name: Run scraper
         run: python main.py
