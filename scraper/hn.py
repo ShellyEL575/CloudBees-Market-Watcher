@@ -3,7 +3,7 @@
 import feedparser
 import yaml
 
-def fetch_hn_links():
+def fetch_hn_stories():
     with open("scraper/hn.yaml") as f:
         feeds = yaml.safe_load(f)
 
