@@ -49,4 +49,5 @@ def extract_insights_from_social(posts):
         temperature=0.4,
     )
 
-    return response.choices[0].message["content"]
+    # New SDK object style
+    return response.choices[0].message.content
