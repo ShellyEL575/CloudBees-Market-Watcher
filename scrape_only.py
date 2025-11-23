@@ -4,7 +4,6 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 from scraper.competitor import fetch_competitor_updates
-from scraper.reddit import fetch_reddit_discussions
 from scraper.hn import fetch_hn_stories
 from scraper.google_watcher import fetch_google_results
 
@@ -23,16 +22,6 @@ try:
         print("❌ Competitor scraping failed: unexpected format")
 except Exception as e:
     print(f"❌ Competitor scraping failed: {e}")
-
-# Reddit Discussions
-try:
-    reddit_posts = fetch_reddit_discussions()
-    if isinstance(reddit_posts, list):
-        all_posts.extend(reddit_posts)
-    else:
-        print("❌ Reddit scraping failed: unexpected format")
-except Exception as e:
-    print(f"❌ Reddit scraping failed: {e}")
 
 # Hacker News
 try:
