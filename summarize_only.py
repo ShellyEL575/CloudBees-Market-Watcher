@@ -4,29 +4,36 @@ from scraper.trend_classifier import classify_trends
 import json
 import os
 
+
 print("✍️ Generating summary...")
+
 
 # Load scraped posts
 with open("data/posts.json", "r", encoding="utf-8") as f:
-    posts = json.load(f)
+posts = json.load(f)
 
-# Trend classification
+
+# Re-classify trends (defensive)
 for post in posts:
-    result = classify_trends([post])
-    post["is_trend"] = len(result) > 0
+matches = classify_trends([post])
+post["is_trend"] = len(matches) > 0
+
 
 # Group posts
 grouped = group_posts_by_topic(posts)
 
+
 summary_sections = {
-    "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
-    "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
-    "📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
+"🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
+"💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
+"📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
 }
 
-# Insights
+
+# Insights section
 summary_sections["🧠 Insights"] = extract_insights_from_social(posts)
 
-# Save report
+
+# Write report
 report_path = write_report(summary_sections)
 print(f"✅ Report written to {report_path}")
