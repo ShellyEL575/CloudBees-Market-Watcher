@@ -1,44 +1,55 @@
+# utils.py
 import os
 from datetime import datetime
 
 
-def ensure_dirs():
-    os.makedirs("data", exist_ok=True)
-    os.makedirs("reports", exist_ok=True)
-
-
 def group_posts_by_topic(posts):
-    grouped = {
-        "🚀 Product Updates": [],
-        "💬 Social Buzz": [],
-        "📈 Trends": []
-    }
-    for post in posts:
-        category = post.get("category", "💬 Social Buzz")
-        grouped.setdefault(category, []).append(post)
+    """
+    Group posts into Product Updates, Social Buzz, Trends.
+    """
+    grouped = {"🚀 Product Updates": [], "💬 Social Buzz": [], "📈 Trends": []}
+
+    for p in posts:
+        t = p.get("type")
+        if t == "🚀 Product Updates":
+            grouped["🚀 Product Updates"].append(p)
+        elif t == "📈 Trends":
+            grouped["📈 Trends"].append(p)
+        else:
+            grouped["💬 Social Buzz"].append(p)
+
     return grouped
 
 
+
 def write_report(sections):
-    ensure_dirs()
-    today = datetime.today().strftime("%Y-%m-%d")
-    filename = f"reports/{today}.md"
+    """
+    Write a Markdown report containing:
+    - product updates
+    - social buzz
+    - trends
+    - insights
+    """
+    os.makedirs("reports", exist_ok=True)
 
-    summary_text = f"""## 🚀 Product Updates
-{sections.get("🚀 Product Updates", "No product updates found.")}
+    report_date = datetime.utcnow().strftime("%Y-%m-%d")
+    path = f"reports/{report_date}.md"
 
-## 💬 Social Buzz
-{sections.get("💬 Social Buzz", "No social buzz found.")}
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"# 📰 CloudBees Market Watch – {report_date}\n\n")
 
-## 📈 Trends
-{sections.get("📈 Trends", "No trends found.")}
+        # Ordered sections
+        order = ["🚀 Product Updates", "💬 Social Buzz", "📈 Trends", "🧠 Insights"]
+        for section in order:
+            f.write(f"## {section}\n")
+            f.write(sections.get(section, "_No content available._"))
+            f.write("\n\n")
 
-## 🧠 Insights
-{sections.get("🧠 Insights", "No insights found.")}
-"""
+    print(f"✅ Report written to {path}")
 
-    with open(filename, "w") as f:
-        f.write(summary_text)
+    # Optional: print a preview in logs
+    print("\n===== 📝 Report Preview =====\n")
+    with open(path, "r") as f:
+        print(f.read())
 
-    print(f"\n===== 📰 Final Market Watch Report =====\n\n{summary_text}")
-    print(f"✅ Report written to {filename}")
+    return path
