@@ -1,5 +1,7 @@
+# scraper/google_watcher.py
+
 import os
-import serpapi
+from serpapi import GoogleSearch
 from datetime import datetime
 
 SEARCH_QUERIES = [
@@ -17,27 +19,30 @@ def fetch_google_results():
         raise ValueError("SERPER_API_KEY not set in environment")
 
     all_results = []
-    client = serpapi.Client(api_key=api_key)
     for query in SEARCH_QUERIES:
-        print(f"\n🔎 Searching: {query}")
-        params = {
+        print(f"\n🔎 Searching (new, recent-only): site:google.com {query}")
+        search = GoogleSearch({
             "q": query,
             "engine": "google",
             "location": "United States",
             "hl": "en",
             "gl": "us",
-            "num": 10
-        }
-        results = client.search(params)
+            "num": 10,
+            "api_key": api_key
+        })
+        results = search.get_dict()
         for result in results.get("organic_results", []):
             title = result.get("title")
             link = result.get("link")
-            if title and link:
-                all_results.append({
-                    "title": title,
-                    "link": link,
-                    "source": "Google",
-                    "category": "💬 Social Buzz",
-                    "timestamp": datetime.utcnow().isoformat()
-                })
+            if not title or not link:
+                print(f"⚠️ Skipping entry with missing title or link: {result}")
+                continue
+            all_results.append({
+                "title": title,
+                "url": link,
+                "summary": result.get("snippet", ""),
+                "source": "Google",
+                "type": "💬 Social Buzz",
+                "timestamp": datetime.utcnow().isoformat()
+            })
     return all_results
