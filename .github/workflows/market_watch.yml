@@ -1,3 +1,10 @@
+name: Market Watch Agent
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs daily at 09:00 UTC
+  workflow_dispatch:     # Allows manual trigger from GitHub UI
+
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
