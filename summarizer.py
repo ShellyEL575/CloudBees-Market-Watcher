@@ -1,48 +1,40 @@
 import os
-from openai import OpenAI
-from dotenv import load_dotenv
+import json
+from datetime import datetime
+from summarizer import generate_summary, extract_insights_from_social
+from utils import group_posts_by_topic, write_report
 
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Load scraped posts
+with open("data/raw_posts.json", "r") as f:
+    posts = json.load(f)
 
-def generate_summary(posts):
-    if not posts:
-        return "No content available to summarize."
+print("✍️ Generating summary...")
 
-    try:
-        text_input = "\n".join(
-            f"- {post.get('title', 'No Title')} ({post.get('source', 'Unknown Source')}): {post.get('link', 'No Link')}"
-            for post in posts
-        )
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that summarizes recent DevOps and CI/CD posts."},
-                {"role": "user", "content": f"Summarize these items:\n{text_input}"}
-            ],
-            temperature=0.7
-        )
-        return response.choices[0].message.content.strip()
-    except Exception as e:
-        return f"Summary generation failed: {e}"
+# Group posts by topic
+grouped = group_posts_by_topic(posts)
 
-def extract_insights_from_social(posts):
-    if not posts:
-        return "No social posts to extract insights from."
+# Log number of posts per section
+print(f"🚀 Product Updates: {len(grouped.get('🚀 Product Updates', []))} posts")
+print(f"💬 Social Buzz: {len(grouped.get('💬 Social Buzz', []))} posts")
+print(f"📈 Trends: {len(grouped.get('📈 Trends', []))} posts")
 
-    try:
-        insights_input = "\n".join(
-            f"- {post.get('title', 'No Title')} ({post.get('source', 'Unknown')}): {post.get('link', '')}"
-            for post in posts
-        )
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You're an expert DevOps analyst extracting key trends and sentiment from community discussions."},
-                {"role": "user", "content": f"Extract insights and sentiment from the following posts:\n{insights_input}"}
-            ],
-            temperature=0.7
-        )
-        return response.choices[0].message.content.strip()
-    except Exception as e:
-        return f"Insight extraction failed: {e}"
+# Generate summaries for each category
+summary_sections = {
+    "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
+    "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
+    "📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
+    "🧠 Insights": extract_insights_from_social(grouped.get("💬 Social Buzz", []))
+}
+
+# Write markdown report and get path
+report_path = write_report(summary_sections)
+
+print(f"\n✅ Report written to {report_path}")
+print("\n===== 📰 Final Market Watch Report =====\n")
+
+# Print contents of report
+if report_path:
+    with open(report_path, "r") as f:
+        print(f.read())
+
+print("✅ Summary report generated!")
