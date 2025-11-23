@@ -1,34 +1,27 @@
-# summarize_only.py
-import json
 import os
+import json
 from datetime import datetime
 from summarizer import generate_summary, extract_insights_from_social
-from utils import group_posts_by_topic
+from utils import group_posts_by_topic, write_report
 
-print("\n🧠 Loading raw posts for summarization...")
+# Load scraped posts
+with open("data/raw_posts.json", "r") as f:
+    posts = json.load(f)
 
-with open("data/raw_posts.json") as f:
-    all_posts = json.load(f)
+print("✍️ Generating summary...")
 
-print(f"✅ Loaded {len(all_posts)} posts")
+# Group posts by topic
+grouped = group_posts_by_topic(posts)
 
-print("\n📊 Grouping posts...")
-grouped = group_posts_by_topic(all_posts)
+# Generate summaries for each category
+summary_sections = {
+    "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
+    "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
+    "📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
+    "🧠 Insights": extract_insights_from_social(grouped.get("💬 Social Buzz", []))
+}
 
-print("\n✍️ Generating summary...")
-summary = generate_summary(grouped)
+# Write markdown report
+write_report(summary_sections)
 
-print("\n🔍 Extracting insights from social buzz...")
-social_insights = extract_insights_from_social(grouped.get("💬 Social Buzz", []))
-
-report_date = datetime.utcnow().strftime("%Y-%m-%d")
-os.makedirs("reports", exist_ok=True)
-report_path = f"reports/{report_date}.md"
-
-with open(report_path, "w") as f:
-    f.write(f"# Market Watch Report – {report_date}\n\n")
-    f.write(summary)
-    f.write("\n\n===== 📊 Social Buzz Insights =====\n")
-    f.write(social_insights)
-
-print(f"\n✅ Report saved to {report_path}")
+print("✅ Summary report generated!")
