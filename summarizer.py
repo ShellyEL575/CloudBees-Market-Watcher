@@ -4,53 +4,46 @@ from openai import OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_summary(posts):
-    valid_posts = [post for post in posts if 'title' in post and 'link' in post]
-    if not valid_posts:
-        return "No valid posts with links available for summarization."
+    if not posts:
+        return "No content available to summarize."
 
-    text_input = "\n".join(f"- {post['title']}: {post['link']}" for post in valid_posts)
+    text_input = "\n".join(f"- {post.get('title', '')}: {post.get('link', '[No link]')}" for post in posts)
 
     print("📌 Collected Links:")
-    for post in valid_posts:
-        print(f"- {post['title']}: {post.get('link', '[No link]')}")
+    for post in posts:
+        print(f"- {post.get('title', 'No Title')}: {post.get('link', '[No link]')}")
 
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[
-            {
-                "role": "system",
-                "content": "You are a helpful market analyst. Summarize the following posts and highlight key developments, pain points, and opportunities."
-            },
-            {
-                "role": "user",
-                "content": text_input
-            }
-        ]
+            {"role": "system", "content": "You are a tech industry analyst writing concise summaries."},
+            {"role": "user", "content": f"Summarize the following posts with insights, trends, or takeaways:\n{text_input}"}
+        ],
+        temperature=0.7
     )
-    return response.choices[0].message.content
+
+    return response.choices[0].message.content.strip()
 
 def extract_insights_from_social(posts):
-    valid_posts = [post for post in posts if 'title' in post and 'link' in post]
-    if not valid_posts:
-        return "No valid social posts to extract insights from."
+    if not posts:
+        return "No content available to summarize."
 
-    text_input = "\n".join(f"- {post['title']}: {post['link']}" for post in valid_posts)
+    text_input = "\n".join(f"- {post.get('title', '')}: {post.get('text', '')}" for post in posts)
 
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[
             {
                 "role": "system",
-                "content": "You are a DevOps expert. Analyze the following social posts and extract:
-1. Key trends
-2. Common pain points
+                "content": """You are a DevOps expert. Analyze the following social posts and extract:
+1. Key Trends
+2. Pain Points
 3. Opportunities for CloudBees
-4. Indicators of DevOps market sentiment."
+4. Indicators of DevOps Market Sentiment"""
             },
-            {
-                "role": "user",
-                "content": text_input
-            }
-        ]
+            {"role": "user", "content": text_input}
+        ],
+        temperature=0.7
     )
-    return response.choices[0].message.content
+
+    return response.choices[0].message.content.strip()
