@@ -2,8 +2,8 @@ name: Market Watch Agent
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Runs daily at 09:00 UTC
-  workflow_dispatch:     # Allows manual trigger from GitHub UI
+    - cron: '0 9 * * *'  # Runs every day at 09:00 UTC
+  workflow_dispatch:     # Allows manual runs
 
 jobs:
   run-scraper:
@@ -24,9 +24,13 @@ jobs:
 
       - name: Run scraper
         run: python scrape_only.py
+        env:
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
 
       - name: Run summarizer
         run: python summarize_only.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Upload report
         uses: actions/upload-artifact@v4
