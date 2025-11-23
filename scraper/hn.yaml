@@ -1,2 +1,2 @@
 - name: Hacker News
-  url: https://hnrss.org/frontpage
+  url: https://hnrss.org/newest?q=ci%2Fcd+OR+devops+OR+deployment+OR+cloudbees
