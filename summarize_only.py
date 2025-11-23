@@ -13,13 +13,10 @@ print("✍️ Generating summary...")
 # Group posts by topic
 grouped = group_posts_by_topic(posts)
 
-# Debug print grouped count
-for category, items in grouped.items():
-    print(f"{category}: {len(items)} posts")
-
-# Fallback: if Product Updates is empty, include all posts
-if not grouped.get("🚀 Product Updates"):
-    grouped["🚀 Product Updates"] = posts
+# Log number of posts per section
+print(f"🚀 Product Updates: {len(grouped.get('🚀 Product Updates', []))} posts")
+print(f"💬 Social Buzz: {len(grouped.get('💬 Social Buzz', []))} posts")
+print(f"📈 Trends: {len(grouped.get('📈 Trends', []))} posts")
 
 # Generate summaries for each category
 summary_sections = {
@@ -29,11 +26,15 @@ summary_sections = {
     "🧠 Insights": extract_insights_from_social(grouped.get("💬 Social Buzz", []))
 }
 
-# Write markdown report and print it
+# Write markdown report and get path
 report_path = write_report(summary_sections)
 
+print(f"\n✅ Report written to {report_path}")
 print("\n===== 📰 Final Market Watch Report =====\n")
-with open(report_path, "r") as f:
-    print(f.read())
+
+# Print contents of report
+if report_path:
+    with open(report_path, "r") as f:
+        print(f.read())
 
 print("✅ Summary report generated!")
