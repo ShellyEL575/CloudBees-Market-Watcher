@@ -1,44 +1,51 @@
-import os
-import json
-import time
-from datetime import datetime
-from scraper.hn import fetch_hn_stories
-from scraper.competitor import fetch_competitor_updates
-from scraper.google_watcher import fetch_google_results
-# from scraper.linkedin_watcher import fetch_linkedin_results  # removed, file not present
+# summarize_only.py
+
+from utils import group_posts_by_type, write_report
+from summarizer import generate_summary, extract_insights_from_social
 from scraper.trend_classifier import classify_trends
+import json
+import os
 
-def try_fetch(func, name, retries=2, delay=2):
-    for attempt in range(retries):
-        try:
-            print(f"➡️  Fetching {name} (attempt {attempt+1})...")
-            return func()
-        except Exception as e:
-            print(f"❌ {name} failed: {e}")
-            time.sleep(delay)
-    return []
+print("✍️ Generating summary...")
 
-all_posts = []
+# Load previously collected posts
+with open("data/posts.json", "r") as f:
+    posts = json.load(f)
 
-print("\n📥 Collecting posts...")
+# --- Trend classification fix (IMPORTANT) ---
+for post in posts:
+    result = classify_trends([post])  # classifier expects a LIST of dicts
+    post["is_trend"] = len(result) > 0
 
-all_posts.extend(try_fetch(fetch_hn_stories, "Hacker News"))
-all_posts.extend(try_fetch(fetch_competitor_updates, "Competitors"))
-all_posts.extend(try_fetch(fetch_google_results, "Google"))
-# LinkedIn disabled because linkedin_watcher.py is missing
+# Re-group AFTER classification
+grouped = group_posts_by_type(posts)
 
-print(f"\n📌 Total posts collected: {len(all_posts)}")
+# Generate summaries with links in markdown format
+summary_sections = {
+    "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
+    "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
+    "📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
+}
 
-# Classify trends
-for post in all_posts:
-    text = (post.get("title") or "") + " " + (post.get("summary") or "")
-    post["is_trend"] = classify_trends(text)
+# Debug output
+print("📌 Collected Links:")
+for post in posts:
+    link = post.get("link") or post.get("url")
+    if link:
+        print(f"- {post['title']}: {link}")
 
-# Save scraped posts
-os.makedirs("data", exist_ok=True)
-output_path = "data/posts.json"
+# Extract insights
+summary_sections["🧠 Insights"] = extract_insights_from_social(posts)
 
-with open(output_path, "w") as f:
-    json.dump(all_posts, f, indent=2)
+# Write final report
+report_path = write_report(summary_sections)
+if report_path:
+    print(f"✅ Report written to {report_path}")
+else:
+    print("⚠️ Report path not returned.")
 
-print(f"\n✅ Saved {len(all_posts)} posts to {output_path}")
+print("\n===== 📰 Final Market Watch Report =====\n")
+for section, content in summary_sections.items():
+    print(f"## {section}\n{content}\n")
+
+print("✅ Summary report generated!")
