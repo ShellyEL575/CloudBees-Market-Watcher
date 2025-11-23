@@ -1,7 +1,2 @@
-- name: r/devops
-  url: https://www.reddit.com/r/devops/.rss
-- name: r/cicd
-  url: https://www.reddit.com/r/cicd/.rss
-- name: r/platformengineering
-  url: https://www.reddit.com/r/platformengineering/.rss
-
+# Reddit feeds disabled — replaced by other sources
+# Consider Serper.dev or curated newsletters instead
