@@ -1,84 +1,56 @@
 import os
 from openai import OpenAI
-from dotenv import load_dotenv
-
-load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_summary(posts):
-    """
-    Summarize grouped posts (product updates, social buzz, trends).
-    Safely handles missing fields.
-    """
-    if not posts:
-        return "No content available to summarize."
+    valid_posts = [post for post in posts if 'title' in post and 'link' in post]
+    if not valid_posts:
+        return "No valid posts with links available for summarization."
 
-    text_input = "\n".join(
-        f"- {post.get('title', 'No Title')} ({post.get('source', 'Unknown Source')}): {post.get('link', 'No Link')}"
-        for post in posts
+    text_input = "\n".join(f"- {post['title']}: {post['link']}" for post in valid_posts)
+
+    print("📌 Collected Links:")
+    for post in valid_posts:
+        print(f"- {post['title']}: {post.get('link', '[No link]')}")
+
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a helpful market analyst. Summarize the following posts and highlight key developments, pain points, and opportunities."
+            },
+            {
+                "role": "user",
+                "content": text_input
+            }
+        ]
     )
-
-    prompt = f"""
-Summarize the following items into a clean, concise section for a CloudBees Market Watch report.
-
-Items:
-{text_input}
-
-Return a markdown-ready summary.
-"""
-
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that summarizes DevOps updates."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.4
-        )
-        return response.choices[0].message.content.strip()
-
-    except Exception as e:
-        return f"Summary generation failed: {e}"
-
+    return response.choices[0].message.content
 
 def extract_insights_from_social(posts):
-    """
-    Extract deeper insights from social buzz posts.
-    """
-    if not posts:
-        return "No social posts to extract insights from."
+    valid_posts = [post for post in posts if 'title' in post and 'link' in post]
+    if not valid_posts:
+        return "No valid social posts to extract insights from."
 
-    insights_input = "\n".join(
-        f"- {post.get('title', 'No Title')} ({post.get('source', 'Unknown')}): {post.get('link', '')}"
-        for post in posts
+    text_input = "\n".join(f"- {post['title']}: {post['link']}" for post in valid_posts)
+
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a DevOps expert. Analyze the following social posts and extract:
+1. Key trends
+2. Common pain points
+3. Opportunities for CloudBees
+4. Indicators of DevOps market sentiment."
+            },
+            {
+                "role": "user",
+                "content": text_input
+            }
+        ]
     )
-
-    prompt = f"""
-Analyze the following social posts and extract:
-
-- key trends
-- pain points
-- opportunities for CloudBees
-- indicators of DevOps market sentiment
-
-Posts:
-{insights_input}
-
-Respond with 4–8 concise bullet points.
-"""
-
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are an expert DevOps market analyst."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.5
-        )
-        return response.choices[0].message.content.strip()
-
-    except Exception as e:
-        return f"Insight extraction failed: {e}"
+    return response.choices[0].message.content
