@@ -1,7 +1,7 @@
 # scraper/google_watcher.py
 
 import os
-from serpapi import GoogleSearch
+import requests
 from datetime import datetime
 
 SEARCH_QUERIES = [
@@ -18,31 +18,36 @@ def fetch_google_results():
     if not api_key:
         raise ValueError("SERPER_API_KEY not set in environment")
 
+    headers = {
+        "X-API-KEY": api_key,
+        "Content-Type": "application/json"
+    }
+
     all_results = []
     for query in SEARCH_QUERIES:
-        print(f"\n🔎 Searching (new, recent-only): site:google.com {query}")
-        search = GoogleSearch({
+        print(f"\n🔎 Searching (new, recent-only): {query}")
+        payload = {
             "q": query,
-            "engine": "google",
-            "location": "United States",
-            "hl": "en",
-            "gl": "us",
             "num": 10,
-            "api_key": api_key
-        })
-        results = search.get_dict()
-        for result in results.get("organic_results", []):
+            "gl": "us",
+            "hl": "en",
+            "autocorrect": True,
+            "type": "search"
+        }
+        response = requests.post("https://google.serper.dev/search", headers=headers, json=payload)
+        data = response.json()
+        for result in data.get("organic", []):
             title = result.get("title")
             link = result.get("link")
-            if not title or not link:
-                print(f"⚠️ Skipping entry with missing title or link: {result}")
-                continue
-            all_results.append({
-                "title": title,
-                "url": link,
-                "summary": result.get("snippet", ""),
-                "source": "Google",
-                "type": "💬 Social Buzz",
-                "timestamp": datetime.utcnow().isoformat()
-            })
+            if title and link:
+                print(f"📌 Found (recent): {title} ({link})")
+                all_results.append({
+                    "title": title,
+                    "url": link,
+                    "source": "Google",
+                    "type": "💬 Social Buzz",
+                    "timestamp": datetime.utcnow().isoformat()
+                })
+
+    print(f"\n✅ Google posts: {len(all_results)}")
     return all_results
