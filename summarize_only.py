@@ -8,24 +8,16 @@ from utils import group_posts_by_topic, write_report
 with open("data/raw_posts.json", "r") as f:
     posts = json.load(f)
 
-print("✍️ Generating summary...")
-
-# Filter out Reddit posts if they are malformed or None
-posts = [p for p in posts if p and isinstance(p, dict) and p.get("source") != "Reddit"]
-
-# Print all links collected
-print("📌 Collected Links:")
-for p in posts:
-    print(f"- {p.get('title', '[No title]')}: {p.get('link', '[No link]')}")
+print("\n✍️ Generating summary...")
 
 # Group posts by topic
 grouped = group_posts_by_topic(posts)
 
-# Print post counts for each category
-for category in grouped:
-    print(f"{category}: {len(grouped[category])} posts")
+print(f"🚀 Product Updates: {len(grouped.get('🚀 Product Updates', []))} posts")
+print(f"💬 Social Buzz: {len(grouped.get('💬 Social Buzz', []))} posts")
+print(f"📈 Trends: {len(grouped.get('📈 Trends', []))} posts")
 
-# Generate summaries
+# Generate summaries for each category
 summary_sections = {
     "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
     "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
@@ -33,11 +25,18 @@ summary_sections = {
     "🧠 Insights": extract_insights_from_social(grouped.get("💬 Social Buzz", []))
 }
 
-# Write markdown report and print it
+# Write markdown report
 report_path = write_report(summary_sections)
-if report_path:
-    with open(report_path, "r") as f:
-        print("\n===== 📰 Final Market Watch Report =====\n")
-        print(f.read())
 
+# Print final summary
+print("\n===== 📰 Final Market Watch Report =====\n")
+print(summary_sections["🚀 Product Updates"])
+print("\n## 💬 Social Buzz")
+print(summary_sections["💬 Social Buzz"])
+print("\n## 📈 Trends")
+print(summary_sections["📈 Trends"])
+print("\n## 🧠 Insights")
+print(summary_sections["🧠 Insights"])
+
+print(f"\n✅ Report written to {report_path}")
 print("✅ Summary report generated!")
