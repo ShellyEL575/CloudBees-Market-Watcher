@@ -38,3 +38,6 @@ jobs:
         with:
           name: cloudbees-market-report
           path: reports/*.md
+
+      - name: Print report in console
+        run: cat reports/*.md
