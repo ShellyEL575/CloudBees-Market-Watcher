@@ -1,17 +1,22 @@
-import yaml
-import feedparser
+# scraper/competitor.py
 
-def fetch_competitor_posts():
-    with open("scraper/competitors.yaml", "r") as f:
-        feeds = yaml.safe_load(f)
-    results = []
-    for site in feeds:
-        parsed = feedparser.parse(site["url"])
-        for entry in parsed.entries[:5]:
-            results.append({
-                "source": site["name"],
-                "title": entry.title,
-                "link": entry.link,
-                "summary": entry.get("summary", "")[:200]
-            })
-    return results
+import feedparser
+import yaml
+
+def fetch_competitor_updates():
+    with open("scraper/competitors.yaml") as f:
+        urls = yaml.safe_load(f)
+
+    posts = []
+    for brand, feed_urls in urls.items():
+        for url in feed_urls:
+            feed = feedparser.parse(url)
+            for entry in feed.entries:
+                posts.append({
+                    "source": brand,
+                    "title": entry.title,
+                    "url": entry.link,
+                    "summary": entry.get("summary", ""),
+                    "type": "🚀 Product Updates"
+                })
+    return posts
