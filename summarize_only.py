@@ -1,39 +1,36 @@
-from utils import group_posts_by_topic, write_report
-from summarizer import generate_summary, extract_insights_from_social
-from scraper.trend_classifier import classify_trends
-import json
-import os
+# summarize_only.py — Hardened + Clean Version
 
+import json
+from summarizer import generate_summary, extract_insights_from_social
+from utils import group_posts_by_topic, write_report
+from scraper.trend_classifier import classify_trends
 
 print("✍️ Generating summary...")
 
-
 # Load scraped posts
 with open("data/posts.json", "r", encoding="utf-8") as f:
-posts = json.load(f)
+    posts = json.load(f)
 
+print(f"✅ Loaded {len(posts)} posts")
 
 # Re-classify trends (defensive)
 for post in posts:
-matches = classify_trends([post])
-post["is_trend"] = len(matches) > 0
-
+    matches = classify_trends([post])
+    post["is_trend"] = len(matches) > 0
 
 # Group posts
 grouped = group_posts_by_topic(posts)
 
-
+# Build summary sections
 summary_sections = {
-"🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
-"💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
-"📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
+    "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
+    "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
+    "📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
 }
 
-
-# Insights section
+# Insights (all posts)
 summary_sections["🧠 Insights"] = extract_insights_from_social(posts)
 
-
-# Write report
+# Write final report
 report_path = write_report(summary_sections)
 print(f"✅ Report written to {report_path}")
