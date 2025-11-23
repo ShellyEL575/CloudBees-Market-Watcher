@@ -1,126 +1,159 @@
-# 🛠️ Better Scraper – CloudBees Market Watch Agent
+# 🛠️ CloudBees Market Watch Agent
 
-A Python-based GitHub Actions agent that scrapes competitor blogs, Reddit, Hacker News, and Google Search (Reddit, LinkedIn, Medium, YouTube) to generate **daily market watch reports** in Markdown — tailored for PMs, PMMs, DevOps, and Platform teams at CloudBees.
+A lightweight, VS Code–friendly DevOps market‑intelligence agent. It scrapes public sources, extracts trends and sentiment, and generates daily Markdown reports.
+
+This repo now reflects the **latest simplified architecture**:
+
+* **Scraping sources:** Hacker News, competitor blogs, Google Search via **Serper.dev**
+* **No Reddit**, **no LinkedIn**, **no SerpAPI**
+* **Two‑phase workflow:** scrape → summarize
+* **Safe trend classification**
+* **Clean Markdown reporting**
 
 ---
 
 ## 📦 Project Structure
 
-Better_scraper/
-├── main.py # Entrypoint - runs all scrapers and summarizer
-├── requirements.txt # Python dependencies
-├── summarizer.py # GPT-4o summarization logic
-├── reports/ # Output folder for daily markdown reports
+```
+CloudBees-Market-Watcher/
+├── scrape_only.py          # Collects all posts into data/posts.json
+├── summarize_only.py       # Generates summaries + insights
+├── summarizer.py           # GPT-based summarization + insight extraction
+├── utils.py                # Grouping and report writer
 ├── scraper/
-│ ├── init.py
-│ ├── competitor.py # Competitor blog scraper
-│ ├── reddit.py # (optional) Reddit RSS fallback
-│ ├── hn.py # Hacker News RSS parser
-│ ├── google_watcher.py # Google Search → Reddit, LinkedIn, Medium, YouTube
-│ ├── competitors.yaml
-│ ├── reddit.yaml
-│ └── hn.yaml
-└── .github/
-└── workflows/
-└── market_watch.yml # GitHub Actions automation
-
-yaml
-Copy code
+│   ├── competitor.py       # RSS competitor feeds
+│   ├── google_watcher.py   # Serper.dev search → recent/postive signals
+│   ├── hn.py               # Hacker News RSS
+│   ├── trend_classifier.py # Regex-based trend matching
+│   ├── competitors.yaml    # Feed list
+│   ├── hn.yaml             # Feed list
+│   └── reddit.yaml         # (unused)
+└── data/
+└── reports/
+```
 
 ---
 
-## 🚀 What It Does
+## 🚀 What the Agent Does
 
-- 📰 Scrapes competitor changelogs and blog feeds (`competitors.yaml`)
-- 🔎 Uses Serper.dev to Google-search for:
-  - Reddit DevOps struggles/wins
-  - LinkedIn user sentiment posts
-  - Medium tutorials and trends
-  - YouTube platform reviews
-- 💬 Groups insights into:
-  - 🚀 Product Updates
-  - 💬 Social Buzz
-  - 📈 Trends
-- 🧠 Summarizes everything with OpenAI GPT-4o
-- 🗂️ Saves a daily markdown report to `reports/YYYY-MM-DD.md`
-- 🧪 Prints results directly in GitHub Action logs
-- 📤 Uploads the report as a GitHub Actions artifact
+### 1. Scrapes:
+
+* **Hacker News** (filtered feeds)
+* **Competitor blogs/changelogs**
+* **Google Search results** via **Serper.dev** using targeted queries:
+
+  * CloudBees vs GitHub/GitLab
+  * Jenkins upgrade issues
+  * DORA metrics
+  * Internal Developer Platforms
+  * Migration patterns (Jenkins → Harness, etc.)
+
+### 2. Normalizes all posts into structured JSON
+
+Each item contains:
+
+```
+{
+  title,
+  url,
+  summary,
+  source,
+  type (Product Update / Social Buzz / Trend),
+  is_trend: true/false
+}
+```
+
+### 3. Summarizes into human‑readable Markdown
+
+* Product Updates
+* Social Buzz
+* Trends
+* Insights (pain points, sentiment, opportunities)
+
+### 4. Outputs a daily report at:
+
+```
+reports/YYYY-MM-DD.md
+```
 
 ---
 
-## 🧪 Setup Instructions
+## 🧪 Local Setup
 
-### 1. Clone and install:
+### 1. Install dependencies
 
 ```bash
-git clone https://github.com/your-username/Better_scraper.git
-cd Better_scraper
 pip install -r requirements.txt
-2. API Keys
-Add these as GitHub → Settings → Secrets:
+```
 
-OPENAI_API_KEY
+### 2. Add required environment variables
 
-SERPER_API_KEY (get free key at https://serper.dev)
+This agent now uses **Serper.dev** (NOT SerpAPI).
 
-3. Run it manually or via GitHub Actions:
-bash
-Copy code
-python main.py
-Or push to GitHub and let the action run on schedule.
+GitHub Actions → Settings → Secrets → Actions:
 
-⏰ GitHub Action
-Workflow file: .github/workflows/market_watch.yml
-Runs daily at 09:00 UTC or on demand.
+```
+SERPER_API_KEY=<your-serper-dev-key>
+OPENAI_API_KEY=<your-openai-key>
+```
 
-Action Output:
-✅ Search logs and links are printed
+### 3. Run manually
 
-✅ Summary shown in the log
-
-✅ Report saved to reports/ and uploaded
-
-📄 Sample Markdown Report
-markdown
-Copy code
-# Market Watch Report – 2025-11-22
-
-## 🚀 Product Updates
-- [GitHub Blog: Git 2.52 Released](...)
-
-## 💬 Social Buzz
-- [Reddit: "Plugin hell" discussion](...)
-- [LinkedIn: Jenkins migration story](...)
-
-## 📈 Trends
-- AI in CI/CD
-- Security metrics
-- Release orchestration
-🤖 Next Features
- Add sentiment scores (Positive/Negative/Neutral)
-
- Sync summaries to Notion or Supabase
-
- Weekly delta reports
-
- Trend graphs
-
-🧠 Built for CloudBees Strategy Teams
-Helps PMMs, DevSecOps, and platform leads stay on top of:
-
-Industry sentiment
-
-DevOps tech shifts
-
-Migration patterns
-
-Customer pain points
-
-No doomscrolling required.
-
-yaml
-Copied
+```bash
+python scrape_only.py
+python summarize_only.py
+```
 
 ---
 
-Once pasted into GitHub, just commit the change and push. Let me know if you want a on
+## 🧠 Notes on Architecture
+
+### Why no Reddit/LinkedIn?
+
+* We shifted to **Google → Reddit/LinkedIn/Medium/YouTube** discovery using Serper.
+* No direct scraping reduces breakage and TOS issues.
+
+### Why two phases?
+
+* Cloud/CI runs can fail mid‑scrape; separating summarization keeps reports deterministic.
+
+### Trend classifier
+
+Uses keyword hits from:
+
+* GitOps
+* Platform Engineering / IDP
+* DORA/Flow Metrics
+* K8s, DevSecOps, AI-in‑DevOps
+
+You can extend this in `scraper/trend_classifier.py`.
+
+---
+
+## 📤 GitHub Actions Automation
+
+The Action runs:
+
+1. `python scrape_only.py`
+2. Saves `data/posts.json`
+3. `python summarize_only.py`
+4. Uploads report artifact
+
+A scheduled workflow (e.g., daily UTC) is recommended.
+
+---
+
+## 🧩 Next Improvements
+
+* Sentiment scoring per post
+* Notion/Supabase sync
+* Weekly delta comparison
+* Auto-deduping Google organic results
+
+---
+
+## 🤝 Contributions
+
+PRs welcome—especially additional feed sources or report enhancements.
+
+If you want help wiring CI, adding Slack notifications, or expanding trend logic, just ask! 🚀
