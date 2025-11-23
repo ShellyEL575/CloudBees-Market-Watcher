@@ -25,17 +25,20 @@ def fetch_reddit_posts(top_n=5):
             score = score_post(title, summary)
 
             if score == 0:
-                continue  # Skip irrelevant posts
+                continue
 
-            scored_posts.append({
+            post = {
                 "source": subreddit["name"],
                 "title": title,
                 "link": entry.link,
                 "summary": summary[:200],
                 "score": score
-            })
+            }
+            scored_posts.append(post)
 
-    # Sort by score (high to low) and return top N
-    sorted_posts = sorted(scored_posts, key=lambda x: x["score"], reverse=True)
-    return sorted_posts[:top_n]
+    # Log to GitHub Actions
+    print("\n===== 🧪 Reddit Scored Posts =====")
+    for post in sorted(scored_posts, key=lambda x: x["score"], reverse=True):
+        print(f"{post['score']} - {post['title']} ({post['link']})")
 
+    return sorted(scored_posts, key=lambda x: x["score"], reverse=True)[:top_n]
