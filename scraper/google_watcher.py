@@ -1,23 +1,25 @@
 import os
 import requests
 
-# Sentiment-driven queries for CloudBees, Jenkins, CI/CD user feedback
+# ✅ Optimized natural-language search terms for CloudBees and DevOps
 QUERIES = [
-    # Pain points
-    'site:reddit.com "plugin hell" OR "jenkinsfile confusion" OR "cannot upgrade jenkins"',
-    'site:linkedin.com/in "stuck with jenkins" OR "ci/cd is slow" OR "security scan problems"',
+    # Frustration / Problems
+    'site:reddit.com jenkins OR cloudbees upgrade issues OR plugin problems',
     
-    # Praise & success
-    'site:reddit.com "jenkins saved us" OR "automated deployments working great" OR "devops win"',
-    'site:medium.com "favorite jenkins plugin" OR "ci/cd finally stable" OR "love cloudbees"',
+    # Praise / Success stories
+    'site:linkedin.com "ci/cd success" OR cloudbees experience OR stable pipeline',
+    
+    # Platform comparisons
+    'site:medium.com cloudbees vs gitlab OR github actions vs jenkins',
+    
+    # Migration stories
+    'site:reddit.com moved to harness OR migrated from jenkins OR ci/cd migration',
 
-    # Uncertainty/questions
-    'site:linkedin.com "how to scale ci/cd" OR "migrate from jenkins" OR "what is dora metrics"',
-    'site:medium.com "release orchestration strategy" OR "flaky pipeline" OR "compare cloudbees"',
-
-    # Competitor comparisons
-    'site:reddit.com "cloudbees vs gitlab" OR "switched to harness" OR "jenkins vs github actions"',
-    'site:youtube.com "ci/cd platform showdown" OR "internal developer platform reviews"'
+    # Metrics & Analytics
+    'site:linkedin.com dora metrics OR platform analytics OR flow metrics',
+    
+    # DevOps trends and tooling reviews
+    'site:youtube.com devops tooling OR internal dev platform reviews'
 ]
 
 SERPER_URL = "https://google.serper.dev/search"
@@ -37,15 +39,15 @@ def fetch_google_results(top_n=5):
             "q": query,
             "gl": "us",
             "num": 10,
-            "tbs": "qdr:w"   # <-- 🔥 Past week only
+            "tbs": "qdr:w"   # 🔥 Past week only
         }
 
         resp = requests.post(SERPER_URL, json=payload, headers=headers)
         
         try:
             data = resp.json()
-        except:
-            print("⚠️ Could not decode JSON response from Serper.")
+        except Exception as e:
+            print("⚠️ Failed to parse JSON from Serper response.")
             continue
 
         organic = data.get("organic", [])
