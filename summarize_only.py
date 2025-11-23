@@ -24,4 +24,9 @@ summary_sections = {
 # Write markdown report
 write_report(summary_sections)
 
+# Print full report to console
+print("\n===== 📰 Final Market Watch Report =====\n")
+for section, content in summary_sections.items():
+    print(f"## {section}\n{content}\n")
+
 print("✅ Summary report generated!")
