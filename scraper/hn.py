@@ -1,17 +1,22 @@
-import yaml
-import feedparser
+# scraper/hn.py
 
-def fetch_hn_posts():
-    with open("scraper/hn.yaml", "r") as f:
+import feedparser
+import yaml
+
+def fetch_hn_links():
+    with open("scraper/hn.yaml") as f:
         feeds = yaml.safe_load(f)
-    results = []
-    for feed in feeds:
-        parsed = feedparser.parse(feed["url"])
-        for entry in parsed.entries[:5]:
-            results.append({
-                "source": feed["name"],
-                "title": entry.title,
-                "link": entry.link,
-                "summary": entry.get("summary", "")[:200]
-            })
-    return results
+
+    posts = []
+    for label, urls in feeds.items():
+        for url in urls:
+            feed = feedparser.parse(url)
+            for entry in feed.entries:
+                posts.append({
+                    "source": label,
+                    "title": entry.title,
+                    "url": entry.link,
+                    "summary": entry.get("summary", ""),
+                    "type": "💬 Social Buzz"
+                })
+    return posts
