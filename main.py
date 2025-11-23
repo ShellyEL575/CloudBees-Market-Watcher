@@ -24,10 +24,14 @@ def main():
         url = post.get("link", "").lower()
         source = post.get("source", "").lower()
 
-        if any(s in url for s in ["reddit.com", "linkedin.com", "youtube.com", "medium.com"]):
+        if any(domain in url for domain in ["reddit.com", "linkedin.com", "youtube.com", "medium.com"]):
             grouped["💬 Social Buzz"].append(post)
-        elif "hacker news" in source or "blog" in source or "changelog" in source or "devops" in source:
+        elif source == "google search" and any(domain in url for domain in ["reddit.com", "linkedin.com", "youtube.com", "medium.com"]):
+            grouped["💬 Social Buzz"].append(post)
+        elif "blog" in source or "changelog" in source or "devops" in source:
             grouped["🚀 Product Updates"].append(post)
+        else:
+            grouped["📈 Trends"].append(post)
 
     print("\n===== 🧪 Social Buzz Posts =====")
     for post in grouped["💬 Social Buzz"]:
