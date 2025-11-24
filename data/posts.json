@@ -5,7 +5,7 @@
     "url": "https://en.wikipedia.org/wiki/CD-i",
     "summary": "<p>Article URL: <a href=\"https://en.wikipedia.org/wiki/CD-i\">https://en.wikipedia.org/wiki/CD-i</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=46021572\">https://news.ycombinator.com/item?id=46021572</a></p>\n<p>Points: 1</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012526",
+    "timestamp": "2025-11-24T02:50:27.158386",
     "is_trend": false
   },
   {
@@ -14,7 +14,7 @@
     "url": "https://origen-hub.github.io/origen-core-public/",
     "summary": "<p>OriGen is a deterministic workflow compiler.<p>It takes declarative Maps (YAML) and produces a backend-neutral\nIntermediate Representation (Route). Guides then translate the IR\ninto native execution artifacts: Kubernetes Jobs, CI configs, or\nlocal container scripts.<p>The key properties:<p>\u2022 Deterministic planning (no execution during compilation)<p>\u2022 Digest-pinned toolchains (Navigators)<p>\u2022 Immutable resource bundles (Backpacks)<p>\u2022 Planning/execution separation<p>\u2022 Backend neutrality (K8s first, others follow)<p>\u2022 Zero-trust emerges as architecture (no hidden behavior)<p>\u2022 Automatic Digital Provenance (ADP) falls out of determinism<p>OriGen does *not* run workflows. It compiles them.<p>The goal is to provide a stable planning layer above CI/CD,\norchestrators, and container engines: one Map \u2192 many backends.<p>Documentation (Primer, Architecture, Zero-Trust, ADP):\n<a href=\"https://origen-hub.github.io/origen-core-public/\" rel=\"nofollow\">https://origen-hub.github.io/origen-core-public/</a><p>This release is documentation-only (v0.0.1). IR and schema\nprototypes are next. Early architectural feedback is welcome.</p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=46005747\">https://news.ycombinator.com/item?id=46005747</a></p>\n<p>Points: 1</p>\n<p># Comments: 2</p>",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:35.012537",
+    "timestamp": "2025-11-24T02:50:27.158397",
     "is_trend": true
   },
   {
@@ -23,7 +23,7 @@
     "url": "https://wkoszek.github.io/easyforgejo/",
     "summary": "<p>I wanted to get Forgejo on my VM on a local NAS fast, and I realized that getting everything running with Git and CI working was ... harder than I anticipated. After spending more time than I wanted, and bugging lovely people at Forgejo's matrix, I came up with this:<p><a href=\"https://wkoszek.github.io/easyforgejo/\" rel=\"nofollow\">https://wkoszek.github.io/easyforgejo/</a><p>With this script, you should get Forgejo installed on your Linux computer in 2min. I tested this on a VM for now, and it works well enough for beta launch.<p>Repo is here:<p><a href=\"https://github.com/wkoszek/easyforgejo\" rel=\"nofollow\">https://github.com/wkoszek/easyforgejo</a><p>Let me know what you think and submit PRs if you find bugs. I'd not use it in production just yet.</p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45994118\">https://news.ycombinator.com/item?id=45994118</a></p>\n<p>Points: 4</p>\n<p># Comments: 2</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012541",
+    "timestamp": "2025-11-24T02:50:27.158401",
     "is_trend": false
   },
   {
@@ -32,7 +32,7 @@
     "url": "https://github.com/haloydev/haloy",
     "summary": "<p>Haloy is a lightweight way to deploy Docker apps to your own servers without complex setups. One config file, one deploy command. Handles routing, HTTPS, rollbacks, and multi\u2011server environments.<p>Repo: <a href=\"https://github.com/haloydev/haloy\" rel=\"nofollow\">https://github.com/haloydev/haloy</a>\nDocs: <a href=\"https://haloy.dev\" rel=\"nofollow\">https://haloy.dev</a></p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45992412\">https://news.ycombinator.com/item?id=45992412</a></p>\n<p>Points: 3</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012544",
+    "timestamp": "2025-11-24T02:50:27.158405",
     "is_trend": false
   },
   {
@@ -41,7 +41,7 @@
     "url": "https://jsgroth.dev/blog/posts/emulator-bugs-sega-cd/",
     "summary": "<p>Article URL: <a href=\"https://jsgroth.dev/blog/posts/emulator-bugs-sega-cd/\">https://jsgroth.dev/blog/posts/emulator-bugs-sega-cd/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45992158\">https://news.ycombinator.com/item?id=45992158</a></p>\n<p>Points: 3</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012547",
+    "timestamp": "2025-11-24T02:50:27.158408",
     "is_trend": false
   },
   {
@@ -50,7 +50,7 @@
     "url": "https://jsgroth.dev/blog/posts/emulator-bugs-sega-cd/",
     "summary": "<p>Article URL: <a href=\"https://jsgroth.dev/blog/posts/emulator-bugs-sega-cd/\">https://jsgroth.dev/blog/posts/emulator-bugs-sega-cd/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45981927\">https://news.ycombinator.com/item?id=45981927</a></p>\n<p>Points: 5</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012551",
+    "timestamp": "2025-11-24T02:50:27.158412",
     "is_trend": false
   },
   {
@@ -59,7 +59,7 @@
     "url": "https://membrowse.com",
     "summary": "<p>Built this after working with Intel\u2019s Bluetooth firmware team - we kept seeing builds suddenly fail because memory crept up a few bytes at a time until it overflowed. Then everyone lost hours/days bisecting symbols and linker maps to figure out which commit pushed it over.<p>So I made a CI tool that tracks firmware memory footprint across commits and flags bloat before it breaks the build.<p>How it works:<p>CLI parses ELF + DWARF, extracts per-section/per-symbol/per-file size info<p>CI uploads reports; the platform stores history and generates diffs<p>Shows exactly what changed between commits (what grew, where, and by how much)<p>Optional memory budgets via commit keywords (acts as a CI gate to block regressions)<p>The report generator is open source: <a href=\"https://github.com/membrowse/membrowse-action\" rel=\"nofollow\">https://github.com/membrowse/membrowse-action</a><p>Works with GitHub Actions or any CI, tested on ARM, ESP32, ARC, x86 (multiple toolchains).<p>There\u2019s also a live demo analyzing MicroPython firmware builds at membrowse.com.<p>Curious to hear from embedded folks:\n* How do you track code size / memory usage today?<p>* What would stop you from adding this type of check to CI?<p>* What\u2019s missing that would make this genuinely useful for your workflow?</p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45979698\">https://news.ycombinator.com/item?id=45979698</a></p>\n<p>Points: 2</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012554",
+    "timestamp": "2025-11-24T02:50:27.158415",
     "is_trend": false
   },
   {
@@ -68,7 +68,7 @@
     "url": "https://runme.dev",
     "summary": "<p>Article URL: <a href=\"https://runme.dev\">https://runme.dev</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45969961\">https://news.ycombinator.com/item?id=45969961</a></p>\n<p>Points: 2</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012559",
+    "timestamp": "2025-11-24T02:50:27.158420",
     "is_trend": false
   },
   {
@@ -77,7 +77,7 @@
     "url": "https://www.youtube.com/watch?v=_BcCHW6OgQ4",
     "summary": "<p>Article URL: <a href=\"https://www.youtube.com/watch?v=_BcCHW6OgQ4\">https://www.youtube.com/watch?v=_BcCHW6OgQ4</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45959431\">https://news.ycombinator.com/item?id=45959431</a></p>\n<p>Points: 1</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012563",
+    "timestamp": "2025-11-24T02:50:27.158424",
     "is_trend": false
   },
   {
@@ -86,7 +86,7 @@
     "url": "https://reactionwheel.net/2015/10/the-deployment-age.html",
     "summary": "<p>Article URL: <a href=\"https://reactionwheel.net/2015/10/the-deployment-age.html\">https://reactionwheel.net/2015/10/the-deployment-age.html</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45949585\">https://news.ycombinator.com/item?id=45949585</a></p>\n<p>Points: 3</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012567",
+    "timestamp": "2025-11-24T02:50:27.158428",
     "is_trend": false
   },
   {
@@ -95,7 +95,7 @@
     "url": "https://github.com/baconpantsuppercut/arkA",
     "summary": "<p>Article URL: <a href=\"https://github.com/baconpantsuppercut/arkA\">https://github.com/baconpantsuppercut/arkA</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45947981\">https://news.ycombinator.com/item?id=45947981</a></p>\n<p>Points: 2</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012570",
+    "timestamp": "2025-11-24T02:50:27.158431",
     "is_trend": false
   },
   {
@@ -104,7 +104,7 @@
     "url": "https://blog.hofstede.it/production-grade-container-deployment-with-podman-quadlets/index.html",
     "summary": "<p>Article URL: <a href=\"https://blog.hofstede.it/production-grade-container-deployment-with-podman-quadlets/index.html\">https://blog.hofstede.it/production-grade-container-deployment-with-podman-quadlets/index.html</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45945200\">https://news.ycombinator.com/item?id=45945200</a></p>\n<p>Points: 62</p>\n<p># Comments: 20</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012573",
+    "timestamp": "2025-11-24T02:50:27.158434",
     "is_trend": false
   },
   {
@@ -113,7 +113,7 @@
     "url": "https://news.ycombinator.com/item?id=45942862",
     "summary": "<p>Whatever I do and learn no progress is going to happen in my country(nepal).<p>There is no benefit of having merit in Nepal. Private jobs are already low paying. Remote jobs do not come generally to Nepal.I see remote jobs love India and south east asia. I do not get the point of remote job if they are hiring from specific country.\nThe only thing I can do in nepal is public service commission (civil services) and crack computer engineer. But the pay is meagre there as well, unless I am lucky enough to enter central bank of Nepal(NRB).<p>Honestly, it feels like I am pushing not just a wall but universe itself in Nepal. Because nothing is going to happen irrespective of my abilities. I am currently preparing for PSC and I do not believe I will be happy as a PSC engineer even if I end up at NRB(central bank).<p>Something feels missing inside me. I have took countless therapies and what not. They helped me a lot to be where I am at now. I feel scared to try opportunities out of my comfort zone (kathmandu is my comfort zone).<p>As an adult, nobody pushes you, you have to push yourself. I am in a serious deadlock internally. I can decrease the effect using yoga and meditation but that does not troubleshoot the cause. Personally, I want to pursue something academic away from nepal. I believe that would provide me the much needed confidence in my life.</p>\n<hr />\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45942862\">https://news.ycombinator.com/item?id=45942862</a></p>\n<p>Points: 3</p>\n<p># Comments: 4</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012576",
+    "timestamp": "2025-11-24T02:50:27.158438",
     "is_trend": false
   },
   {
@@ -122,7 +122,7 @@
     "url": "https://github.com/kimdre/doco-cd",
     "summary": "<p>Article URL: <a href=\"https://github.com/kimdre/doco-cd\">https://github.com/kimdre/doco-cd</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45937846\">https://news.ycombinator.com/item?id=45937846</a></p>\n<p>Points: 1</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012579",
+    "timestamp": "2025-11-24T02:50:27.158441",
     "is_trend": false
   },
   {
@@ -131,7 +131,7 @@
     "url": "https://www.fastcompany.com/91128052/history-of-cd-roms-encarta-myst",
     "summary": "<p>Article URL: <a href=\"https://www.fastcompany.com/91128052/history-of-cd-roms-encarta-myst\">https://www.fastcompany.com/91128052/history-of-cd-roms-encarta-myst</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45933285\">https://news.ycombinator.com/item?id=45933285</a></p>\n<p>Points: 3</p>\n<p># Comments: 1</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012582",
+    "timestamp": "2025-11-24T02:50:27.158444",
     "is_trend": false
   },
   {
@@ -140,7 +140,7 @@
     "url": "https://www.ocuroot.com/blog/things-i-learned-about-git/",
     "summary": "<p>Article URL: <a href=\"https://www.ocuroot.com/blog/things-i-learned-about-git/\">https://www.ocuroot.com/blog/things-i-learned-about-git/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45927686\">https://news.ycombinator.com/item?id=45927686</a></p>\n<p>Points: 1</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012585",
+    "timestamp": "2025-11-24T02:50:27.158447",
     "is_trend": false
   },
   {
@@ -149,7 +149,7 @@
     "url": "https://old.reddit.com/r/DataHoarder/comments/1ovelti/what_to_do_with_5900_blank_cdrs/",
     "summary": "<p>Article URL: <a href=\"https://old.reddit.com/r/DataHoarder/comments/1ovelti/what_to_do_with_5900_blank_cdrs/\">https://old.reddit.com/r/DataHoarder/comments/1ovelti/what_to_do_with_5900_blank_cdrs/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45926312\">https://news.ycombinator.com/item?id=45926312</a></p>\n<p>Points: 4</p>\n<p># Comments: 1</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012589",
+    "timestamp": "2025-11-24T02:50:27.158450",
     "is_trend": false
   },
   {
@@ -158,7 +158,7 @@
     "url": "https://github.com/kimdre/doco-cd",
     "summary": "<p>Article URL: <a href=\"https://github.com/kimdre/doco-cd\">https://github.com/kimdre/doco-cd</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45895328\">https://news.ycombinator.com/item?id=45895328</a></p>\n<p>Points: 2</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012592",
+    "timestamp": "2025-11-24T02:50:27.158453",
     "is_trend": false
   },
   {
@@ -167,7 +167,7 @@
     "url": "https://blog.prizrak.me/post/hugo-on-k8s/",
     "summary": "<p>Article URL: <a href=\"https://blog.prizrak.me/post/hugo-on-k8s/\">https://blog.prizrak.me/post/hugo-on-k8s/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45894000\">https://news.ycombinator.com/item?id=45894000</a></p>\n<p>Points: 1</p>\n<p># Comments: 2</p>",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:35.012595",
+    "timestamp": "2025-11-24T02:50:27.158456",
     "is_trend": true
   },
   {
@@ -176,7 +176,7 @@
     "url": "https://blog.misfit.dev/the-ci-arcade/",
     "summary": "<p>Article URL: <a href=\"https://blog.misfit.dev/the-ci-arcade/\">https://blog.misfit.dev/the-ci-arcade/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=45891421\">https://news.ycombinator.com/item?id=45891421</a></p>\n<p>Points: 1</p>\n<p># Comments: 0</p>",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:35.012598",
+    "timestamp": "2025-11-24T02:50:27.158459",
     "is_trend": false
   },
   {
@@ -1625,16 +1625,16 @@
     "summary": "I've updated every plugin using the plugins manager in the webUI but after upgrading jenkins it fails to start and complains about a list of plugins that need ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093678",
+    "timestamp": "2025-11-24T02:50:31.274525",
     "is_trend": false
   },
   {
     "title": "What are some common issues you've faced when upgrading ...",
     "url": "https://www.reddit.com/r/jenkinsci/comments/1ftlaiz/what_are_some_common_issues_youve_faced_when/",
-    "summary": "Hey everyone, I'm planning to upgrade Jenkins and several of its plugins soon, but I've heard there can be issues during the process.",
+    "summary": "Did you run into compatibility problems or find that some plugins broke after an update? How did you roll back or fix issues that came up during ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093689",
+    "timestamp": "2025-11-24T02:50:31.274536",
     "is_trend": false
   },
   {
@@ -1643,7 +1643,7 @@
     "summary": "After upgrading your Operations center, it fails to load plugins, or fails to startup, and you see an error in the logs mentioning Failed Loading plugin.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093692",
+    "timestamp": "2025-11-24T02:50:31.274540",
     "is_trend": false
   },
   {
@@ -1652,7 +1652,7 @@
     "summary": "I am trying to upgrade jenkins from 2.423 to the latest version and I am running into issues. I stop jenkins, I backup the jenkins war file, and I download the ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093695",
+    "timestamp": "2025-11-24T02:50:31.274542",
     "is_trend": false
   },
   {
@@ -1661,7 +1661,7 @@
     "summary": "Check first if your instance is connected to a Custom Update Center (UC) from an Operation Center. \u00b7 A new plugin releases should be published on the official ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093698",
+    "timestamp": "2025-11-24T02:50:31.274546",
     "is_trend": false
   },
   {
@@ -1670,7 +1670,7 @@
     "summary": "CloudBees CI versions 2.401.1.3 through 2.452.1.2 are affected by an HTTP Client leak that can cause severe performance degradation depending on environment ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093701",
+    "timestamp": "2025-11-24T02:50:31.274549",
     "is_trend": false
   },
   {
@@ -1679,34 +1679,34 @@
     "summary": "I will recommend to switch to approach where you will install plugins before you start Jenkins. This will allow you to track and fix all errors in build phase.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093704",
+    "timestamp": "2025-11-24T02:50:31.274551",
     "is_trend": false
   },
   {
     "title": "Build Failures and Plugin Errors - Using Jenkins",
     "url": "https://community.jenkins.io/t/build-failures-and-plugin-errors/16821",
-    "summary": "After the Jenkins update, these plugins either fail to load correctly or produce errors during the build process. This has led to failed builds ...",
+    "summary": "The main problem arises when running build jobs that rely on specific plugins. After the Jenkins update, these plugins either fail to load correctly or produce ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093709",
+    "timestamp": "2025-11-24T02:50:31.274557",
     "is_trend": false
   },
   {
-    "title": "Update Center best practices for plugin management",
-    "url": "https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/best-practices/update-center-best-practices-for-plugin-management",
-    "summary": "Careful attention must be exercised during upgrades, to avoid such scenario. Not providing plugins for Jenkins Enterprise core plugins via the update-center.",
+    "title": "Best practices for managing Jenkins plugins - Buildkite",
+    "url": "https://buildkite.com/resources/blog/best-practices-for-managing-jenkins-plugins/",
+    "summary": "Plugin updates may introduce new features and security fixes, but they can also be risky, bringing compatibility issues and unexpected behavior ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093712",
+    "timestamp": "2025-11-24T02:50:31.274560",
     "is_trend": false
   },
   {
     "title": "Jenkins is not starting after plugin upgrade - Ask a question",
     "url": "https://community.jenkins.io/t/jenkins-is-not-starting-after-plugin-upgrade/17375",
-    "summary": "Hello Team, I have upgraded Jenkins version from 2.361.1 to 2.387.3 . Once upgraded to this version, unable to upgrade all the plugins.",
+    "summary": "I have upgraded Jenkins version from 2.361.1 to 2.387.3 . Once upgraded to this version, unable to upgrade all the plugins.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:43.093715",
+    "timestamp": "2025-11-24T02:50:31.274562",
     "is_trend": false
   },
   {
@@ -1715,7 +1715,7 @@
     "summary": "This article compares CloudBees and GitHub Actions, examining their unique features, similarities, and differences.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709302",
+    "timestamp": "2025-11-24T02:50:32.631556",
     "is_trend": false
   },
   {
@@ -1724,7 +1724,7 @@
     "summary": "As you and others said, Jenkins is on its way out the door. Do not bother. Gitlab CI and Github Actions is the same Gitlab vs. Github argument.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709313",
+    "timestamp": "2025-11-24T02:50:32.631566",
     "is_trend": false
   },
   {
@@ -1733,16 +1733,25 @@
     "summary": "CloudBees builds on the popular Jenkins automation server, enhancing it for enterprise-scale DevOps. Here's why CloudBees might be the right ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709316",
+    "timestamp": "2025-11-24T02:50:32.631569",
     "is_trend": false
   },
   {
     "title": "The best DevOps platforms compared: The definitive guide for 2025",
     "url": "https://pieces.app/blog/devops-platforms",
-    "summary": "GitHub Actions is best for modern cloud-native teams who prioritize speed over customization. Pieces plugs into either environment by ...",
+    "summary": "Jenkins vs GitHub Actions: Custom freedom vs modern simplicity ... Nagios vs CloudBees: Classic observability vs enterprise pipeline control.",
+    "source": "Google",
+    "type": "\ud83d\udcc8 Trends",
+    "timestamp": "2025-11-24T02:50:32.631572",
+    "is_trend": true
+  },
+  {
+    "title": "Jenkins vs. GitHub Actions vs. GitLab CI - DEV Community",
+    "url": "https://dev.to/574n13y/jenkins-vs-github-actions-vs-gitlab-ci-2k35",
+    "summary": "A detailed breakdown of Jenkins, GitHub Actions, and GitLab CI, with specific use cases to highlight their strengths and weaknesses.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709319",
+    "timestamp": "2025-11-24T02:50:32.631574",
     "is_trend": false
   },
   {
@@ -1751,7 +1760,7 @@
     "summary": "GitHub Actions uses a cloud-first model that attempts to scale automatically, while Jenkins gives you a self-hosted model requiring more manual ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709321",
+    "timestamp": "2025-11-24T02:50:32.631576",
     "is_trend": false
   },
   {
@@ -1760,25 +1769,25 @@
     "summary": "In this post, we compare and contrast Jenkins and GitHub Actions and chat use cases so you can get a sense of which CI tool is best for your needs.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709324",
+    "timestamp": "2025-11-24T02:50:32.631579",
     "is_trend": false
   },
   {
-    "title": "Why customers choose CloudBees over GitHub Actions",
-    "url": "https://www.cloudbees.com/whitepapers/cloudbees-vs-github-actions",
-    "summary": "Whether you're optimizing existing Jenkins workflows or exploring new CI/CD solutions, CloudBees offers unique advantages.",
+    "title": "GitLab's Confusion - CloudBees",
+    "url": "https://www.cloudbees.com/blog/gitlabs-confusion",
+    "summary": "Jenkins can and does do CI and CD. CloudBees' customers using CloudBees Core to manage Jenkins do both. Flow and Jenkins X make CloudBees' CD even better.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709326",
+    "timestamp": "2025-11-24T02:50:32.631582",
     "is_trend": false
   },
   {
-    "title": "Jenkins vs. GitHub Actions vs. GitLab CI - DEV Community",
-    "url": "https://dev.to/574n13y/jenkins-vs-github-actions-vs-gitlab-ci-2k35",
-    "summary": "A detailed breakdown of Jenkins, GitHub Actions, and GitLab CI, with specific use cases to highlight their strengths and weaknesses.",
+    "title": "is jenkins still the winner of CI/CD space ? - Stack Overflow",
+    "url": "https://stackoverflow.com/beta/discussions/77092002/is-jenkins-still-the-winner-of-ci-cd-space",
+    "summary": "for example if you are using gitlab or github you can use their own actions which has two advantage from Jenkins. ... Cloudbees can handle that.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709329",
+    "timestamp": "2025-11-24T02:50:32.631624",
     "is_trend": false
   },
   {
@@ -1787,16 +1796,7 @@
     "summary": "We help you understand GitHub vs GitLab, how GitHub integrates with Azure and Jenkins, and present all the features GitHub has to offer.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709537",
-    "is_trend": false
-  },
-  {
-    "title": "Top 10 Most Popular Jenkins Alternatives for DevOps in 2025",
-    "url": "https://spacelift.io/blog/jenkins-alternatives",
-    "summary": "gitlab actions as jenkins ... CodeShip is a CloudBees SaaS platform that provides a managed CI/CD experience in the cloud.",
-    "source": "Google",
-    "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:44.709540",
+    "timestamp": "2025-11-24T02:50:32.631627",
     "is_trend": false
   },
   {
@@ -1805,7 +1805,7 @@
     "summary": "The Harness team can provide tooling to automate the migration of Jenkins pipelines. While this will migrate projects quickly, keep in mind ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386344",
+    "timestamp": "2025-11-24T02:50:33.749106",
     "is_trend": false
   },
   {
@@ -1814,7 +1814,7 @@
     "summary": "When beginning migration from Jenkins to Harness, we recommend targeting migration based on the application teams you want to enable on Harness ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386355",
+    "timestamp": "2025-11-24T02:50:33.749117",
     "is_trend": false
   },
   {
@@ -1823,16 +1823,16 @@
     "summary": "I have to learn more about Harness, and our org is moving from Jenkins to Harness. Some pain points I have heard is that it isn't working easily with Terraform.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386358",
+    "timestamp": "2025-11-24T02:50:33.749120",
     "is_trend": false
   },
   {
     "title": "Migrating From Jenkins to Harness CIE: A Journey | Blog",
     "url": "https://www.harness.io/blog/jenkins-to-cie-journey",
-    "summary": "In this blog, we'll be going over our CI tooling migration journey from Jenkins to CIE. This post explains how we planned and executed the actual migration ...",
+    "summary": "Migrating from Jenkins to Harness Continuous Integration (CIE) eliminated performance bottlenecks and increased developer productivity by ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386360",
+    "timestamp": "2025-11-24T02:50:33.749123",
     "is_trend": false
   },
   {
@@ -1841,7 +1841,7 @@
     "summary": "In this video, we demonstrate how easy it is to migrate your pipelines from Jenkins to Harness using our patented migration tool.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386363",
+    "timestamp": "2025-11-24T02:50:33.749125",
     "is_trend": false
   },
   {
@@ -1850,7 +1850,7 @@
     "summary": "Migrating from Jenkins to Harness CD streamlined deployment processes, eliminating the need for scripting and enabling advanced deployment ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386365",
+    "timestamp": "2025-11-24T02:50:33.749127",
     "is_trend": false
   },
   {
@@ -1859,7 +1859,7 @@
     "summary": "This report provides a comprehensive analysis and strategic playbook for migrating from the Jenkins automation server to the Harness ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386368",
+    "timestamp": "2025-11-24T02:50:33.749130",
     "is_trend": false
   },
   {
@@ -1868,7 +1868,7 @@
     "summary": "If you're migrating from Jenkins to GitLab CI/CD, you are able to create CI/CD pipelines that replicate and enhance your Jenkins workflows.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386370",
+    "timestamp": "2025-11-24T02:50:33.749132",
     "is_trend": false
   },
   {
@@ -1877,7 +1877,7 @@
     "summary": "In this blog, you will see the migration journey of our CI system from Jenkins to CIE. It explains the planning and execution of the actual ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386373",
+    "timestamp": "2025-11-24T02:50:33.749148",
     "is_trend": false
   },
   {
@@ -1886,7 +1886,7 @@
     "summary": "I have just been tasked with upgrading our Jenkins 1.642.3-1 to the current version and moving the instance to a new VM.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:45.386375",
+    "timestamp": "2025-11-24T02:50:33.749150",
     "is_trend": false
   },
   {
@@ -1895,7 +1895,7 @@
     "summary": "DORA's four keys can be divided into metrics that show the throughput of software changes, and metrics that show stability of software changes.",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:46.217408",
+    "timestamp": "2025-11-24T02:50:34.284701",
     "is_trend": false
   },
   {
@@ -1904,7 +1904,7 @@
     "summary": "Purpose: DORA metrics connect engineering practices to business performance by balancing speed (frequency, lead time) and stability (failure ...",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217419",
+    "timestamp": "2025-11-24T02:50:34.284711",
     "is_trend": true
   },
   {
@@ -1913,7 +1913,7 @@
     "summary": "Flow metrics are a framework for measuring how much value is being delivered by a product value stream and the rate at which it is delivered from start to ...",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217422",
+    "timestamp": "2025-11-24T02:50:34.284714",
     "is_trend": true
   },
   {
@@ -1922,7 +1922,7 @@
     "summary": "Flow metrics complement DORA metrics by measuring how work moves through your development pipeline. They include flow velocity, time, efficiency ...",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217425",
+    "timestamp": "2025-11-24T02:50:34.284716",
     "is_trend": true
   },
   {
@@ -1931,7 +1931,7 @@
     "summary": "This guide overviews the four DORA metrics, their importance, and how teams can use Open DevOps to measure performance.",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217428",
+    "timestamp": "2025-11-24T02:50:34.284718",
     "is_trend": true
   },
   {
@@ -1940,7 +1940,7 @@
     "summary": "DORA metrics provide a framework for measuring software delivery throughput (speed) and reliability (quality). Flow Metrics: A Business Leader's Guide to ...",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217430",
+    "timestamp": "2025-11-24T02:50:34.284733",
     "is_trend": true
   },
   {
@@ -1949,16 +1949,16 @@
     "summary": "DevOps Research and Assessment (DORA) metrics are four key metrics that indicate the velocity and stability of software development.",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217432",
+    "timestamp": "2025-11-24T02:50:34.284735",
     "is_trend": true
   },
   {
     "title": "DORA metrics - CloudBees Documentation",
     "url": "https://docs.cloudbees.com/docs/cloudbees-platform/latest/analytics/dora-metrics",
-    "summary": "DevOps Research and Assessment (DORA) metrics can measure the performance of DevOps teams. The CloudBees platform displays each of the four key DORA metrics ...",
+    "summary": "To access and filter DORA metrics views: Select the next to Analytics on the left pane, select DORA metrics, and then select FILTER. Select environment.",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217434",
+    "timestamp": "2025-11-24T02:50:34.284737",
     "is_trend": true
   },
   {
@@ -1967,7 +1967,7 @@
     "summary": "Flow metrics and DORA look at software delivery through two very different lenses. Use both to optimize processes, identify bottlenecks, ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:46.217437",
+    "timestamp": "2025-11-24T02:50:34.284740",
     "is_trend": false
   },
   {
@@ -1976,7 +1976,7 @@
     "summary": "Combine Flow and DORA metrics to boost software delivery, spot bottlenecks, and improve team performance and reliability.",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.217439",
+    "timestamp": "2025-11-24T02:50:34.284742",
     "is_trend": true
   },
   {
@@ -1985,17 +1985,8 @@
     "summary": "Find the top Value Stream Delivery Platforms with Gartner. Compare and filter by verified product reviews and choose the software that's right for your ...",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:46.896998",
+    "timestamp": "2025-11-24T02:50:35.090206",
     "is_trend": false
-  },
-  {
-    "title": "Actual succesfull experiences with Internal Developer Platforms",
-    "url": "https://www.reddit.com/r/devops/comments/1ae7l8r/actual_succesfull_experiences_with_internal/",
-    "summary": "Does anyone in this space have had a good interaction with / be boosted by an Internal Developer Platform? And if yes, how did it look like?",
-    "source": "Google",
-    "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.897009",
-    "is_trend": true
   },
   {
     "title": "Top 10 Internal Developer Platforms - Qovery",
@@ -2003,7 +1994,16 @@
     "summary": "Top 10 Internal Developer Platforms \u00b7 1. Scalability \u00b7 2. Integration Capabilities \u00b7 3. Ease of Use \u00b7 4. Security and Compliance \u00b7 5. Cost \u00b7 6. Use Case Suitability.",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.897012",
+    "timestamp": "2025-11-24T02:50:35.090216",
+    "is_trend": true
+  },
+  {
+    "title": "Actual succesfull experiences with Internal Developer Platforms",
+    "url": "https://www.reddit.com/r/devops/comments/1ae7l8r/actual_succesfull_experiences_with_internal/",
+    "summary": "Does anyone in this space have had a good interaction with / be boosted by an Internal Developer Platform? And if yes, how did it look like?",
+    "source": "Google",
+    "type": "\ud83d\udcc8 Trends",
+    "timestamp": "2025-11-24T02:50:35.090220",
     "is_trend": true
   },
   {
@@ -2012,7 +2012,7 @@
     "summary": "Compare the top Internal Developer Platforms for 2025. Review Northflank, Backstage, Harness & more to boost developer productivity and ...",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.897014",
+    "timestamp": "2025-11-24T02:50:35.090222",
     "is_trend": true
   },
   {
@@ -2021,16 +2021,7 @@
     "summary": "This article dives into what internal developer platforms are, provides a comprehensive comparison of IDP vendors and tools, and details the features they ...",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.897016",
-    "is_trend": true
-  },
-  {
-    "title": "Internal developer portals vs. internal developer platforms - Quali",
-    "url": "https://www.quali.com/blog/internal-developer-portals-vs-internal-developer-platforms-comparison/",
-    "summary": "Key features of internal developer platforms include: DevOps process consolidation: The platform standardizes processes for everyone involved ...",
-    "source": "Google",
-    "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.897019",
+    "timestamp": "2025-11-24T02:50:35.090224",
     "is_trend": true
   },
   {
@@ -2039,26 +2030,8 @@
     "summary": "Explore a list of the 20 best platform engineering tools, technologies, and products for 2025.",
     "source": "Google",
     "type": "\ud83d\udcc8 Trends",
-    "timestamp": "2025-11-24T02:33:46.897021",
+    "timestamp": "2025-11-24T02:50:35.090227",
     "is_trend": true
-  },
-  {
-    "title": "A curated list of awesome DevOps platforms, tools ... - GitHub",
-    "url": "https://github.com/wmariuss/awesome-devops",
-    "summary": "A curated list of platforms, tools, practices and resources to create, improve DevOps culture and SRE Team in the organization.",
-    "source": "Google",
-    "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:46.897023",
-    "is_trend": false
-  },
-  {
-    "title": "160+ Best DevOps Tools [Updated for 2025] - DevOpsCube",
-    "url": "https://devopscube.com/best-devops-tools/",
-    "summary": "Top DevOps tools include Maven, npm, Gradle for code build; Sonarqube for code quality; Jenkins, Github Actions, Gitlab CI for CI; and Jenkins, FluxCD, ArgoCD ...",
-    "source": "Google",
-    "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:46.897025",
-    "is_trend": false
   },
   {
     "title": "Best Internal Developer Portals Reviews 2025 | Gartner Peer Insights",
@@ -2066,7 +2039,34 @@
     "summary": "It offers comprehensive tooling for backend development and DevOps. The platform has unique features such as",
     "source": "Google",
     "type": "\ud83d\udcac Social Buzz",
-    "timestamp": "2025-11-24T02:33:46.897249",
+    "timestamp": "2025-11-24T02:50:35.090229",
+    "is_trend": false
+  },
+  {
+    "title": "A curated list of awesome DevOps platforms, tools ... - GitHub",
+    "url": "https://github.com/wmariuss/awesome-devops",
+    "summary": "A curated list of platforms, tools, practices and resources to create, improve DevOps culture and SRE Team in the organization.",
+    "source": "Google",
+    "type": "\ud83d\udcac Social Buzz",
+    "timestamp": "2025-11-24T02:50:35.090231",
+    "is_trend": false
+  },
+  {
+    "title": "Internal developer portals vs. internal developer platforms - Quali",
+    "url": "https://www.quali.com/blog/internal-developer-portals-vs-internal-developer-platforms-comparison/",
+    "summary": "Key features of internal developer platforms include: DevOps process consolidation: The platform standardizes processes for everyone involved ...",
+    "source": "Google",
+    "type": "\ud83d\udcc8 Trends",
+    "timestamp": "2025-11-24T02:50:35.090241",
+    "is_trend": true
+  },
+  {
+    "title": "160+ Best DevOps Tools [Updated for 2025] - DevOpsCube",
+    "url": "https://devopscube.com/best-devops-tools/",
+    "summary": "Top DevOps tools include Maven, npm, Gradle for code build; Sonarqube for code quality; Jenkins, Github Actions, Gitlab CI for CI; and Jenkins, FluxCD, ArgoCD ...",
+    "source": "Google",
+    "type": "\ud83d\udcac Social Buzz",
+    "timestamp": "2025-11-24T02:50:35.090408",
     "is_trend": false
   }
 ]
