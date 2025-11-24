@@ -1,10 +1,10 @@
-# summarize_only.py — Final Version with LLM Evidence Linking
+# summarize_only.py — Final Batch Evidence Linking Version
 import json
 
 from summarizer import (
     generate_summary,
     extract_insights_from_social,
-    link_sources_to_insights,
+    batch_link_sources,
     format_insights_with_sources
 )
 
@@ -34,13 +34,10 @@ for post in posts:
     post["is_trend"] = len(matches) > 0
 
 # ---------------------------------------------------------
-# Group posts by topic
+# Group by topic for summaries
 # ---------------------------------------------------------
 grouped = group_posts_by_topic(posts)
 
-# ---------------------------------------------------------
-# Build topic summaries
-# ---------------------------------------------------------
 summary_sections = {
     "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
     "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
@@ -48,67 +45,33 @@ summary_sections = {
 }
 
 # ---------------------------------------------------------
-# Extract structured insights (JSON with 4 sections)
+# Structured insights (JSON)
 # ---------------------------------------------------------
 print("🧠 Extracting insights...\n")
 insights = extract_insights_from_social(posts)
 
-# insights is:
-# {
-#   "Key Trends": [...],
-#   "Pain Points": [...],
-#   "Opportunities for CloudBees": [...],
-#   "Indicators of DevOps Market Sentiment": [...]
-# }
-
 # ---------------------------------------------------------
-# Evidence linking per insight
+# Batch evidence linking (4 GPT calls only)
 # ---------------------------------------------------------
 print("🔗 Linking insights to supporting sources...\n")
-
-linked = {}
-for category, insight_list in insights.items():
-    linked_sources = link_sources_to_insights(insight_list, posts)
-    linked[category] = linked_sources
+linked_sources = batch_link_sources(insights, posts)
 
 # ---------------------------------------------------------
-# Convert insights + evidence → Markdown
+# Format insights + evidence → Markdown
 # ---------------------------------------------------------
-insights_md = []
-
-for category, insight_list in insights.items():
-    insights_md.append(f"### {category}")
-    if not insight_list:
-        insights_md.append("_No insights found._\n")
-        continue
-
-    for insight in insight_list:
-        insights_md.append(f"- **{insight}**")
-
-        supporting = linked[category].get(insight, [])
-        if supporting:
-            for s in supporting:
-                insights_md.append(f"  - [{s['title']}]({s['url']})")
-        else:
-            insights_md.append("  - _No supporting sources detected_")
-
-    insights_md.append("")
-
-summary_sections["🧠 Insights"] = "\n".join(insights_md)
+insights_markdown = format_insights_with_sources(insights, linked_sources)
+summary_sections["🧠 Insights"] = insights_markdown
 
 # ---------------------------------------------------------
-# Write the main report
+# Write main report
 # ---------------------------------------------------------
 report_path = write_report(summary_sections)
 
 # ---------------------------------------------------------
-# Write the evidence sources artifact (full list of URLs)
+# Write sources artifact
 # ---------------------------------------------------------
 sources_path = write_sources_file(posts)
 
-# ---------------------------------------------------------
-# Final console messages
-# ---------------------------------------------------------
 print(f"📄 Summary report written to: {report_path}")
 print(f"📚 Evidence sources written to: {sources_path}")
 print("\n✨ Summarization complete.\n")
