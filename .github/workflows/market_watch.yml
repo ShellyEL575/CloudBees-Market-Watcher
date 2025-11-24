@@ -3,7 +3,7 @@ name: CloudBees Market Watch
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 9 * * *"  # runs daily at 09:00 UTC
+    - cron: "0 9 * * *" # daily at 09:00 UTC
 
 jobs:
   run-agent:
@@ -23,26 +23,41 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # --------------------------
+      # Run Scraper
+      # --------------------------
       - name: Run scraper
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
         run: |
           python scrape_only.py
 
-      - name: Upload scraped posts (debugging)
+      # Store raw scraped posts
+      - name: Upload scraped posts
         uses: actions/upload-artifact@v4
         with:
           name: scraped-posts
           path: data/posts.json
 
+      # --------------------------
+      # Run Summarizer
+      # --------------------------
       - name: Run summarizer
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python summarize_only.py
 
-      - name: Upload final report
+      # Upload Markdown summary report
+      - name: Upload summary report
         uses: actions/upload-artifact@v4
         with:
           name: market-watch-report
           path: reports/*.md
+
+      # Upload evidence sources artifact
+      - name: Upload evidence sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-watch-sources
+          path: sources/*.md
