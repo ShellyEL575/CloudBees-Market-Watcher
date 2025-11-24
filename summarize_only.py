@@ -1,124 +1,89 @@
-# summarize_only.py
+# summarize_only.py (FINAL)
 import json
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 
-from summarizer import generate_summary
-from utils import write_report, group_posts_by_topic
+from utils import group_posts_by_topic, write_report
 from llm_helpers import extract_insights_batch_linked
 from exec_summary import generate_exec_summary
 
 
-# ---------------------------------------
-# Load posts
-# ---------------------------------------
 def load_posts():
     path = "data/posts.json"
     if not os.path.exists(path):
-        raise FileNotFoundError("❌ data/posts.json not found. Run scrape_only.py first.")
+        raise FileNotFoundError("❌ data/posts.json not found. Did scrape_only.py run?")
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-# ---------------------------------------
-# Weekly rollup helper (simple summary aggregation)
-# ---------------------------------------
-def load_weekly_posts():
-    weekly_posts = []
-    now = datetime.utcnow()
-
-    for fname in os.listdir("data"):
-        if not fname.endswith(".json"):
-            continue
-        fpath = os.path.join("data", fname)
-
-        try:
-            date_str = fname.replace(".json", "")
-            file_date = datetime.strptime(date_str, "%Y-%m-%d")
-        except Exception:
-            continue
-
-        if now - file_date <= timedelta(days=7):
-            with open(fpath, "r", encoding="utf-8") as f:
-                weekly_posts.extend(json.load(f))
-
-    return weekly_posts
-
-
-# ---------------------------------------
-# Curated source list helper
-# ---------------------------------------
-def extract_curated_sources(posts):
+def build_curated_source_deck(posts):
+    """
+    Dedup and produce a list of (title, url) tuples.
+    This becomes the PMM/PM 'Source Deck' in exec summary.
+    """
+    seen = set()
     curated = []
     for p in posts:
-        if isinstance(p, dict):
-            url = p.get("url") or p.get("link")
-            title = p.get("title", "Untitled")
-            if url:
-                curated.append((title, url))
+        title = p.get("title", "").strip()
+        url = p.get("url") or p.get("link") or ""
+        if not title or not url:
+            continue
+        if url in seen:
+            continue
+        curated.append((title, url))
+        seen.add(url)
     return curated
 
 
-# ---------------------------------------
-# Main summarization
-# ---------------------------------------
 def main():
-    print("\n🧠 Starting summarization...")
+    print("🧠 Starting summarization...")
 
     posts = load_posts()
     print(f"✅ Loaded {len(posts)} posts")
 
+    # --- GROUPING ---
+    sections = {}
+    grouped = group_posts_by_topic(posts)
     print("📝 Generating report summaries...")
 
-    grouped = group_posts_by_topic(posts)
+    # Generate the 3 sections (these rely on scrapers to provide summaries)
+    for section_name in ["🚀 Product Updates", "💬 Social Buzz", "📈 Trends"]:
+        items = grouped.get(section_name, [])
+        if not items:
+            sections[section_name] = "_No updates today._"
+        else:
+            md_lines = []
+            for p in items:
+                title = p.get("title", "Untitled")
+                url = p.get("url") or p.get("link") or ""
+                summary = p.get("summary", "") or "(no summary available)"
+                md_lines.append(f"- [{title}]({url}) — {summary}")
+            sections[section_name] = "\n".join(md_lines)
 
-    sections = {
-        "🚀 Product Updates": generate_summary(grouped.get("🚀 Product Updates", [])),
-        "💬 Social Buzz": generate_summary(grouped.get("💬 Social Buzz", [])),
-        "📈 Trends": generate_summary(grouped.get("📈 Trends", [])),
-    }
-
-    # ---------------------------------------
-    # Extract insights
-    # ---------------------------------------
+    # --- INSIGHTS ---
     print("🚀 Extracting insights...")
-
     social_posts = grouped.get("💬 Social Buzz", [])
+
     print(f"🧠 Extracting insights across {len(social_posts)} posts...")
+    insights = extract_insights_batch_linked(social_posts)
+    sections["🧠 Insights"] = insights
 
-    insight_block = extract_insights_batch_linked(social_posts)
-    sections["🧠 Insights"] = insight_block
+    # --- WRITE MAIN REPORT ---
+    write_report(sections)
 
-    # ---------------------------------------
-    # Write daily report (full)
-    # ---------------------------------------
-    print("📝 Writing Daily Report...")
-    report_path = write_report(sections)
+    # --- EXECUTIVE SUMMARY ---
+    print("📊 Creating executive summary artifact...")
 
-    # ---------------------------------------
-    # Exec Summary
-    # ---------------------------------------
-    print("🧠 Generating Executive Summary...")
+    curated_sources = build_curated_source_deck(posts)
+    exec_md = generate_exec_summary(insights, curated_sources)
 
-    curated_sources = extract_curated_sources(posts)
-    exec_md = generate_exec_summary(insight_block, curated_sources)
+    os.makedirs("reports", exist_ok=True)
+    exec_path = f"reports/exec_summary_{datetime.utcnow().strftime('%Y-%m-%d')}.md"
 
-    exec_dir = "reports/exec"
-    os.makedirs(exec_dir, exist_ok=True)
-
-    exec_path = os.path.join(exec_dir, f"{datetime.utcnow().strftime('%Y-%m-%d')}.md")
     with open(exec_path, "w", encoding="utf-8") as f:
         f.write(exec_md)
 
-    print(f"📄 Executive summary written: {exec_path}")
-
-    # ---------------------------------------
-    # Weekly Rollup Placeholder (optional)
-    # ---------------------------------------
-    # To activate weekly rollups later, call load_weekly_posts()
-    # and generate weekly summaries similarly.
-
-    print("\n🎉 Done! Summaries generated successfully.")
+    print(f"✅ Executive summary written to {exec_path}")
 
 
 if __name__ == "__main__":
