@@ -1,8 +1,9 @@
-# summarizer.py — with LLM-based evidence linking
+# summarizer.py — Batch Evidence Linking Version
 from openai import OpenAI
-import os
+import json
 
 client = OpenAI()
+
 
 # ---------------------------------------------------------
 # 1. Generate simple summaries (unchanged)
@@ -22,16 +23,16 @@ def generate_summary(posts):
 
 
 # ---------------------------------------------------------
-# 2. Extract structured insights (4 sections)
+# 2. Extract structured insights (JSON with 4 sections)
 # ---------------------------------------------------------
 def extract_insights_from_social(posts):
     """
-    Returns a DICT with 4 arrays:
+    Returns structured JSON:
     {
-        "Key Trends": [...],
-        "Pain Points": [...],
-        "Opportunities for CloudBees": [...],
-        "Indicators of DevOps Market Sentiment": [...]
+       "Key Trends": [...],
+       "Pain Points": [...],
+       "Opportunities for CloudBees": [...],
+       "Indicators of DevOps Market Sentiment": [...]
     }
     """
 
@@ -43,19 +44,23 @@ def extract_insights_from_social(posts):
     prompt = f"""
 You are an expert DevOps market analyst.
 
-Extract insights into **four structured lists**. 
-Return ONLY a pure JSON object with four keys:
+Extract insights into four structured JSON lists.
 
-"Key Trends": [],
-"Pain Points": [],
-"Opportunities for CloudBees": [],
-"Indicators of DevOps Market Sentiment": []
+Return ONLY valid JSON with this structure:
+
+{{
+  "Key Trends": [],
+  "Pain Points": [],
+  "Opportunities for CloudBees": [],
+  "Indicators of DevOps Market Sentiment": []
+}}
 
 Rules:
-- Each item should be a short, clear bullet (sentence fragment is fine).
-- DO NOT include any markdown, no bullets, no headings. Pure JSON only.
-- Do NOT include sources. Only insights.
-- Keep each insight concise and high value.
+- No markdown
+- No bullet characters
+- Short, high-value insights only
+- Do NOT include sources
+- Pure JSON output only
 
 TEXT:
 {text_blob}
@@ -67,14 +72,11 @@ TEXT:
         temperature=0.2,
     )
 
-    # Parse JSON safely
-    raw = response.choices[0].message.content
+    raw = response.choices[0].message.content.strip()
 
-    import json
     try:
         insights = json.loads(raw)
     except:
-        # fallback: wrap in braces and retry
         cleaned = raw.strip()
         if not cleaned.startswith("{"):
             cleaned = "{" + cleaned
@@ -86,18 +88,19 @@ TEXT:
 
 
 # ---------------------------------------------------------
-# 3. LLM-based evidence linking
+# 3. BATCH evidence linking (1 GPT call per category)
 # ---------------------------------------------------------
-def link_sources_to_insights(insight_list, posts):
+def batch_link_sources(insights_dict, posts):
     """
-    For a list of insights, return:
+    Returns:
     {
-      "insight text": [ {title, url}, {title, url} ... ],
-      ...
+        "Key Trends": { insight: [ {title,url}, ... ] },
+        "Pain Points": { ... },
+        ...
     }
     """
 
-    # Build a compact list of sources for the model
+    # Build compact list of available sources
     all_sources = [
         {
             "title": p.get("title", "Untitled"),
@@ -108,33 +111,44 @@ def link_sources_to_insights(insight_list, posts):
     ]
 
     source_blob = "\n".join(
-        f"- {s['title']} ({s['url']})"
-        for s in all_sources
+        f"- {s['title']} ({s['url']})" for s in all_sources
     )
 
-    results = {}
+    # For each category, one GPT call
+    linked = {}
 
-    for insight in insight_list:
+    for category, insight_list in insights_dict.items():
+
+        if not insight_list:
+            linked[category] = {}
+            continue
+
+        insights_blob = "\n".join([f"- {i}" for i in insight_list])
+
         prompt = f"""
-You are an assistant that links insights to supporting evidence.
+You are an AI assistant linking insights to supporting evidence.
 
-Insight:
-"{insight}"
+INSIGHTS:
+{insights_blob}
 
-Here are all available sources:
+SOURCES:
 {source_blob}
 
 Task:
-Return ONLY a pure JSON array of supporting sources, each formatted as:
+Return a JSON object mapping *each insight* to an array of 3–6 relevant sources.
+
+Format:
 {{
-  "title": "...",
-  "url": "..."
+  "insight text": [
+    {{ "title": "...", "url": "..." }},
+    ...
+  ],
+  ...
 }}
 
 Rules:
-- Choose the **3–6 most relevant** sources.
-- Base relevance on title similarity and topical alignment.
-- If no meaningful match, return an empty array [].
+- Only JSON, no markdown
+- If no relevant match, return empty array []
 """
 
         response = client.chat.completions.create(
@@ -145,34 +159,28 @@ Rules:
 
         raw = response.choices[0].message.content.strip()
 
-        import json
         try:
             parsed = json.loads(raw)
         except:
-            parsed = []
+            parsed = {}
 
-        results[insight] = parsed
+        linked[category] = parsed
 
-    return results
+    return linked
 
 
 # ---------------------------------------------------------
-# 4. Format “Insights + Supporting Sources” as Markdown
+# 4. Convert insights + evidence → Markdown
 # ---------------------------------------------------------
-def format_insights_with_sources(insights_dict, linked_sources_dict):
+def format_insights_with_sources(insights_dict, linked_sources):
     """
-    Return a clean markdown section like:
-
-    ### Key Trends
-    - Insight
-      - [source title](url)
-      - [another source](url)
+    Final markdown for the report.
     """
 
     output = []
 
-    for section, insight_list in insights_dict.items():
-        output.append(f"### {section}")
+    for category, insight_list in insights_dict.items():
+        output.append(f"### {category}")
 
         if not insight_list:
             output.append("_No insights found._\n")
@@ -181,9 +189,12 @@ def format_insights_with_sources(insights_dict, linked_sources_dict):
         for insight in insight_list:
             output.append(f"- **{insight}**")
 
-            links = linked_sources_dict.get(insight, [])
-            if links:
-                for s in links:
+            matches = (linked_sources
+                       .get(category, {})
+                       .get(insight, []))
+
+            if matches:
+                for s in matches:
                     output.append(f"  - [{s['title']}]({s['url']})")
             else:
                 output.append("  - _No supporting sources detected_")
