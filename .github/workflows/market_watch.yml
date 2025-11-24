@@ -4,14 +4,25 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 9 * * *" # daily at 09:00 UTC
+  push:
+    paths-ignore:
+      - "reports/**"
+      - "sources/**"
+      - "data/posts.json"
 
 jobs:
   run-agent:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write   # Required for auto-commit
+      actions: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Needed for committing
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -32,7 +43,7 @@ jobs:
         run: |
           python scrape_only.py
 
-      # Store raw scraped posts
+      # Always store raw posts as artifact
       - name: Upload scraped posts
         uses: actions/upload-artifact@v4
         with:
@@ -48,16 +59,37 @@ jobs:
         run: |
           python summarize_only.py
 
-      # Upload Markdown summary report
       - name: Upload summary report
         uses: actions/upload-artifact@v4
         with:
           name: market-watch-report
           path: reports/*.md
 
-      # Upload evidence sources artifact
       - name: Upload evidence sources
         uses: actions/upload-artifact@v4
         with:
           name: market-watch-sources
           path: sources/*.md
+
+      # --------------------------
+      # Auto-commit the new files
+      # --------------------------
+      - name: Commit updated reports + sources
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+
+          # Stage changed files
+          git add reports/*.md || true
+          git add sources/*.md || true
+          git add data/posts.json || true
+
+          # Skip if nothing changed
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          commit_message="Auto-update Market Watch report for $(date -u +"%Y-%m-%d")"
+          git commit -m "$commit_message"
+          git push origin HEAD:${{ github.ref }}
