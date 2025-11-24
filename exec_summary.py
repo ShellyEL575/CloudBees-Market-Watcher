@@ -1,26 +1,35 @@
 # exec_summary.py
 from datetime import datetime
+from llm_helpers import extract_insights_batch_linked
 
-def generate_exec_summary(insights, curated_sources):
+def generate_exec_summary(posts, curated_sources):
     """
-    Creates a concise executive-ready summary with curated links.
-    insights = the LLM-produced insight blocks (already markdown)
-    curated_sources = list of (title, url) tuples
+    Full executive summary generator:
+    - Extract insights using LLM (batched + evidence linked)
+    - Produce a clean exec-ready summary
+    - Include curated source deck
     """
 
     date = datetime.utcnow().strftime("%Y-%m-%d")
 
-    # Turn curated source list into markdown bullets
-    source_md = "\n".join([f"- [{title}]({url})" for title, url in curated_sources])
+    # ---- STEP 1: Extract insights with evidence linking ----
+    print("🧠 Extracting executive insights...")
+    insights_md = extract_insights_batch_linked(posts)  # returns markdown with sources attached
 
+    # ---- STEP 2: Format source deck ----
+    source_md = "\n".join([
+        f"- [{title}]({url})"
+        for title, url in curated_sources
+    ])
+
+    # ---- STEP 3: Combine everything ----
     return f"""
 # 🚨 CloudBees Market Watch — Executive Brief ({date})
 
 ## 🔥 Key Market Signals
-
 Below are the most important strategic signals detected in the last 24h.
 
-{insights}
+{insights_md}
 
 ---
 
