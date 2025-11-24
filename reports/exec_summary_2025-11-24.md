@@ -6,71 +6,63 @@ The most important strategic signals detected in the last 24 hours:
 
 ```markdown
 ### Customer & Community Signals (market reality)
-- Many practitioners are struggling with the complexities of upgrading Jenkins and its plugins, often facing issues that prevent Jenkins from starting post-upgrade.
+- Users are struggling with plugin compatibility issues during Jenkins upgrades, often leading to build failures and operational downtime.
   - 🔗 Source: <Jenkins won't start after upgrade, complains about plugin versions ...> (https://community.jenkins.io/t/jenkins-wont-start-after-upgrade-complains-about-plugin-versions-even-though-i-updated-all-plugins-before-upgrading/30790)
   - 🔗 Source: <Issues upgrading jenkins - Ask a question> (https://community.jenkins.io/t/issues-upgrading-jenkins/17772)
 
-- Users express frustration over the lack of clear guidance and support during Jenkins upgrades, particularly when managing numerous plugins.
-  - 🔗 Source: <What are some common issues you've faced when upgrading ...> (https://www.reddit.com/r/jenkinsci/comments/1ftlaiz/what_are_some_common_issues_youve_faced_when/)
-  - 🔗 Source: <Build Failures and Plugin Errors - Using Jenkins> (https://community.jenkins.io/t/build-failures-and-plugin-errors/16821)
-
-- There is a growing sentiment that Jenkins is becoming less favorable compared to newer CI/CD solutions like GitLab CI and GitHub Actions, with some users suggesting Jenkins is "on its way out."
+- There is a growing concern about the complexity of CI/CD setups, with practitioners seeking simpler, more efficient deployment solutions.
   - 🔗 Source: <GitLab CI vs Jenkins vs GitHub Actions : r/devops - Reddit> (https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/)
-  - 🔗 Source: <Jenkins vs. GitHub Actions vs. GitLab CI - DEV Community> (https://dev.to/574n13y/jenkins-vs-github-actions-vs-gitlab-ci-2k35)
+  - 🔗 Source: <Moving from Jenkins to Harness, any advice and ...> (https://www.reddit.com/r/devops/comments/1lqynqk/moving-from_jenkins_to_harness_any_advice_and/)
 
-- Developers are actively seeking lightweight, easy-to-implement CI/CD solutions, as evidenced by the interest in tools like Forgejo and Haloy, which simplify deployment processes.
-  - 🔗 Source: <Show HN: Quick install script for self-hosted Forgejo (Git+CI) server> (https://wkoszek.github.io/easyforgejo/)
+- Many developers are expressing frustration with the lack of clear documentation and support for self-hosted CI/CD tools, impacting their ability to adopt new technologies effectively.
+  - 🔗 Source: <What are some common issues you've faced when upgrading ...> (https://www.reddit.com/r/jenkinsci/comments/1ftlaiz/what_are_some_common_issues_youve_faced_when/)
+  - 🔗 Source: <Issues with Jenkins Upgrade with huge number of plugins> (https://stackoverflow.com/questions/75553296/issues-with-jenkins-upgrade-with-huge-number-of-plugins)
+
+- Embedded firmware developers are looking for tools that can track memory usage and prevent build failures due to memory bloat, indicating a demand for specialized CI/CD solutions.
+  - 🔗 Source: <Show HN: MemBrowse - CI/CD memory footprint tracking for embedded firmware> (https://membrowse.com)
   - 🔗 Source: <Show HN: Haloy – an open‑source, lightweight deployment system for Docker apps> (https://github.com/haloydev/haloy)
 
-- Embedded firmware developers are looking for specialized tools to track memory usage in CI/CD processes, indicating a demand for more tailored solutions in niche areas.
-  - 🔗 Source: <Show HN: MemBrowse - CI/CD memory footprint tracking for embedded firmware> (https://membrowse.com)
-  - 🔗 Source: <Three things I've learned about Git while building a CI/CD tool> (https://www.ocuroot.com/blog/things-i-learned-about-git/)
+- Community discussions highlight skepticism towards the longevity of Jenkins, with some users considering alternatives like GitLab CI and GitHub Actions, suggesting a shift in adoption patterns.
+  - 🔗 Source: <GitLab CI vs Jenkins vs GitHub Actions : r/devops - Reddit> (https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/)
+  - 🔗 Source: <GitHub Actions vs. Jenkins: Which one's right for your team? | Buildkite> (https://buildkite.com/resources/ci-cd-perspectives/github-actions-vs-jenkins-which-one-s-right-for-your-team/)
 
-- Community discussions reveal a desire for better integration and tracking capabilities within CI/CD workflows, particularly for memory management and deployment efficiency.
+### Competitor Narratives (how vendors are trying to shape the market)
+- GitLab emphasizes its integrated CI/CD capabilities, positioning itself as a one-stop solution for DevOps, often downplaying Jenkins' relevance.
+  - 🔗 Source: <GitLab vs. GitHub vs. Harness vs. CloudBees vs Devtron> (https://devtron.ai/blog/gitlab-vs-github-vs-harness-vs-cloudbees-vs-devtron-choosing-the-right-devops-platform/)
+  - 🔗 Source: <How to Migrate Off Jenkins: The Road to Modern CI/CD | Blog> (https://www.harness.io/blog/how-to-migrate-off-jenkins-the-road-to-modern-ci-cd)
+
+- GitHub promotes GitHub Actions as a cloud-native, scalable CI/CD solution, suggesting that self-hosted options like Jenkins are becoming obsolete.
+  - 🔗 Source: <GitHub vs. GitLab and other DevOps tools> (https://resources.github.com/devops/tools/compare/)
+  - 🔗 Source: <Comparing GitHub Actions vs Jenkins: CI showdown - Pluralsight> (https://www.pluralsight.com/resources/blog/cloud/comparing-github-actions-vs-jenkins-ci-showdown)
+
+- Harness focuses on simplifying the CI/CD process with a strong emphasis on automation and ease of use, aiming to attract users frustrated with complex setups.
+  - 🔗 Source: <Migrating From Jenkins to Harness CIE: A Journey | Blog> (https://www.harness.io/blog/jenkins-to-cie-journey)
+  - 🔗 Source: <CloudBees vs GitHub Actions: Choosing a CI/CD Platform for Your ...> (https://www.cloudbees.com/blog/cloudbees-vs-github-actions-choosing-a-ci-cd-platform-for-your-business)
+
+- AWS markets its CI/CD tools as part of a broader cloud ecosystem, highlighting scalability and integration with other AWS services to appeal to enterprise customers.
   - 🔗 Source: <Docker Compose Continuous Deployment> (https://github.com/kimdre/doco-cd)
   - 🔗 Source: <Production-Grade Container Deployment with Podman Quadlets – Larvitz Blog> (https://blog.hofstede.it/production-grade-container-deployment-with-podman-quadlets/index.html)
 
-### Competitor Narratives (how vendors are trying to shape the market)
-- GitLab positions itself as a comprehensive DevOps platform that integrates CI/CD seamlessly, emphasizing ease of use and collaboration.
-  - 🔗 Source: <GitLab vs. GitHub vs. Harness vs. CloudBees vs Devtron> (https://devtron.ai/blog/gitlab-vs-github-vs-harness-vs-cloudbees-vs-devtron-choosing-the-right-devops-platform/)
-  - 🔗 Source: <GitLab's Confusion - CloudBees> (https://www.cloudbees.com/blog/gitlabs-confusion)
-
-- GitHub promotes GitHub Actions as a cloud-native solution that scales automatically, appealing to teams looking for a simplified, integrated CI/CD experience.
-  - 🔗 Source: <GitHub Actions vs. Jenkins: Which one's right for your team? | Buildkite> (https://buildkite.com/resources/ci-cd-perspectives/github-actions-vs-jenkins-which-one-s-right-for-your-team/)
-  - 🔗 Source: <Comparing GitHub Actions vs Jenkins: CI showdown - Pluralsight> (https://www.pluralsight.com/resources/blog/cloud/comparing-github-actions-vs-jenkins-ci-showdown)
-
-- Harness focuses on continuous delivery and deployment, highlighting its ability to manage complex deployments with minimal configuration.
-  - 🔗 Source: <How to Migrate Off Jenkins: The Road to Modern CI/CD | Blog> (https://www.harness.io/blog/how-to-migrate-off-jenkins-the-road-to-modern-ci-cd)
-  - 🔗 Source: <Break Free From Jenkins - Modernize Pipelines in 1 Day - Harness> (https://www.harness.io/butler)
-
-- AWS emphasizes the scalability and flexibility of its CI/CD tools, aiming to attract enterprises looking for robust cloud-based solutions.
-  - 🔗 Source: <CloudBees vs GitHub Actions: Choosing a CI/CD Platform for Your ...> (https://www.cloudbees.com/blog/cloudbees-vs-github-actions-choosing-a-ci-cd-platform-for-your-business)
-  - 🔗 Source: <GitHub vs. GitLab and other DevOps tools> (https://resources.github.com/devops/tools/compare/)
-
-- Many vendors are pushing narratives around modernization and the need to transition from legacy systems like Jenkins to more agile, cloud-first approaches.
-  - 🔗 Source: <Migrating From Jenkins to Harness CIE: A Journey | Blog> (https://www.harness.io/blog/jenkins-to-cie-journey)
-  - 🔗 Source: <Migrating to a new host and upgrading - Community - Jenkins> (https://community.jenkins.io/t/migrating-to-a-new-host-and-upgrading/15526)
-
 ### Strategic Implications for CloudBees
-- Lean into the narrative of safe Jenkins modernization by offering clear, actionable upgrade paths and support for existing Jenkins users facing upgrade challenges.
-  - 🔗 Source: <Issues with Jenkins Upgrade with huge number of plugins> (https://stackoverflow.com/questions/75553296/issues-with-jenkins-upgrade-with-huge-number-of-plugins)
+- Lean into safe Jenkins modernization by enhancing documentation and support for plugin management during upgrades to alleviate customer pain points.
   - 🔗 Source: <Update Center best practices for plugin management> (https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/best-practices/update-center-best-practices-for-plugin-management)
+  - 🔗 Source: <Build Failures and Plugin Errors - Using Jenkins> (https://community.jenkins.io/t/build-failures-and-plugin-errors/16821)
 
-- Clarify CloudBees' stance on the evolving CI/CD landscape, particularly regarding the integration of AI and automation in pipelines to address emerging developer needs.
+- Clarify CloudBees' stance on the future of Jenkins in the context of emerging CI/CD solutions, reinforcing its relevance and capabilities.
+  - 🔗 Source: <GitLab's Confusion - CloudBees> (https://www.cloudbees.com/blog/gitlabs-confusion)
   - 🔗 Source: <An Overview of CI/CD Pipeline and tools — Jenkins, Cloudbees ...> (https://hanwenzhang123.medium.com/an-overview-of-cicd-pipeline-with-tools-jenkins-cloudbees-rancher-af246250dce9)
-  - 🔗 Source: <GitHub promotes GitHub Actions as a cloud-native solution ...> (https://buildkite.com/resources/ci-cd-perspectives/github-actions-vs-jenkins-which-one-s-right-for-your-team/)
 
-- Simplify the migration story from Jenkins to CloudBees, providing resources and tools that make the transition less daunting for users considering alternatives.
-  - 🔗 Source: <Migrating From Jenkins to Harness CIE: A Journey | Blog> (https://www.harness.io/blog/jenkins-to-cie-journey)
+- Simplify the migration story from Jenkins to CloudBees, making it easier for users to transition without losing functionality or facing compatibility issues.
+  - 🔗 Source: <Migrating CD Jenkins Pipelines to Harness Using Helm> (https://www.harness.io/blog/cd-jenkins-pipelines-harness)
   - 🔗 Source: <How to Migrate Off Jenkins: The Road to Modern CI/CD | Blog> (https://www.harness.io/blog/how-to-migrate-off-jenkins-the-road-to-modern-ci-cd)
 
-- Highlight the unique strengths of CloudBees in managing complex CI/CD workflows, particularly for enterprise-scale applications, to differentiate from competitors.
-  - 🔗 Source: <CloudBees vs GitHub Actions: Choosing a CI/CD Platform for Your ...> (https://www.cloudbees.com/blog/cloudbees-vs-github-actions-choosing-a-ci-cd-platform-for-your-business)
-  - 🔗 Source: <GitLab vs. GitHub vs. Harness vs. CloudBees vs Devtron> (https://devtron.ai/blog/gitlab-vs-github-vs-harness-vs-cloudbees-vs-devtron-choosing-the-right-devops-platform/)
+- Develop targeted messaging around the unique needs of embedded firmware developers, potentially creating specialized features that address their specific CI/CD challenges.
+  - 🔗 Source: <Show HN: MemBrowse - CI/CD memory footprint tracking for embedded firmware> (https://membrowse.com)
+  - 🔗 Source: <Show HN: Quick install script for self-hosted Forgejo (Git+CI) server> (https://wkoszek.github.io/easyforgejo/)
 
-- Engage with the community to gather feedback on pain points and desired features, ensuring that CloudBees evolves in alignment with practitioner needs and market trends.
-  - 🔗 Source: <Moving from Jenkins to Harness, any advice and experience you ...> (https://www.reddit.com/r/devops/comments/1lqynqk/moving_from_jenkins_to_harness_any_advice_and/)
+- Foster community engagement by actively participating in discussions around CI/CD pain points, positioning CloudBees as a thought leader that listens and responds to user needs.
   - 🔗 Source: <Ask HN: Where to Migrate as an IT Support/DevOps Engineer for Work?> (https://news.ycombinator.com/item?id=45942862)
+  - 🔗 Source: <GitLab CI vs Jenkins vs GitHub Actions : r/devops - Reddit> (https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/)
 ```
 
 ---
@@ -261,51 +253,50 @@ Validate insights and explore deeper:
 - [Operations center fails to load plugins or start after upgrade with ...](https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/operations-center/pipeline-plugins-installed-on-operations-center)
 - [Issues upgrading jenkins - Ask a question](https://community.jenkins.io/t/issues-upgrading-jenkins/17772)
 - [A plugin release is not available from Update Center](https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/troubleshooting-guides/a-plugin-release-is-not-available-from-update-center)
-- [Upgrading from CloudBees CI versions older than 2.452.2.3](https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/best-practices/upgrading-from-versions-before-2-401-1-3)
+- [Update Center best practices for plugin management](https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/best-practices/update-center-best-practices-for-plugin-management)
 - [Issues with Jenkins Upgrade with huge number of plugins](https://stackoverflow.com/questions/75553296/issues-with-jenkins-upgrade-with-huge-number-of-plugins)
 - [Build Failures and Plugin Errors - Using Jenkins](https://community.jenkins.io/t/build-failures-and-plugin-errors/16821)
-- [Update Center best practices for plugin management](https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/best-practices/update-center-best-practices-for-plugin-management)
+- [Jenkins Health Advisor by CloudBees](https://docs.cloudbees.com/docs/cloudbees-ci/latest/maintaining/cloudbees-jenkins-advisor)
 - [Jenkins is not starting after plugin upgrade - Ask a question](https://community.jenkins.io/t/jenkins-is-not-starting-after-plugin-upgrade/17375)
 - [CloudBees vs GitHub Actions: Choosing a CI/CD Platform for Your ...](https://www.cloudbees.com/blog/cloudbees-vs-github-actions-choosing-a-ci-cd-platform-for-your-business)
 - [Gitlab CI vs Jenkins vs GitHub Actions : r/devops - Reddit](https://www.reddit.com/r/devops/comments/105a2bn/gitlab_ci_vs_jenkins_vs_github_actions/)
 - [GitLab vs. GitHub vs. Harness vs. CloudBees vs Devtron](https://devtron.ai/blog/gitlab-vs-github-vs-harness-vs-cloudbees-vs-devtron-choosing-the-right-devops-platform/)
 - [The best DevOps platforms compared: The definitive guide for 2025](https://pieces.app/blog/devops-platforms)
-- [Jenkins vs. GitHub Actions vs. GitLab CI - DEV Community](https://dev.to/574n13y/jenkins-vs-github-actions-vs-gitlab-ci-2k35)
 - [GitHub Actions vs. Jenkins: Which one's right for your team? | Buildkite](https://buildkite.com/resources/ci-cd-perspectives/github-actions-vs-jenkins-which-one-s-right-for-your-team/)
 - [Comparing GitHub Actions vs Jenkins: CI showdown - Pluralsight](https://www.pluralsight.com/resources/blog/cloud/comparing-github-actions-vs-jenkins-ci-showdown)
+- [Jenkins vs. GitHub Actions vs. GitLab CI - DEV Community](https://dev.to/574n13y/jenkins-vs-github-actions-vs-gitlab-ci-2k35)
 - [GitLab's Confusion - CloudBees](https://www.cloudbees.com/blog/gitlabs-confusion)
 - [GitHub vs. GitLab and other DevOps tools](https://resources.github.com/devops/tools/compare/)
 - [An Overview of CI/CD Pipeline and tools — Jenkins, Cloudbees ...](https://hanwenzhang123.medium.com/an-overview-of-cicd-pipeline-with-tools-jenkins-cloudbees-rancher-af246250dce9)
 - [How to Migrate Off Jenkins: The Road to Modern CI/CD | Blog](https://www.harness.io/blog/how-to-migrate-off-jenkins-the-road-to-modern-ci-cd)
 - [Convert a Jenkins pipeline to a Harness CD pipeline](https://developer.harness.io/docs/continuous-delivery/cd-onboarding/new-user/convert-jenkins-pipeline-to-harness)
+- [Moving from Jenkins to Harness, any advice and ...](https://www.reddit.com/r/devops/comments/1lqynqk/moving_from_jenkins_to_harness_any_advice_and/)
 - [Migrating From Jenkins to Harness CIE: A Journey | Blog](https://www.harness.io/blog/jenkins-to-cie-journey)
-- [Moving from Jenkins to Harness, any advice and experience you ...](https://www.reddit.com/r/devops/comments/1lqynqk/moving_from_jenkins_to_harness_any_advice_and/)
-- [Jenkins to Harness Migration/Modernization Demo - YouTube](https://www.youtube.com/watch?v=0BudbQ7hQWc)
-- [Migrating CD Jenkins Pipelines to Harness Using Helm | Blog](https://www.harness.io/blog/cd-jenkins-pipelines-harness)
-- [Strategic Migration and Modernization: A Comprehensive Guide to ...](https://www.staffworx.co.uk/2025/07/23/strategic-migration-and-modernization-a-comprehensive-guide-to-transitioning-from-jenkins-to-the-harness-platform/)
-- [Break Free From Jenkins - Modernize Pipelines in 1 Day - Harness](https://www.harness.io/butler)
-- [Migrating to a new host and upgrading - Community - Jenkins](https://community.jenkins.io/t/migrating-to-a-new-host-and-upgrading/15526)
-- [Migrate from Jenkins - GitLab Docs](https://docs.gitlab.com/ci/migration/jenkins/)
+- [Jenkins to Harness Migration/Modernization Demo](https://www.youtube.com/watch?v=0BudbQ7hQWc)
+- [Migrating CD Jenkins Pipelines to Harness Using Helm](https://www.harness.io/blog/cd-jenkins-pipelines-harness)
+- [Strategic Migration and Modernization: A Comprehensive ...](https://www.staffworx.co.uk/2025/07/23/strategic-migration-and-modernization-a-comprehensive-guide-to-transitioning-from-jenkins-to-the-harness-platform/)
+- [Migrate from Jenkins](https://docs.gitlab.com/ci/migration/jenkins/)
+- [Migration from Jenkins to CIE — A journey](https://medium.com/harness-engineering/migration-from-jenkins-to-cie-a-journey-947d9b5ce692)
 - [DORA's software delivery metrics: the four keys](https://dora.dev/guides/dora-metrics-four-keys/)
 - [DORA Metrics, Flow Metrics (Lead Time, Cycle Time, Throughput)](https://www.projectmanagement.com/wikis/1122558/modern-metrics--dora-metrics--flow-metrics--lead-time--cycle-time--throughput-)
-- [What Are DORA Metrics? A Guide for DevOps Teams - New Relic](https://newrelic.com/blog/best-practices/dora-metrics)
 - [DevOps & DORA Metrics: The Complete Guide - Splunk](https://www.splunk.com/en_us/blog/learn/devops-metrics.html)
-- [Flow & DORA Metrics Combined For Better Delivery - Mstone.ai](https://mstone.ai/question/flow-vs-dora-metrics-benefits-together/)
+- [What Are DORA Metrics? A Guide for DevOps Teams - New Relic](https://newrelic.com/blog/best-practices/dora-metrics)
+- [DORA Metrics: How to measure Open DevOps Success - Atlassian](https://www.atlassian.com/devops/frameworks/dora-metrics)
 - [What Are DORA Metrics? | Planview](https://www.planview.com/resources/articles/what-are-dora-metrics/)
-- [Beyond Flow Metrics: A Holistic Approach to Software Value Delivery](https://uplevelteam.com/blog/beyond-flow-metrics)
 - [DORA Metrics - Datadog Docs](https://docs.datadoghq.com/dora_metrics/)
-- [DORA Metrics: Measuring DevOps Performance - CloudBees](https://www.cloudbees.com/blog/cloudbees-platform-dora-metrics-tutorial)
-- [DORA metrics: How high-performing teams track DevOps success](https://appfire.com/resources/blog/dora-metrics-with-flow)
+- [DORA metrics - CloudBees Documentation](https://docs.cloudbees.com/docs/cloudbees-platform/latest/analytics/dora-metrics)
+- [Beyond Flow Metrics: A Holistic Approach to Software Value Delivery](https://uplevelteam.com/blog/beyond-flow-metrics)
+- [Flow & DORA Metrics Combined For Better Delivery - Mstone.ai](https://mstone.ai/question/flow-vs-dora-metrics-benefits-together/)
 - [Best DevOps Platforms Reviews 2025 | Gartner Peer Insights](https://www.gartner.com/reviews/market/devops-platforms)
 - [Top 10 Internal Developer Platforms - Qovery](https://www.qovery.com/blog/10-best-internal-developer-platforms)
 - [Actual succesfull experiences with Internal Developer Platforms](https://www.reddit.com/r/devops/comments/1ae7l8r/actual_succesfull_experiences_with_internal/)
 - [Top 6 Internal Developer Platforms for 2025 | Blog - Northflank](https://northflank.com/blog/top-six-internal-developer-platforms)
-- [Top 20 Platform Engineering Tools to Use in 2025 - Spacelift](https://spacelift.io/blog/platform-engineering-tools)
 - [Comparison of Internal Developer Platforms | by Anita Ihuman](https://medium.com/@Anita-ihuman/comparison-of-internal-developer-platforms-90de61db00e1)
-- [Internal developer portals vs. internal developer platforms - Quali](https://www.quali.com/blog/internal-developer-portals-vs-internal-developer-platforms-comparison/)
+- [Top 20 Platform Engineering Tools to Use in 2025 - Spacelift](https://spacelift.io/blog/platform-engineering-tools)
 - [Best Internal Developer Portals Reviews 2025 | Gartner Peer Insights](https://www.gartner.com/reviews/market/internal-developer-portals)
 - [A curated list of awesome DevOps platforms, tools ... - GitHub](https://github.com/wmariuss/awesome-devops)
-- [Internal Developer Platforms: Top 5 Use Cases & 5 Key Components |](https://octopus.com/devops/platform-engineering/internal-developer-platform/)
+- [Internal developer portals vs. internal developer platforms - Quali](https://www.quali.com/blog/internal-developer-portals-vs-internal-developer-platforms-comparison/)
+- [160+ Best DevOps Tools [Updated for 2025] - DevOpsCube](https://devopscube.com/best-devops-tools/)
 
 ---
 Generated automatically by CloudBees Market Watch Agent.
