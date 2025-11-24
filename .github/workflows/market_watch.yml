@@ -1,95 +1,59 @@
 name: CloudBees Market Watch
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "0 9 * * *" # daily at 09:00 UTC
-  push:
-    paths-ignore:
-      - "reports/**"
-      - "sources/**"
-      - "data/posts.json"
+    - cron: "0 7 * * *"   # daily at 07:00 UTC
+  workflow_dispatch:
 
 jobs:
-  run-agent:
+  market-watch:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write   # Required for auto-commit
-      actions: read
-
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Needed for committing
+          persist-credentials: true
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # --------------------------
-      # Run Scraper
-      # --------------------------
       - name: Run scraper
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
         run: |
           python scrape_only.py
 
-      # Always store raw posts as artifact
-      - name: Upload scraped posts
-        uses: actions/upload-artifact@v4
-        with:
-          name: scraped-posts
-          path: data/posts.json
-
-      # --------------------------
-      # Run Summarizer
-      # --------------------------
       - name: Run summarizer
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python summarize_only.py
 
-      - name: Upload summary report
-        uses: actions/upload-artifact@v4
-        with:
-          name: market-watch-report
-          path: reports/*.md
-
-      - name: Upload evidence sources
-        uses: actions/upload-artifact@v4
-        with:
-          name: market-watch-sources
-          path: sources/*.md
-
-      # --------------------------
-      # Auto-commit the new files
-      # --------------------------
-      - name: Commit updated reports + sources
+      - name: Commit new reports
         run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
+          git config --local user.email "bot@cloudbees.com"
+          git config --local user.name "CloudBees Market Bot"
 
-          # Stage changed files
-          git add reports/*.md || true
-          git add sources/*.md || true
-          git add data/posts.json || true
+          git add reports/*.md
 
-          # Skip if nothing changed
-          if git diff --cached --quiet; then
+          if git diff-index --quiet HEAD --; then
             echo "No changes to commit."
-            exit 0
+          else
+            git commit -m "📊 Daily Market Watch ($(date -u +"%Y-%m-%d"))"
+            git push
           fi
 
-          commit_message="Auto-update Market Watch report for $(date -u +"%Y-%m-%d")"
-          git commit -m "$commit_message"
-          git push origin HEAD:${{ github.ref }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: market-reports
+          path: |
+            data/posts.json
+            reports/*.md
