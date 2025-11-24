@@ -1,90 +1,84 @@
-# 🛠️ CloudBees Market Watch Agent
+🛠️ CloudBees Market Watch Agent
 
-A lightweight DevOps market-intelligence agent that scrapes public sources, extracts trends and sentiment, and generates clean Markdown reports.  
-Designed for **VS Code**, **GitHub Actions**, and **absolute reliability** in unattended daily runs.
+A lightweight DevOps intelligence agent that scrapes public sources, extracts insights, links every insight to its evidence, and generates daily Markdown reports.
 
-This repo uses the **latest simplified + hardened architecture**, including:
+Designed for PMs, PMMs, competitive intelligence, engineering leadership, and analysts who need clear signals and traceability — not a mountain of raw data.
 
-- **Scraping sources:** Hacker News, competitor blogs, Google Search via **Serper.dev**
-- **No Reddit**, **no LinkedIn**, **no SerpAPI**
-- **Two-phase pipeline:**  
-  `scrape_only.py` → `summarize_only.py`
-- **HTML-cleaned + truncated summaries** (fast + clean GPT prompts)
-- **Safe trend classifier**
-- **Dedupe + retry-hardened scrapers**
-- **Consistent Markdown reporting**
+This repo now uses:
 
----
+Serper.dev Google Search
 
-## 📦 Project Structure
+Hacker News RSS
 
+Competitor RSS feeds
+
+LLM-based Insight Extraction
+
+LLM-based Evidence Linking (Option A)
+
+GitHub Actions automation with auto-commit
+
+A clean, Teams-ready summary format
+
+No Reddit.
+No LinkedIn.
+No HTML noise.
+No raw GPT responses in the summary.
+
+📦 Project Structure
 CloudBees-Market-Watcher/
-├── scrape_only.py # Collects posts → data/posts.json
-├── summarize_only.py # Summaries + insights → reports/YYYY-MM-DD.md
-├── summarizer.py # GPT summarization + insight extraction
-├── utils.py # Grouping + Markdown report writer
-├── main.py # (Optional) combined pipeline for local runs
+├── scrape_only.py          # Scrapes all sources → data/posts.json
+├── summarize_only.py       # Summaries, insights, evidence linking, reporting
+├── summarizer.py           # GPT logic: summaries, insights, evidence linking
+├── utils.py                # Grouping, report writer, sources writer
 ├── scraper/
-│ ├── competitor.py # Hardened RSS competitor scraper (HTML-safe)
-│ ├── google_watcher.py # Serper.dev search, deduped + retried
-│ ├── hn.py # Hacker News RSS + HTML cleanup
-│ ├── trend_classifier.py # Keyword-based trend tagging
-│ ├── competitors.yaml # Feed list
-│ ├── hn.yaml # Feed list
-│ └── reddit.yaml # (Unused — historical)
-└── data/
-└── reports/
+│   ├── competitor.py       # Competitor RSS feeds (YAML configured)
+│   ├── google_watcher.py   # Serper.dev Google Search scraper
+│   ├── hn.py               # HackerNews RSS scraper
+│   ├── trend_classifier.py # Lightweight keyword-based trend tags
+│   ├── competitors.yaml    # Feed list
+│   └── hn.yaml             # Feed list
+├── data/                   # Raw scraped data
+└── reports/                # Final daily reports
+└── sources/                # Evidence sources for verification
 
-yaml
-Copy code
+🚀 What the Agent Does
+1. Scrapes Market & Ecosystem Data
 
----
+From:
 
-## 🚀 What the Agent Does
+Hacker News (filtered feeds)
 
-### 1. Scrapes:
+Competitor blogs (GitLab, CircleCI, Harness, Atlassian, CloudBees, etc.)
 
-- **Hacker News** (filtered CI/CD/DevOps topics)
-- **Competitor blogs** (GitHub/GitLab/CircleCI/Harness/etc.)
-- **Google Search** (Serper.dev) using targeted queries:
-  - Jenkins upgrade issues
-  - CloudBees vs GitHub/GitLab
-  - Migration patterns (Jenkins → Harness)
-  - DORA metrics / flow metrics
-  - Internal Developer Platform (IDP) ecosystem
-  - DevOps tooling reviews
+Google Search via Serper.dev
 
-### 2. Cleans & normalizes into structured JSON
+Jenkins upgrade issues
 
-Each item includes:
+CloudBees vs GitHub/GitLab
 
-```json
+CI/CD migration patterns (Jenkins → Harness, etc.)
+
+DORA & Flow metrics
+
+IDP / DevOps tooling
+
+Platform engineering trends
+
+2. Normalizes Everything into Structured JSON
+
+Each post becomes:
+
 {
-  "title": "...",
-  "url": "...",
-  "summary": "clean text...",
-  "source": "Google | Competitors | HackerNews",
-  "type": "🚀 Product Updates | 💬 Social Buzz | 📈 Trends",
+  "title": "",
+  "url": "",
+  "summary": "",
+  "source": "",
+  "type": "Product Update | Social Buzz | Trend",
   "is_trend": true/false
 }
-All summaries are:
 
-HTML-stripped
-
-Truncated to ~300 chars
-
-Safe for GPT input
-
-3. Summarizes into Markdown
-Organized into:
-
-🚀 Product Updates
-
-💬 Social Buzz
-
-📈 Trends
-
-🧠 Insights (AI-generated)
+3. Extracts Insights Using GPT-4o-mini
 
 Key Trends
 
@@ -92,127 +86,163 @@ Pain Points
 
 Opportunities for CloudBees
 
-Market Sentiment Indicators
+Market Sentiment Signals
 
-4. Outputs a daily report:
-css
-Copy code
-reports/YYYY-MM-DD.md
+4. NEW: LLM Evidence Linking
+
+Each insight is paired with 3–6 relevant supporting URLs:
+
+### Key Trends
+- Shift toward agentic AI
+  - [GitLab Duo Agent Platform](…)
+  - [Azure DevOps – Agentic AI](…)
+  - [Harness Knowledge Agent](…)
+
+
+This creates full traceability for PMs, PMMs, CI teams, and executives.
+
+5. Generates Two Markdown Artifacts
+reports/YYYY-MM-DD.md          → Teams-ready summary with evidence
+sources/YYYY-MM-DD-sources.md  → Clean list of all sources
+
+
+Both are auto-committed back into the repo.
+
 🧪 Local Setup
 1. Install dependencies
-bash
-Copy code
 pip install -r requirements.txt
-2. Add environment variables
-In .env or shell:
 
-bash
-Copy code
-export SERPER_API_KEY=<your-serper-dev-key>
-export OPENAI_API_KEY=<your-openai-key>
-3. Run manually
-bash
-Copy code
+2. Set your environment variables
+SERPER_API_KEY=<your-serper-key>
+OPENAI_API_KEY=<your-openai-key>
+
+3. Run the pipeline manually
 python scrape_only.py
 python summarize_only.py
-(Optional) Use combined runner:
-bash
-Copy code
-python main.py
-🧠 Architecture Notes
-Why HTML cleanup?
-Competitor RSS feeds often embed full blog HTML.
-We now clean all HTML + truncate long summaries →
-Cleaner reports + faster + cheaper GPT calls.
 
-Why dedupe?
-Google can repeat the same result across multiple queries.
-We now dedupe globally per run.
 
-Why two phases?
-Scrape failures shouldn’t block summarization.
-Artifacts allow debugging raw scraped data.
+Outputs:
 
-Trend classifier
-Simple keyword-based classifier covering:
+data/posts.json
 
-GitOps
+reports/<date>.md
 
-Platform Engineering
+sources/<date>-sources.md
 
-Internal Developer Platforms (IDP)
+📤 GitHub Actions Automation (with Auto-Commit)
 
-AI-in-DevOps
-
-Supply chain / SBOM
-
-DORA/Flow metrics
-
-Migration/modernization
-
-Extend in scraper/trend_classifier.py.
-
-📤 GitHub Actions Automation
 The workflow:
 
-Checks out repo
+Runs daily (or on-demand)
 
-Installs dependencies
+Scrapes → data/posts.json
 
-Runs scrape_only.py
+Summarizes + insight extraction + evidence linking
 
-Uploads data/posts.json for debugging
+Generates:
 
-Runs summarize_only.py
+/reports/YYYY-MM-DD.md
 
-Uploads final report
+/sources/YYYY-MM-DD-sources.md
 
-Secrets required:
+Uploads artifacts
 
-nginx
-Copy code
-SERPER_API_KEY
-OPENAI_API_KEY
-Schedule example:
+Auto-commits new reports back into the repo
 
-yaml
-Copy code
-schedule:
-  - cron: "0 9 * * *"
-🧩 Future Improvements
-Slack/Teams notifications
+Avoids infinite loops (reports & sources do not trigger new runs)
 
-Notion/Supabase sync
+The complete workflow file lives at:
 
-Weekly trend deltas
+.github/workflows/market-watch.yml
 
-ML-based sentiment scoring
+🧠 How Insight Extraction Works
+The LLM performs three tasks:
+1️⃣ Summarization
 
-Auto-tagging of topics
+Your post groups become bulleted summaries.
 
-🤝 Contributions
-PRs welcome—especially:
+2️⃣ Insight Extraction
 
-New blog feeds
+The LLM returns this JSON structure:
+
+{
+  "Key Trends": [],
+  "Pain Points": [],
+  "Opportunities for CloudBees": [],
+  "Indicators of DevOps Market Sentiment": []
+}
+
+3️⃣ Evidence Linking (NEW)
+
+For every insight, the model maps the most relevant URLs from the scraped dataset.
+
+Users get:
+
+Meaningful insights
+
+Trustworthy traceability
+
+Links for deeper research
+
+🧩 How to Edit the LLM Prompt
+
+All prompt editing lives in:
+
+summarizer.py
+
+
+You can modify:
+
+Tone
+
+Depth
+
+Audience
+
+Section names
+
+Structure
+
+Output format
+
+If you want help tuning prompts for:
+
+Executives
+
+PMs
+
+PMMs
+
+Competitive intelligence
+
+Engineering leadership
+
+Just ask!
+
+🔮 Next Improvements
+
+“Delta Mode” → what changed since yesterday
+
+Team Slack notifications
+
+Notion / Confluence sync
+
+Confidence scoring per insight
+
+Heatmaps of noisy vs high-value sources
+
+De-duplication for Google Search results
+
+🤝 Contributions & Feedback
+
+PRs welcome — especially:
+
+New feed sources
 
 Better trend rules
 
-New search queries
+Improved insight prompts
 
-Report formatting improvements
+UI integrations (Slack, Teams, Notion)
 
-If you want help extending CI, adding alerts, or plugging into databases, just ask! 🚀
-
-yaml
-Copy code
-
----
-
-# 🎉 README is done  
-If you want:  
-✅ a badge for GHA status  
-✅ auto-commit reports back to the repo  
-✅ Slack notifications  
-✅ or a cleaner TOC
-
-Just tell me!
+If you want help expanding this agent into a fully production competitive intelligence system, just ask!
