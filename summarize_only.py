@@ -1,69 +1,80 @@
+# summarize_only.py
 import json
 import os
 from datetime import datetime
-from summarizer import generate_summary, extract_insights_from_social
-from utils import group_posts_by_topic, write_report
+
+from summarizer import generate_summary
+from utils import write_report
+from llm_helpers import extract_insights_batch_linked
 from exec_summary import generate_exec_summary
 
-def extract_curated_source_list(posts):
+
+def load_posts():
+    path = "data/posts.json"
+    if not os.path.exists(path):
+        raise FileNotFoundError("❌ data/posts.json not found. Run scrape_only.py first.")
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def curate_sources(posts):
     """
-    Builds a clean list of unique (title, url) for exec summary.
-    Avoids duplicates. Avoids HN comment URLs.
+    Deduplicate links + keep only valid URLs + preserve titles.
+    Output: list of (title, url) tuples
     """
     seen = set()
     curated = []
 
     for p in posts:
-        title = p.get("title", "Untitled")
+        title = p.get("title") or "Untitled"
         url = p.get("url") or p.get("link")
-        if not url:
+        if not url or url in seen:
             continue
 
-        key = (title, url)
-        if key not in seen:
-            curated.append(key)
-            seen.add(key)
+        curated.append((title, url))
+        seen.add(url)
 
     return curated
 
 
+def write_exec_summary(insights, curated_sources):
+    """Write exec_summary.md alongside the main report."""
+
+    md = generate_exec_summary(insights, curated_sources)
+    path = "reports/exec_summary.md"
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(md)
+
+    print(f"✅ Exec Summary written to {path}")
+    return path
+
+
 def main():
-    print("✍️ Starting summarization...")
+    print("🧠 Starting summarization...")
 
-    with open("data/posts.json") as f:
-        posts = json.load(f)
-
+    posts = load_posts()
     print(f"✅ Loaded {len(posts)} posts")
 
-    print("📊 Grouping...")
-    grouped = group_posts_by_topic(posts)
+    # ---- Summaries for full market report ----
+    print("📝 Generating report summaries...")
+    sections = generate_summary(posts)
 
-    print("🧠 Extracting insights...")
-    insights = extract_insights_from_social(grouped.get("💬 Social Buzz", []))
+    # ---- Insights (LLM, evidence-linked) ----
+    print("🚀 Extracting insights...")
+    insights = extract_insights_batch_linked(posts)
 
-    print("📄 Building report sections...")
-    sections = {
-        "🚀 Product Updates": generate_summary(grouped["🚀 Product Updates"]),
-        "💬 Social Buzz": generate_summary(grouped["💬 Social Buzz"]),
-        "📈 Trends": generate_summary(grouped["📈 Trends"]),
-        "🧠 Insights": insights,
-    }
+    sections["🧠 Insights"] = insights
 
-    print("📝 Writing main report...")
-    write_report(sections)
+    # ---- Write main market report ----
+    report_path = write_report(sections)
 
-    print("🔍 Building curated source set...")
-    curated_sources = extract_curated_source_list(posts)
+    # ---- Exec Summary with curated links ----
+    curated_sources = curate_sources(posts)
+    write_exec_summary(insights, curated_sources)
 
-    print("📘 Generating executive summary...")
-    exec_md = generate_exec_summary(insights, curated_sources)
-
-    os.makedirs("reports", exist_ok=True)
-    exec_report_path = f"reports/exec_summary_{datetime.utcnow().strftime('%Y-%m-%d')}.md"
-    with open(exec_report_path, "w", encoding="utf-8") as f:
-        f.write(exec_md)
-
-    print(f"✅ Exec summary written to {exec_report_path}")
+    print("\n🎉 All summaries generated successfully!")
+    print(f"   - Main report: {report_path}")
+    print("   - Exec summary: reports/exec_summary.md")
 
 
 if __name__ == "__main__":
