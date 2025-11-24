@@ -1,108 +1,125 @@
-# llm_helpers.py
+# llm_helpers.py (FINAL)
 from openai import OpenAI
+import os
 import math
 
 client = OpenAI()
 
-# -----------------------------------------------------
-# Helper: Chunk posts into batches for efficient LLM use
-# -----------------------------------------------------
-def chunk_list(items, size):
-    for i in range(0, len(items), size):
-        yield items[i : i + size]
+BATCH_SIZE = 35  # keep stable + within token limits
 
 
-# -----------------------------------------------------
-# Main function: Batch-linked insights
-# -----------------------------------------------------
-def extract_insights_batch_linked(posts):
-    """
-    1. Summaries → batched into <=40-item chunks
-    2. LLM extracts insights per batch
-    3. LLM merges + links insights to best supporting URLs
-    """
-
-    print(f"🧠 Extracting insights across {len(posts)} posts...")
-
-    # STEP 1 — Convert posts into lightweight text
-    summaries = [
+def extract_post_blurbs(posts):
+    """Turn posts into short, LLM-friendly blurbs."""
+    return [
         {
             "title": p.get("title", ""),
-            "summary": p.get("summary", ""),
             "url": p.get("url") or p.get("link") or "",
+            "summary": p.get("summary", "") or "",
+            "source": p.get("source", "")
         }
         for p in posts
+        if isinstance(p, dict)
     ]
 
-    # STEP 2 — Batch the post-set for LLM context efficiency
-    batch_size = 35
-    batch_insights = []
 
-    print(f"🔄 Processing in batches of {batch_size}...")
+def llm_extract_insights(batch):
+    """Ask LLM for insights for a single batch."""
+    text_blob = "\n".join(
+        f"Title: {item['title']}\nURL: {item['url']}\nSummary: {item['summary']}"
+        for item in batch
+    )
 
-    for batch_num, batch in enumerate(chunk_list(summaries, batch_size), start=1):
-        print(f"  📦 Batch {batch_num} ({len(batch)} posts)")
+    prompt = f"""
+You are a senior DevOps market analyst. Extract insights ONLY from the data below.
 
-        batch_prompt = f"""
-Extract key insights (trends, concerns, migration patterns, opportunities)
-from the following set of DevOps-related posts.
-
-ONLY return Markdown bullet points — no commentary.
-
-Posts:
-{batch}
-"""
-
-        resp = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": batch_prompt}],
-            temperature=0.3,
-        )
-
-        batch_insights.append(resp.choices[0].message.content)
-
-    print("🔗 Linking insights to sources...")
-
-    # STEP 3 — Merge insights & link to URLs
-    merge_prompt = f"""
-You are an expert DevOps analyst.
-
-You will receive:
-- A list of insight fragments extracted from multiple batches
-- The full list of source posts with URLs
-
-Your task:
-1. Merge & deduplicate insights into **clean, crisp executive-ready bullets**
-2. For each insight, attach 1–3 supporting URLs from the post list
-3. Output in this format:
+Return EXACTLY these sections in Markdown:
 
 ### Key Trends
-- Insight text
-  - 🔗 Source: URL
-  - 🔗 Source: URL
+- ...
 
 ### Pain Points
-(bullets + links)
+- ...
 
 ### Opportunities for CloudBees
-(bullets + links)
+- ...
 
 ### Indicators of DevOps Market Sentiment
-(bullets + links)
+- ...
 
-Do NOT add commentary.
-
-Batch insights:
-{batch_insights}
-
-All source posts:
-{summaries}
+DATA:
+{text_blob}
 """
 
-    merge_resp = client.chat.completions.create(
+    resp = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[{"role": "user", "content": merge_prompt}],
+        messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
     )
 
-    return merge_resp.choices[0].message.content
+    return resp.choices[0].message.content
+
+
+def llm_link_evidence(insight_markdown, all_posts):
+    """
+    Adds "(🔗 Source: title — url)" line under each bullet.
+    Uses fuzzy text matching.
+    """
+
+    text_blob = "\n".join(
+        f"{p.get('title')} || {p.get('url')} || {p.get('summary', '')}"
+        for p in all_posts
+    )
+
+    prompt = f"""
+You will take the insight markdown and attach evidence links.
+
+For each bullet:
+- Identify 1–2 most relevant posts.
+- Append lines like:  
+  - 🔗 Source: <title> (<url>)
+
+Return ONLY updated markdown.
+
+INSIGHTS:
+{insight_markdown}
+
+POST INDEX:
+{text_blob}
+"""
+
+    resp = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.1,
+    )
+
+    return resp.choices[0].message.content
+
+
+def extract_insights_batch_linked(posts):
+    """Main pipeline: batching → insight extraction → evidence linking."""
+    print("🔄 Processing in batches of 35...")
+
+    blurbs = extract_post_blurbs(posts)
+    if not blurbs:
+        return "No insights."
+
+    total = len(blurbs)
+    batches = math.ceil(total / BATCH_SIZE)
+
+    batch_insights = []
+    for i in range(batches):
+        start = i * BATCH_SIZE
+        end = start + BATCH_SIZE
+        batch = blurbs[start:end]
+        print(f"  📦 Batch {i+1} ({len(batch)} posts)")
+
+        insight = llm_extract_insights(batch)
+        batch_insights.append(insight)
+
+    combined = "\n\n".join(batch_insights)
+
+    print("🔗 Linking insights to sources...")
+    linked = llm_link_evidence(combined, blurbs)
+
+    return linked
