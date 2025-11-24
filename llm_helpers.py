@@ -1,140 +1,108 @@
 # llm_helpers.py
-import re
 from openai import OpenAI
+import math
 
 client = OpenAI()
 
-# -----------------------------
-# HTML STRIPPER + NORMALIZER
-# -----------------------------
-def clean_text(raw: str) -> str:
-    if not raw:
-        return ""
-    # Remove HTML tags
-    text = re.sub(r"<[^>]+>", " ", raw)
-    # Replace multiple spaces/newlines
-    text = re.sub(r"\s+", " ", text).strip()
-    # Limit size for LLM
-    return text[:1200]
+# -----------------------------------------------------
+# Helper: Chunk posts into batches for efficient LLM use
+# -----------------------------------------------------
+def chunk_list(items, size):
+    for i in range(0, len(items), size):
+        yield items[i : i + size]
 
 
-# -----------------------------
-# SUMMARIZE POSTS INTO BULLETS
-# -----------------------------
-def summarize_posts(posts):
-    if not posts:
-        return "No updates found.\n"
+# -----------------------------------------------------
+# Main function: Batch-linked insights
+# -----------------------------------------------------
+def extract_insights_batch_linked(posts):
+    """
+    1. Summaries → batched into <=40-item chunks
+    2. LLM extracts insights per batch
+    3. LLM merges + links insights to best supporting URLs
+    """
 
-    lines = []
-    for p in posts:
-        title = p.get("title", "Untitled").strip()
-        summary_raw = p.get("summary") or p.get("description") or ""
-        summary = clean_text(summary_raw)
-        url = p.get("url") or p.get("link") or ""
+    print(f"🧠 Extracting insights across {len(posts)} posts...")
 
-        lines.append(f"- [{title}]({url}) — {summary}")
-
-    return "\n".join(lines) + "\n"
-
-
-# -----------------------------
-# GPT INSIGHTS (1 call)
-# -----------------------------
-def extract_insights(posts):
-    if not posts:
-        return "_No social buzz detected._"
-
-    corpus = "\n".join(
-        f"- {clean_text(p.get('title',''))}: {clean_text(p.get('summary',''))}"
+    # STEP 1 — Convert posts into lightweight text
+    summaries = [
+        {
+            "title": p.get("title", ""),
+            "summary": p.get("summary", ""),
+            "url": p.get("url") or p.get("link") or "",
+        }
         for p in posts
-    )
-
-    prompt = f"""
-You are a DevOps market research analyst.
-
-Analyze the following posts and extract **insights only**, NOT summaries.
-
-Return Markdown in the following structure:
-
-### Key Trends
-- bullets
-
-### Pain Points
-- bullets
-
-### Opportunities for CloudBees
-- bullets
-
-### Indicators of DevOps Market Sentiment
-- bullets
-
-CORPUS:
-{corpus}
-"""
-
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        temperature=0.4,
-        messages=[{"role": "user", "content": prompt}]
-    )
-
-    return response.choices[0].message.content
-
-
-# -----------------------------
-# BATCH EVIDENCE LINKING
-# -----------------------------
-def link_insights_to_sources(insights_md, posts):
-    """
-    For each bullet in insights, find the top 2 most relevant sources.
-    Batched for speed.
-    """
-
-    bullets = [
-        b.strip("- ").strip()
-        for b in insights_md.split("\n")
-        if b.startswith("- ")
     ]
 
-    if not bullets:
-        return insights_md
+    # STEP 2 — Batch the post-set for LLM context efficiency
+    batch_size = 35
+    batch_insights = []
 
-    # Prepare batch payload
-    items = []
-    for b in bullets:
-        items.append({
-            "type": "insight",
-            "insight": b,
-            "sources": [
-                {
-                    "title": p.get("title", ""),
-                    "summary": clean_text(p.get("summary", "")),
-                    "url": p.get("url") or p.get("link") or "",
-                }
-                for p in posts
-            ]
-        })
+    print(f"🔄 Processing in batches of {batch_size}...")
 
-    prompt = f"""
-Match each insight to the 1–2 most relevant sources.
+    for batch_num, batch in enumerate(chunk_list(summaries, batch_size), start=1):
+        print(f"  📦 Batch {batch_num} ({len(batch)} posts)")
 
-Return the result in this format:
+        batch_prompt = f"""
+Extract key insights (trends, concerns, migration patterns, opportunities)
+from the following set of DevOps-related posts.
 
-- Insight text
-  - 🔗 Source: Title (URL)
-  - 🔗 Source: Title (URL)
+ONLY return Markdown bullet points — no commentary.
 
-ONLY return this structured markdown.
+Posts:
+{batch}
 """
 
-    response = client.chat.completions.create(
+        resp = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": batch_prompt}],
+            temperature=0.3,
+        )
+
+        batch_insights.append(resp.choices[0].message.content)
+
+    print("🔗 Linking insights to sources...")
+
+    # STEP 3 — Merge insights & link to URLs
+    merge_prompt = f"""
+You are an expert DevOps analyst.
+
+You will receive:
+- A list of insight fragments extracted from multiple batches
+- The full list of source posts with URLs
+
+Your task:
+1. Merge & deduplicate insights into **clean, crisp executive-ready bullets**
+2. For each insight, attach 1–3 supporting URLs from the post list
+3. Output in this format:
+
+### Key Trends
+- Insight text
+  - 🔗 Source: URL
+  - 🔗 Source: URL
+
+### Pain Points
+(bullets + links)
+
+### Opportunities for CloudBees
+(bullets + links)
+
+### Indicators of DevOps Market Sentiment
+(bullets + links)
+
+Do NOT add commentary.
+
+Batch insights:
+{batch_insights}
+
+All source posts:
+{summaries}
+"""
+
+    merge_resp = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You create attribution mappings."},
-            {"role": "user", "content": prompt},
-            {"role": "user", "content": str(items)}
-        ],
+        messages=[{"role": "user", "content": merge_prompt}],
         temperature=0.2,
     )
 
-    return response.choices[0].message.content
+    return merge_resp.choices[0].message.content
