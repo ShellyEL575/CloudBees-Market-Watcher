@@ -219,30 +219,3 @@ Engineering leadership
 
 Just ask!
 
-🔮 Next Improvements
-
-“Delta Mode” → what changed since yesterday
-
-Team Slack notifications
-
-Notion / Confluence sync
-
-Confidence scoring per insight
-
-Heatmaps of noisy vs high-value sources
-
-De-duplication for Google Search results
-
-🤝 Contributions & Feedback
-
-PRs welcome — especially:
-
-New feed sources
-
-Better trend rules
-
-Improved insight prompts
-
-UI integrations (Slack, Teams, Notion)
-
-If you want help expanding this agent into a fully production competitive intelligence system, just ask!
