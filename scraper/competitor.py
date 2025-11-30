@@ -15,41 +15,41 @@ warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 
 def clean_feed_content(content):
-# Sanitize malformed XML using built-in HTML parser
-soup = BeautifulSoup(content, "html.parser")
-return str(soup)
+  # Sanitize malformed XML using built-in HTML parser
+  soup = BeautifulSoup(content, "html.parser")
+  return str(soup)
 
 
 def extract_link_from_summary(summary):
-match = re.search(r'href="(https?://[^"]+)"', summary)
-return match.group(1) if match else ""
+  match = re.search(r'href="(https?://[^"]+)"', summary)
+  return match.group(1) if match else ""
 
 
 def fetch_competitor_updates():
-with open("scraper/competitors.yaml") as f:
-urls = yaml.safe_load(f)
+  with open("scraper/competitors.yaml") as f:
+  urls = yaml.safe_load(f)
 
 
 posts = []
 brand_stats = {}
 
 
-for brand, feed_urls in urls.items():
-total_entries = 0
-for url in feed_urls:
-try:
-response = requests.get(url, timeout=10, headers={"User-Agent": "Mozilla/5.0"})
-response.encoding = 'utf-8'
-cleaned_content = clean_feed_content(response.text)
-feed = feedparser.parse(cleaned_content)
-except Exception as e:
-print(f"❌ Exception while fetching {brand} feed: {url} - {e}")
-continue
-
-
-if feed.bozo:
-print(f"❌ Feed parse error for {brand}: {url} (Error: {feed.bozo_exception})")
-continue
+      for brand, feed_urls in urls.items():
+      total_entries = 0
+      for url in feed_urls:
+      try:
+      response = requests.get(url, timeout=10, headers={"User-Agent": "Mozilla/5.0"})
+      response.encoding = 'utf-8'
+      cleaned_content = clean_feed_content(response.text)
+      feed = feedparser.parse(cleaned_content)
+      except Exception as e:
+      print(f"❌ Exception while fetching {brand} feed: {url} - {e}")
+      continue
+      
+      
+      if feed.bozo:
+      print(f"❌ Feed parse error for {brand}: {url} (Error: {feed.bozo_exception})")
+      continue
 
 
 entry_count = len(feed.entries)
