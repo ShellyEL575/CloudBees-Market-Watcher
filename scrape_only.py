@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 
 from scraper.hn import fetch_hn_stories
 from scraper.competitor import fetch_competitor_updates
+from scraper.competitor_html import fetch_competitor_html_updates
 from scraper.google_watcher import fetch_google_results
 from scraper.trend_classifier import classify_trends
 
