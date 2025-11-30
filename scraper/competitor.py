@@ -54,10 +54,12 @@ def fetch_competitor_updates():
 
             for entry in feed.entries:
                 title = entry.get("title")
-                link = entry.get("link") or extract_link_from_summary(entry.get("summary", ""))
+                if not title:
+                    title = entry.get("id") or entry.get("summary", "")[:80]  # fallback title
 
-                if not title or not link:
-                    print(f"⚠️ Skipping entry missing title or link in {brand}: {entry}")
+                link = entry.get("link") or extract_link_from_summary(entry.get("summary", ""))
+                if not link:
+                    print(f"⚠️ Skipping entry with missing link in {brand}: {entry}")
                     continue
 
                 posts.append({
