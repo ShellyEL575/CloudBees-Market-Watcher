@@ -6,8 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 
 def clean_feed_content(content):
-    # Attempt to sanitize malformed XML using BeautifulSoup
-    soup = BeautifulSoup(content, "xml")
+    # Sanitize malformed XML using built-in HTML parser instead of XML
+    soup = BeautifulSoup(content, "html.parser")
     return str(soup)
 
 def fetch_competitor_updates():
