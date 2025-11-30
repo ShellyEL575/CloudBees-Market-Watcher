@@ -1,5 +1,3 @@
-# scraper/google_watcher.py (HARDENED VERSION)
-
 import os
 import time
 import requests
@@ -8,13 +6,54 @@ from datetime import datetime
 API_URL = "https://google.serper.dev/search"
 
 SEARCH_QUERIES = [
-    'jenkins OR cloudbees upgrade issues OR plugin problems',
-    '"ci/cd success" OR cloudbees experience OR stable pipeline',
-    'cloudbees vs gitlab OR github actions vs jenkins',
-    'moved to harness OR migrated from jenkins OR ci/cd migration',
-    'dora metrics OR platform analytics OR flow metrics',
-    'devops tooling OR internal dev platform reviews',
+    # 🧱 Legacy CI/CD + Migration Signals
+    'jenkins plugin compatibility issues OR jenkins upgrade friction',
+    'migrated from jenkins OR moved to github actions OR ci/cd migration',
+    'cloudbees migration OR migrated to cloudbees experience',
+    'jenkins vs github actions OR gitlab vs cloudbees OR ci/cd tool comparisons',
+    'github actions vs jenkins 2026 OR jenkins vs harness OR devops platform comparison',
+
+    # 🚀 Platform Engineering / Internal Developer Platforms
+    '"internal developer platform" OR IDP OR platform engineering reviews',
+    'enterprise developer platform adoption OR idp team success',
+    'cloudbees platform vs backstage OR internal platform tools ci/cd',
+
+    # 🔐 DevSecOps + Compliance Trends
+    'devsecops in ci/cd OR pipeline security best practices',
+    'policy as code devops OR compliance pipelines enterprise',
+    'secure ci/cd implementation OR infrastructure as code security tools',
+
+    # 🧠 AI in DevOps / AIOps Signals
+    'ai-assisted devops tools OR ai-enhanced pipelines OR devops automation AI',
+    'ai for build optimization OR ci/cd performance tuning with ai',
+    'aiops case studies 2026 OR ai tools for dev workflows',
+
+    # 📊 Observability / Monitoring / FinOps
+    'observability pipelines OR full stack observability devops',
+    'finops best practices ci/cd OR cloud cost optimization pipelines',
+    'monitoring platform reviews OR logs metrics traces devops',
+
+    # ⚙️ Cloud Native / Kubernetes / GitOps
+    'gitops pipelines OR gitops vs traditional ci/cd OR flux argo case study',
+    'kubernetes ci/cd patterns OR cloud native deployment workflows',
+    'serverless ci/cd 2026 OR modern cloud deployment pipeline',
+
+    # 🧪 Tooling + Dev Experience
+    'new ci/cd tools 2026 OR devops tooling landscape',
+    'modern devops stack OR emerging ci/cd platforms',
+    'developer experience feedback OR internal tools for dev productivity',
+
+    # 🧭 Strategic Insights + Market Positioning
+    'ci/cd enterprise tool ROI OR devops platform total cost of ownership',
+    'which ci/cd platform to choose OR 2026 ci/cd buyer guide',
+    'top devops platforms gartner OR ci/cd vendor comparison reviews',
+
+    # 💬 Community/Practitioner Signals
+    'reddit devops pain points OR ci/cd tool complaints 2026',
+    'stackoverflow ci/cd migration issues OR internal dev tooling questions',
+    'devops linkedin post OR platform engineering success story',
 ]
+
 
 
 # --------------------------
@@ -62,6 +101,7 @@ def fetch_google_results():
             "hl": "en",
             "autocorrect": True,
             "type": "search",
+            "tbs": "qdr:w"  # Filter: past week only
         }
 
         data = safe_post(API_URL, headers, payload)
