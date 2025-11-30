@@ -21,7 +21,7 @@ def try_fetch(func, name, retries=3, delay=2):
     return []
 
 def is_recent(post, cutoff_time):
-    date_str = post.get("published_at") or post.get("date")
+    date_str = post.get("timestamp") or post.get("published_at") or post.get("date")
     if not date_str:
         return False
     try:
@@ -39,6 +39,11 @@ all_posts.extend(try_fetch(fetch_competitor_updates, "Competitor Blogs"))
 all_posts.extend(try_fetch(fetch_google_results, "Google Search"))
 
 print(f"\n📌 Total posts collected: {len(all_posts)}")
+
+# Optional: show timestamps for quick debug
+print("\n🔍 Example post timestamps:")
+for post in all_posts[:5]:  # Show up to 5
+    print(post.get("timestamp") or post.get("published_at") or post.get("date"))
 
 # Filter to only recent posts (last 24 hours)
 cutoff = datetime.now() - timedelta(days=1)
