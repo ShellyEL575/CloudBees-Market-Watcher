@@ -46,7 +46,7 @@ for post in all_posts[:5]:  # Show up to 5
     print(post.get("timestamp") or post.get("published_at") or post.get("date"))
 
 # Filter to only recent posts (last 24 hours)
-cutoff = datetime.now() - timedelta(days=1)
+cutoff = datetime.now() - timedelta(days=7)
 recent_posts = [post for post in all_posts if is_recent(post, cutoff)]
 
 # Trend classification
