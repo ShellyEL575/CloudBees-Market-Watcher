@@ -1,5 +1,3 @@
-# scraper/competitor.py
-
 import feedparser
 import yaml
 import requests
@@ -7,9 +5,14 @@ from bs4 import BeautifulSoup
 from bs4 import XMLParsedAsHTMLWarning
 import warnings
 import re
+import time
+from datetime import datetime, timedelta
 
 # Suppress XML parsed as HTML warnings from BeautifulSoup
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+
+RECENT_DAYS = 30  # only keep posts from the last 30 days
+CUTOFF_DATE = datetime.utcnow() - timedelta(days=RECENT_DAYS)
 
 def clean_feed_content(content):
     soup = BeautifulSoup(content, "html.parser")
@@ -69,13 +72,26 @@ def fetch_competitor_updates():
                 if not title or not link:
                     print(f"⚠️ Skipping entry missing title or link in {brand}: {entry}")
                     continue
+
+                published = entry.get("published_parsed") or entry.get("updated_parsed")
+                if published:
+                    dt = datetime.fromtimestamp(time.mktime(published))
+                else:
+                    dt = datetime.utcnow()
+                    print(f"⚠️ Missing timestamp for post '{title}' — using current time.")
+
+                if dt < CUTOFF_DATE:
+                    print(f"🕒 Skipping old post from {dt.date()}: {title}")
+                    continue
+
                 content_type = classify_post(title, entry.get("summary", ""))
                 posts.append({
                     "source": brand,
                     "title": title,
                     "url": link,
                     "summary": entry.get("summary", ""),
-                    "type": content_type
+                    "type": content_type,
+                    "timestamp": dt.isoformat()
                 })
                 print(f"📦 Post added: {{'source': '{brand}', 'title': '{title}', 'url': '{link}', 'type': '{content_type}'}}")
                 type_stats[content_type] = type_stats.get(content_type, 0) + 1
