@@ -1,3 +1,4 @@
+# utils.py — final patched version
 import os
 from datetime import datetime
 
@@ -19,6 +20,8 @@ def group_posts_by_topic(posts):
             grouped["🚀 Product Updates"].append(p)
         elif t == "📈 Trends":
             grouped["📈 Trends"].append(p)
+        elif t in ["🛡️ Security Alert", "👥 Customer Story", "📅 Event"]:
+            grouped["📈 Trends"].append(p)
         else:
             grouped["💬 Social Buzz"].append(p)
 
@@ -36,8 +39,9 @@ def write_report(sections, header_prefix=""):
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(f"# 📰 CloudBees Market Watch – {report_date}\n\n")
+
         if header_prefix:
-            f.write(header_prefix.strip() + "\n\n")
+            f.write(header_prefix + "\n\n")
 
         order = ["🚀 Product Updates", "💬 Social Buzz", "📈 Trends", "🧠 Insights"]
         for section in order:
@@ -88,9 +92,8 @@ def write_sources_file(posts):
             for p in items:
                 title = (p.get("title") or "Untitled").strip()
                 url = (p.get("url") or p.get("link") or "").strip()
-                f.write(f"- [{title}]({url})\n")
-
+                if title and url:
+                    f.write(f"- [{title}]({url})\n")
             f.write("\n")
 
-    print(f"✅ Sources file written to {path}")
     return path
