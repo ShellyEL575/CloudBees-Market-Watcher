@@ -36,16 +36,17 @@ jobs:
         run: |
           python summarize_only.py
 
-      - name: Commit new reports and data
+      - name: Commit new data and reports
         run: |
           git config --local user.email "bot@cloudbees.com"
           git config --local user.name "CloudBees Market Bot"
-          git add reports/*.md data/posts.json
-          if git diff-index --quiet HEAD --; then
+          git add data/posts.json reports/*.md
+          if git diff --cached --quiet; then
             echo "No changes to commit."
           else
             git commit -m "📊 Daily Market Watch ($(date -u +"%Y-%m-%d"))"
             git push
+          fi
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
