@@ -11,21 +11,16 @@ import re
 # Suppress XML parsed as HTML warnings from BeautifulSoup
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
-
 def clean_feed_content(content):
-    """Sanitize malformed XML using built‑in HTML parser."""
+    # Sanitize malformed XML using built-in HTML parser
     soup = BeautifulSoup(content, "html.parser")
     return str(soup)
 
-
 def extract_link_from_summary(summary):
-    """Fallback: extract article URL from summary HTML if <link> is missing."""
     match = re.search(r'href="(https?://[^"]+)"', summary)
     return match.group(1) if match else ""
 
-
 def fetch_competitor_updates():
-    """Load competitor RSS feeds and extract posts safely."""
     with open("scraper/competitors.yaml") as f:
         urls = yaml.safe_load(f)
 
@@ -34,11 +29,10 @@ def fetch_competitor_updates():
 
     for brand, feed_urls in urls.items():
         total_entries = 0
-
         for url in feed_urls:
             try:
                 response = requests.get(url, timeout=10, headers={"User-Agent": "Mozilla/5.0"})
-                response.encoding = "utf-8"
+                response.encoding = 'utf-8'
                 cleaned_content = clean_feed_content(response.text)
                 feed = feedparser.parse(cleaned_content)
             except Exception as e:
@@ -53,32 +47,38 @@ def fetch_competitor_updates():
             total_entries += entry_count
 
             for entry in feed.entries:
-                title = entry.get("title")
-                if not title:
-                    title = entry.get("id") or entry.get("summary", "")[:80]  # fallback title
-
-                link = entry.get("link") or entry.get("id") or extract_link_from_summary(entry.get("summary", ""))
+                title = entry.get("title", "").strip()
+                if not title or title.startswith("http"):
+                    clean_summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text()
+                    title = clean_summary.strip()[:100] or "Untitled"
+                
+                link = entry.get("link") or extract_link_from_summary(entry.get("summary", ""))
                 if not link:
                     print(f"⚠️ Skipping entry with missing link in {brand}: {entry}")
                     continue
 
-                print(f"📌 {title} ({link})")  # preview individual item
-
-                posts.append({
+                post = {
                     "source": brand,
                     "title": title,
                     "url": link,
                     "summary": entry.get("summary", ""),
-                    "type": "🚀 Product Updates",
-                })
+                    "type": "🚀 Product Updates"
+                }
+
+                print("📦 Post added:", post)  # Debug full structure
+                posts.append(post)
 
         brand_stats[brand] = total_entries
 
-    # Summary report
     print(f"\n✅ Competitor scraper pulled {len(posts)} posts from {len(urls)} brands.")
     for brand, count in brand_stats.items():
         print(f"   - {brand}: {count} posts")
         if count == 0:
             print(f"⚠️ No posts found for {brand}. Check feed URL or source availability.")
+
+    # Sanity check for missing types
+    for p in posts:
+        if "type" not in p:
+            print(f"⚠️ Missing type for post from {p.get('source')}: {p.get('title')[:60]}...")
 
     return posts
