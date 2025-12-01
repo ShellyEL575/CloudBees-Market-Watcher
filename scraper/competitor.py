@@ -48,13 +48,16 @@ def fetch_competitor_updates():
 
             for entry in feed.entries:
                 title = entry.get("title", "").strip()
+                link = entry.get("link") or extract_link_from_summary(entry.get("summary", "")) or entry.get("id", "")
+
+                # Fallback title handling for broken feeds like GitLab
                 if not title or title.startswith("http"):
-                    clean_summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text()
-                    title = clean_summary.strip()[:100] or "Untitled"
-                
-                link = entry.get("link") or extract_link_from_summary(entry.get("summary", ""))
-                if not link:
-                    print(f"⚠️ Skipping entry with missing link in {brand}: {entry}")
+                    raw_summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text()
+                    title = raw_summary.strip().split(".")[0][:100].strip()
+                    print(f"🔧 Using fallback title: {title[:60]}...")
+
+                if not title or not link:
+                    print(f"⚠️ Skipping entry missing title or link in {brand}: {entry}")
                     continue
 
                 post = {
@@ -64,9 +67,8 @@ def fetch_competitor_updates():
                     "summary": entry.get("summary", ""),
                     "type": "🚀 Product Updates"
                 }
-
-                print("📦 Post added:", post)  # Debug full structure
                 posts.append(post)
+                print(f"📦 Post added: {post}")
 
         brand_stats[brand] = total_entries
 
@@ -76,7 +78,7 @@ def fetch_competitor_updates():
         if count == 0:
             print(f"⚠️ No posts found for {brand}. Check feed URL or source availability.")
 
-    # Sanity check for missing types
+    # Final sanity check for missing type field
     for p in posts:
         if "type" not in p:
             print(f"⚠️ Missing type for post from {p.get('source')}: {p.get('title')[:60]}...")
