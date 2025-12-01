@@ -62,6 +62,8 @@ def fetch_competitor_updates():
                     print(f"⚠️ Skipping entry with missing link in {brand}: {entry}")
                     continue
 
+                print(f"📌 {title} ({link})")  # preview individual item
+
                 posts.append({
                     "source": brand,
                     "title": title,
