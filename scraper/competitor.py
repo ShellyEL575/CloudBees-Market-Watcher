@@ -20,12 +20,27 @@ def extract_link_from_summary(summary):
     match = re.search(r'href="(https?://[^"]+)"', summary)
     return match.group(1) if match else ""
 
+def classify_post_type(title, summary):
+    combined = f"{title} {summary}".lower()
+    if any(kw in combined for kw in ["release", "update", "announcing", "launched", " v", "version"]):
+        return "🚀 Product Updates"
+    if any(kw in combined for kw in ["security", "vulnerability", "cve", "supply chain"]):
+        return "🛡️ Security Alert"
+    if any(kw in combined for kw in ["how we", "lessons learned", "our take", "what we think"]):
+        return "📢 Thought Leadership"
+    if any(kw in combined for kw in ["case study", "customer", "success story", "migrated"]):
+        return "📈 Case Study"
+    if any(kw in combined for kw in ["tutorial", "how to", "benchmark", "demo"]):
+        return "🧰 Technical Guide"
+    return "🧵 Miscellaneous"
+
 def fetch_competitor_updates():
     with open("scraper/competitors.yaml") as f:
         urls = yaml.safe_load(f)
 
     posts = []
     brand_stats = {}
+    type_stats = {}
 
     for brand, feed_urls in urls.items():
         total_entries = 0
@@ -48,9 +63,8 @@ def fetch_competitor_updates():
 
             for entry in feed.entries:
                 title = entry.get("title", "").strip()
-                link = entry.get("link") or extract_link_from_summary(entry.get("summary", "")) or entry.get("id", "")
+                link = entry.get("link") or extract_link_from_summary(entry.get("summary", ""))
 
-                # Fallback title handling for broken feeds like GitLab
                 if not title or title.startswith("http"):
                     raw_summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text()
                     title = raw_summary.strip().split(".")[0][:100].strip()
@@ -60,12 +74,16 @@ def fetch_competitor_updates():
                     print(f"⚠️ Skipping entry missing title or link in {brand}: {entry}")
                     continue
 
+                summary = entry.get("summary", "")
+                post_type = classify_post_type(title, summary)
+                type_stats[post_type] = type_stats.get(post_type, 0) + 1
+
                 post = {
                     "source": brand,
                     "title": title,
                     "url": link,
-                    "summary": entry.get("summary", ""),
-                    "type": "🚀 Product Updates"
+                    "summary": summary,
+                    "type": post_type
                 }
                 posts.append(post)
                 print(f"📦 Post added: {post}")
@@ -78,9 +96,8 @@ def fetch_competitor_updates():
         if count == 0:
             print(f"⚠️ No posts found for {brand}. Check feed URL or source availability.")
 
-    # Final sanity check for missing type field
-    for p in posts:
-        if "type" not in p:
-            print(f"⚠️ Missing type for post from {p.get('source')}: {p.get('title')[:60]}...")
+    print("\n📊 Post Type Breakdown:")
+    for t, count in type_stats.items():
+        print(f"   - {t}: {count} posts")
 
     return posts
