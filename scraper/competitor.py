@@ -12,27 +12,24 @@ import re
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 def clean_feed_content(content):
-    # Sanitize malformed XML using built-in HTML parser
     soup = BeautifulSoup(content, "html.parser")
     return str(soup)
 
 def extract_link_from_summary(summary):
-    match = re.search(r'href="(https?://[^"]+)"', summary)
+    match = re.search(r'href="(https?://[^\"]+)"', summary)
     return match.group(1) if match else ""
 
-def classify_post_type(title, summary):
-    combined = f"{title} {summary}".lower()
-    if any(kw in combined for kw in ["release", "update", "announcing", "launched", " v", "version"]):
-        return "🚀 Product Updates"
-    if any(kw in combined for kw in ["security", "vulnerability", "cve", "supply chain"]):
+def classify_post(title, summary):
+    title_summary = f"{title} {summary}".lower()
+    if any(kw in title_summary for kw in ["security", "vulnerability", "breach", "attack", "malware", "cve"]):
         return "🛡️ Security Alert"
-    if any(kw in combined for kw in ["how we", "lessons learned", "our take", "what we think"]):
-        return "📢 Thought Leadership"
-    if any(kw in combined for kw in ["case study", "customer", "success story", "migrated"]):
-        return "📈 Case Study"
-    if any(kw in combined for kw in ["tutorial", "how to", "benchmark", "demo"]):
-        return "🧰 Technical Guide"
-    return "🧵 Miscellaneous"
+    if any(kw in title_summary for kw in ["launch", "update", "release", "improvement", "feature", "announcement"]):
+        return "🚀 Product Updates"
+    if any(kw in title_summary for kw in ["case study", "customer", "story"]):
+        return "👥 Customer Story"
+    if any(kw in title_summary for kw in ["event", "webinar", "conference"]):
+        return "📅 Event"
+    return "📰 General"
 
 def fetch_competitor_updates():
     with open("scraper/competitors.yaml") as f:
@@ -62,31 +59,21 @@ def fetch_competitor_updates():
             total_entries += entry_count
 
             for entry in feed.entries:
-                title = entry.get("title", "").strip()
+                title = entry.get("title") or entry.get("summary", "")[:100]
                 link = entry.get("link") or extract_link_from_summary(entry.get("summary", ""))
-
-                if not title or title.startswith("http"):
-                    raw_summary = BeautifulSoup(entry.get("summary", ""), "html.parser").get_text()
-                    title = raw_summary.strip().split(".")[0][:100].strip()
-                    print(f"🔧 Using fallback title: {title[:60]}...")
-
                 if not title or not link:
                     print(f"⚠️ Skipping entry missing title or link in {brand}: {entry}")
                     continue
-
-                summary = entry.get("summary", "")
-                post_type = classify_post_type(title, summary)
-                type_stats[post_type] = type_stats.get(post_type, 0) + 1
-
-                post = {
+                content_type = classify_post(title, entry.get("summary", ""))
+                posts.append({
                     "source": brand,
                     "title": title,
                     "url": link,
-                    "summary": summary,
-                    "type": post_type
-                }
-                posts.append(post)
-                print(f"📦 Post added: {post}")
+                    "summary": entry.get("summary", ""),
+                    "type": content_type
+                })
+                print(f"📦 Post added: {{'source': '{brand}', 'title': '{title}', 'url': '{link}', 'type': '{content_type}'}}")
+                type_stats[content_type] = type_stats.get(content_type, 0) + 1
 
         brand_stats[brand] = total_entries
 
@@ -96,8 +83,8 @@ def fetch_competitor_updates():
         if count == 0:
             print(f"⚠️ No posts found for {brand}. Check feed URL or source availability.")
 
-    print("\n📊 Post Type Breakdown:")
-    for t, count in type_stats.items():
-        print(f"   - {t}: {count} posts")
+    print("\n📊 Content Type Breakdown:")
+    for ctype, count in type_stats.items():
+        print(f"   - {ctype}: {count} posts")
 
     return posts
