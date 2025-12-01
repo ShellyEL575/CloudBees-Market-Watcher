@@ -57,7 +57,7 @@ def fetch_competitor_updates():
                 if not title:
                     title = entry.get("id") or entry.get("summary", "")[:80]  # fallback title
 
-                link = entry.get("link") or extract_link_from_summary(entry.get("summary", ""))
+                link = entry.get("link") or entry.get("id") or extract_link_from_summary(entry.get("summary", ""))
                 if not link:
                     print(f"⚠️ Skipping entry with missing link in {brand}: {entry}")
                     continue
