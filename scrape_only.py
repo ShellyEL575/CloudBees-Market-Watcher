@@ -1,11 +1,12 @@
-# scrape_only.py — patched to debug post filtering
+# scrape_only.py — fixed import for Google Watcher
+
 import json
 import os
 from datetime import datetime, timedelta
 
 from scraper.competitor import fetch_competitor_updates
 from scraper.hn import fetch_hn_stories
-from google_watcher import fetch_google_results
+from scraper.google_watcher import fetch_google_results  # ✅ FIXED LINE
 
 # Optional: set cutoff to recent days only
 DAYS_BACK = 7
