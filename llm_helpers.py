@@ -1,20 +1,27 @@
-# llm_helpers.py (PMM-aware version)
+# llm_helpers.py — hybrid format: PMM insight bullets with attached evidence
+
 from openai import OpenAI
 import math
+import re
+from bs4 import BeautifulSoup
 
 client = OpenAI()
 
-BATCH_SIZE = 35  # keep stable + within token limits
+BATCH_SIZE = 35
+
+
+def clean_html(text):
+    return BeautifulSoup(text or "", "html.parser").get_text(separator=" ").strip()
 
 
 def extract_post_blurbs(posts):
-    """Turn posts into short, LLM-friendly blurbs."""
+    """Clean and normalize posts into LLM-ready short blurbs."""
     return [
         {
-            "title": p.get("title", ""),
+            "title": p.get("title", "").strip(),
             "url": p.get("url") or p.get("link") or "",
-            "summary": p.get("summary", "") or "",
-            "source": p.get("source", ""),
+            "summary": clean_html(p.get("summary", "")),
+            "source": p.get("source", "")
         }
         for p in posts
         if isinstance(p, dict)
@@ -22,10 +29,6 @@ def extract_post_blurbs(posts):
 
 
 def llm_extract_insights(batch):
-    """
-    First pass: extract structured insights as VP PMM,
-    separating market reality from vendor positioning.
-    """
     text_blob = "\n".join(
         f"Title: {item['title']}\nURL: {item['url']}\nSource: {item['source']}\nSummary: {item['summary']}"
         for item in batch
@@ -35,35 +38,27 @@ def llm_extract_insights(batch):
 You are the VP of Product Marketing at CloudBees.
 
 You are reviewing a batch of DevOps / CI/CD related posts pulled from:
-- Competitor / vendor domains (e.g., cloudbees.com, about.gitlab.com, github.blog, harness.io,
-  aws.amazon.com, devblogs.microsoft.com, azure.com, etc.)
-- Community / neutral sources (Hacker News, Reddit, StackOverflow, community forums,
-  independent blogs, Q&A, reviews, analyst sites, docs).
+- Competitor / vendor domains (e.g., cloudbees.com, about.gitlab.com, github.blog, harness.io, aws.amazon.com, devblogs.microsoft.com, azure.com, etc.)
+- Community / neutral sources (Hacker News, Reddit, StackOverflow, community forums, independent blogs, Q&A, reviews, analyst sites, docs).
 
 Key framing:
-- Posts on vendor domains reflect what those vendors WANT the market to believe
-  (positioning, roadmap, thought leadership). They are NOT neutral sentiment.
-- Community / neutral posts are closer to REAL market signals: practitioner pain, demand,
-  skepticism, adoption patterns.
+- Posts on vendor domains reflect what those vendors WANT the market to believe (positioning, roadmap, thought leadership).
+- Community / neutral posts are closer to REAL market signals: practitioner pain, demand, skepticism, adoption patterns.
 
-From ONLY the text below, produce an EXECUTIVE-READY summary in Markdown
-with EXACTLY these sections:
+From ONLY the text below, produce an EXECUTIVE-READY summary in Markdown with EXACTLY these sections:
 
 ### Customer & Community Signals (market reality)
 - Bullets that describe real customer / practitioner signals and pain
-- PRIORITIZE themes coming from non-vendor domains: Reddit, HN, StackOverflow,
-  community.jenkins.io, independent blogs, docs, analysts, reviews, etc.
+- PRIORITIZE themes coming from non-vendor domains: Reddit, HN, StackOverflow, community.jenkins.io, independent blogs, docs, analysts, reviews, etc.
 - Focus on what people are struggling with, adopting, or asking for.
 
 ### Competitor Narratives (how vendors are trying to shape the market)
-- Bullets summarizing the main storylines pushed by GitLab, GitHub, Harness, AWS,
-  and other vendors.
+- Bullets summarizing the main storylines pushed by GitLab, GitHub, Harness, AWS, and other vendors.
 - Make it clear these are vendor-driven narratives, not organic sentiment.
 
 ### Strategic Implications for CloudBees
 - 3–6 bullets suggesting how CloudBees should respond.
-- Be concrete and pragmatic (e.g., “lean into safe Jenkins modernization”, “clarify
-  stance on AI in pipelines”, “simplify migration story from Jenkins to CloudBees”).
+- Be concrete and pragmatic (e.g., “lean into safe Jenkins modernization”, “clarify stance on AI in pipelines”, “simplify migration story from Jenkins to CloudBees”).
 - Do NOT invent product features; stay anchored to what you see.
 
 Guidelines:
@@ -85,22 +80,9 @@ BATCH POSTS:
 
 
 def llm_link_evidence(insight_markdown, all_posts):
-    """
-    Second pass: attach evidence links to each bullet.
-
-    For:
-    - "Customer & Community Signals": PREFER non-vendor domains:
-      - reddit.com, news.ycombinator.com, stackoverflow.com, community.jenkins.io,
-        independent blogs, docs, analyst sites, Q&A, reviews, etc.
-    - "Competitor Narratives": PREFER vendor domains:
-      - cloudbees.com, about.gitlab.com, github.blog, harness.io, aws.amazon.com,
-        devblogs.microsoft.com, azure.microsoft.com, etc.
-    """
-    # Flatten posts into a simple index string the model can scan
     post_index = "\n".join(
-        f"TITLE: {p.get('title')}\nURL: {p.get('url') or p.get('link')}\nSUMMARY: {p.get('summary', '')}"
-        for p in all_posts
-        if isinstance(p, dict)
+        f"TITLE: {p.get('title')}\nURL: {p.get('url')}\nSUMMARY: {p.get('summary')}"
+        for p in all_posts if isinstance(p, dict)
     )
 
     prompt = f"""
@@ -114,21 +96,16 @@ VERY IMPORTANT SELECTION RULES:
 
 1) For bullets under "Customer & Community Signals (market reality)":
    - Prefer sources that are NOT vendor-controlled:
-     - reddit.com, news.ycombinator.com, stackoverflow.com, community.jenkins.io,
-       independent blogs, Q&A, reviews, docs, analyst / research sites, etc.
-   - These should reflect real customer/practitioner sentiment and pain.
+     - reddit.com, news.ycombinator.com, stackoverflow.com, community.jenkins.io, independent blogs, Q&A, reviews, docs, analyst / research sites, etc.
 
 2) For bullets under "Competitor Narratives (how vendors are trying to shape the market)":
    - Prefer vendor domains such as:
-     - cloudbees.com, about.gitlab.com, github.blog, harness.io, aws.amazon.com,
-       devblogs.microsoft.com, azure.microsoft.com, etc.
-   - These represent vendor positioning and story-shaping.
+     - cloudbees.com, about.gitlab.com, github.blog, harness.io, aws.amazon.com, devblogs.microsoft.com, azure.microsoft.com, etc.
 
 3) For "Strategic Implications for CloudBees":
    - You may attach a mix of evidence showing both:
      - the underlying pain / demand (community/neutral), and
      - relevant vendor positioning (competitor content)
-   - But still follow the domain preferences above when choosing what to attach.
 
 Output format:
 - KEEP the original markdown structure and text of INSIGHTS exactly as given.
@@ -156,18 +133,7 @@ POSTS INDEX:
 
 
 def extract_insights_batch_linked(posts):
-    """
-    Main pipeline: batching → VP-PMM-style insights → evidence linking.
-
-    Returns:
-        Markdown string with:
-        - Customer & Community Signals
-        - Competitor Narratives
-        - Strategic Implications for CloudBees
-        and per-bullet evidence links.
-    """
     print("🔄 Processing in batches of 35...")
-
     blurbs = extract_post_blurbs(posts)
     if not blurbs:
         return "No insights."
@@ -175,19 +141,14 @@ def extract_insights_batch_linked(posts):
     total = len(blurbs)
     batches = math.ceil(total / BATCH_SIZE)
 
-    batch_insights = []
+    insights = []
     for i in range(batches):
-        start = i * BATCH_SIZE
-        end = start + BATCH_SIZE
-        batch = blurbs[start:end]
+        batch = blurbs[i * BATCH_SIZE: (i + 1) * BATCH_SIZE]
         print(f"  📦 Batch {i + 1} ({len(batch)} posts)")
-
         insight = llm_extract_insights(batch)
-        batch_insights.append(insight)
+        insights.append(insight)
 
-    combined = "\n\n".join(batch_insights)
-
+    combined = "\n\n".join(insights)
     print("🔗 Linking insights to sources...")
     linked = llm_link_evidence(combined, blurbs)
-
     return linked
