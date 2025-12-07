@@ -2,6 +2,7 @@ import os
 import time
 import requests
 from datetime import datetime
+from bs4 import BeautifulSoup  # added for summary cleanup
 
 API_URL = "https://google.serper.dev/search"
 
@@ -128,12 +129,15 @@ def fetch_google_results():
                 continue
             seen_urls.add(url)
 
+            # Clean summary of any HTML tags
+            clean_summary = BeautifulSoup(snippet, "html.parser").get_text()
+
             print(f"📌 Found: {title} ({url})")
 
             all_posts.append({
                 "title": title,
                 "url": url,
-                "summary": snippet,
+                "summary": clean_summary,
                 "source": "Google",
                 "type": "💬 Social Buzz",
                 "timestamp": datetime.utcnow().isoformat(),
