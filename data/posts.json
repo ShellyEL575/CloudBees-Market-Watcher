@@ -1,11 +1,27 @@
 [
   {
     "source": "HackerNews",
+    "title": "Show HN: deeploy 0.1 – Terminal-first deployment platform (self-hosted)",
+    "url": "https://github.com/deeploy-sh/deeploy",
+    "summary": "I built a self-hosted alternative to Heroku/Vercel that runs entirely in the terminal.Why? I wanted deployments to feel native to my terminal workflow. No browser tabs, no dashboards.Stack: Go, Bubble Tea (TUI), Docker, Traefik, Let's Encrypt, PostgreSQL.You install a daemon on your VPS (one curl), run the TUI on your machine, and deploy via git push. Zero downtime, auto SSL.Early release (0.1). Would love feedback on the approach.https://github.com/deeploy-sh/deeploy\n\nComments URL: https://news.ycombinator.com/item?id=46344614\nPoints: 1\n# Comments: 0",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:40.455399"
+  },
+  {
+    "source": "HackerNews",
+    "title": "Show HN: Mushak – Zero config zero downtime Docker/Compose to server deployment",
+    "url": "https://mushak.sh",
+    "summary": "Article URL: https://mushak.sh\nComments URL: https://news.ycombinator.com/item?id=46344546\nPoints: 24\n# Comments: 12",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:40.455625"
+  },
+  {
+    "source": "HackerNews",
     "title": "The State of Radicle CI in 2025",
     "url": "https://blog.liw.fi/posts/2025/radicle-ci-status-quo/",
     "summary": "Article URL: https://blog.liw.fi/posts/2025/radicle-ci-status-quo/\nComments URL: https://news.ycombinator.com/item?id=46324559\nPoints: 3\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.001703"
+    "timestamp": "2025-12-22T06:22:40.455823"
   },
   {
     "source": "HackerNews",
@@ -13,7 +29,7 @@
     "url": "https://blog.liw.fi/posts/2025/radicle-ci-status-quo/",
     "summary": "Article URL: https://blog.liw.fi/posts/2025/radicle-ci-status-quo/\nComments URL: https://news.ycombinator.com/item?id=46318599\nPoints: 1\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.001984"
+    "timestamp": "2025-12-22T06:22:40.456022"
   },
   {
     "source": "HackerNews",
@@ -21,7 +37,7 @@
     "url": "https://www.rwx.com/blog/zero-configuration-observability-for-cicd",
     "summary": "Article URL: https://www.rwx.com/blog/zero-configuration-observability-for-cicd\nComments URL: https://news.ycombinator.com/item?id=46313903\nPoints: 1\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.002210"
+    "timestamp": "2025-12-22T06:22:40.456212"
   },
   {
     "source": "HackerNews",
@@ -29,7 +45,7 @@
     "url": "https://www.deployfreeze.com/",
     "summary": "Hi HN; I built DeployFreeze after getting tired of engineers frantically pinging “@here, don’t deploy product-service” during incidents and investigations.DeployFreeze is a GitHub App that creates deployment freezes using GitHub’s custom deployment protection rules (https://docs.github.com/en/actions/how-tos/deploy/configure-...). It pauses deployments to specific environments without blocking merges or CI, and gives teams a single place to see what’s frozen and why.This is particularly useful in monorepos, where you might want to freeze `production-api` while keeping `production-web` or staging deployable. The app only uses deployment webhooks and doesn’t require access to source code.If you don’t use GitHub Actions but still see “Deployments” in your repo sidebar, this may work for you. Many platforms use GitHub’s deployment API behind the scenes, so you may already be set up even if you didn’t explicitly configure it.I’d love feedback on how your teams handle deployment freezes today or any thoughts on this approach. There’s a 30-day free trial if you want to try it for upcoming end-of-year freezes.\n\nComments URL: https://news.ycombinator.com/item?id=46313715\nPoints: 5\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.002617"
+    "timestamp": "2025-12-22T06:22:40.456518"
   },
   {
     "source": "HackerNews",
@@ -37,7 +53,7 @@
     "url": "https://github.com/woodpecker-ci/woodpecker",
     "summary": "Article URL: https://github.com/woodpecker-ci/woodpecker\nComments URL: https://news.ycombinator.com/item?id=46312522\nPoints: 1\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.002844"
+    "timestamp": "2025-12-22T06:22:40.456699"
   },
   {
     "source": "HackerNews",
@@ -45,7 +61,7 @@
     "url": "https://oneuptime.com/blog/post/2025-12-17-vendor-neutral-cicd-pipelines/view",
     "summary": "Article URL: https://oneuptime.com/blog/post/2025-12-17-vendor-neutral-cicd-pipelines/view\nComments URL: https://news.ycombinator.com/item?id=46302572\nPoints: 1\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.003055"
+    "timestamp": "2025-12-22T06:22:40.456901"
   },
   {
     "source": "HackerNews",
@@ -53,7 +69,7 @@
     "url": "https://www.youtube.com/watch?v=HdUbTyvrfKo",
     "summary": "Article URL: https://www.youtube.com/watch?v=HdUbTyvrfKo\nComments URL: https://news.ycombinator.com/item?id=46296373\nPoints: 1\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.003263"
+    "timestamp": "2025-12-22T06:22:40.457084"
   },
   {
     "source": "HackerNews",
@@ -61,7 +77,7 @@
     "url": "https://socket.dev/blog/supply-chain-nightmare-before-deployment",
     "summary": "Article URL: https://socket.dev/blog/supply-chain-nightmare-before-deployment\nComments URL: https://news.ycombinator.com/item?id=46294204\nPoints: 2\n# Comments: 1",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.003511"
+    "timestamp": "2025-12-22T06:22:40.457265"
   },
   {
     "source": "HackerNews",
@@ -69,7 +85,7 @@
     "url": "https://entropicthoughts.com/packaging-perl-and-shell-for-nixos-deployment",
     "summary": "Article URL: https://entropicthoughts.com/packaging-perl-and-shell-for-nixos-deployment\nComments URL: https://news.ycombinator.com/item?id=46294096\nPoints: 2\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.003722"
+    "timestamp": "2025-12-22T06:22:40.457441"
   },
   {
     "source": "HackerNews",
@@ -77,7 +93,7 @@
     "url": "https://docs.gitlab.com/ci/ci_cd_for_external_repos/github_integration/",
     "summary": "Article URL: https://docs.gitlab.com/ci/ci_cd_for_external_repos/github_integration/\nComments URL: https://news.ycombinator.com/item?id=46293385\nPoints: 3\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.003925"
+    "timestamp": "2025-12-22T06:22:40.457618"
   },
   {
     "source": "HackerNews",
@@ -85,7 +101,7 @@
     "url": "https://thorsell.io/2025/12/16/devops-debt-and-kubernetes.html",
     "summary": "Article URL: https://thorsell.io/2025/12/16/devops-debt-and-kubernetes.html\nComments URL: https://news.ycombinator.com/item?id=46287443\nPoints: 2\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.004135"
+    "timestamp": "2025-12-22T06:22:40.457914"
   },
   {
     "source": "HackerNews",
@@ -93,7 +109,7 @@
     "url": "https://medium.com/@ali-dev/deployment-instant-worldwide-availability-5cf00e5f290f",
     "summary": "Article URL: https://medium.com/@ali-dev/deployment-instant-worldwide-availability-5cf00e5f290f\nComments URL: https://news.ycombinator.com/item?id=46281265\nPoints: 1\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.004349"
+    "timestamp": "2025-12-22T06:22:40.458088"
   },
   {
     "source": "HackerNews",
@@ -101,7 +117,7 @@
     "url": "https://github.com/cloudposse/geodesic",
     "summary": "Article URL: https://github.com/cloudposse/geodesic\nComments URL: https://news.ycombinator.com/item?id=46277219\nPoints: 2\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.004549"
+    "timestamp": "2025-12-22T06:22:40.458256"
   },
   {
     "source": "HackerNews",
@@ -109,7 +125,7 @@
     "url": "https://github.com/shuttle-hq/neptune-mcp",
     "summary": "Hi HN,We are the team behind Shuttle (YC S20). We just shipped Neptune, (https://github.com/shuttle-hq/neptune-mcp) an open source MCP server that lets coding agents actually deploy software, not just write code. Behind it is an app deployment platform we built to be friendly for AI agents.Neptune runs in your IDE. It reads your codebase, analyzes its structure and intent using ASTs and inference, and generates a deterministic infrastructure spec called neptune.json. You can inspect every change, approve it, and apply it. Think: coding agents that can actually ship safely to AWS.How it works in practice:1. Take any of your existing apps\n2. Install Neptune mcp & login\n3. Tell your agent to deploy\n4. Watch it do everything else for you and (super important) it keeps you in the loop at every step, asking for your approval and guidance. We’ve spent most of our time implementing guardrails to make this as safe as if you were doing it yourself.We built this after seeing teams rely on AI to write services, but still hand-craft Terraform and YAML. The AI could write code, but it could not understand the system around it. Neptune tries to close that gap.Right now we have support for the most basic AWS products (ECS, S3, SecretManager), and we support postgres (thanks to Neon) and we are adding more resources as we speak. For now, your apps are all deployed to our a shared tenancy AWS account, and “bring your own cloud” account is coming soon too.If you are also excited about a future where coding agents can help you reliably ship stuff into production, try it and share what you think.If you have tried it on shared tenancy and would like to run it in your own AWS account, just get in touch and we’d be happy to help.\n\nComments URL: https://news.ycombinator.com/item?id=46276419\nPoints: 18\n# Comments: 8",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.005075"
+    "timestamp": "2025-12-22T06:22:40.458617"
   },
   {
     "source": "HackerNews",
@@ -117,7 +133,7 @@
     "url": "https://chrismati.cz/posts/building-the-fastest-python-ci/",
     "summary": "Article URL: https://chrismati.cz/posts/building-the-fastest-python-ci/\nComments URL: https://news.ycombinator.com/item?id=46274332\nPoints: 3\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.005276"
+    "timestamp": "2025-12-22T06:22:40.458793"
   },
   {
     "source": "HackerNews",
@@ -125,7 +141,7 @@
     "url": "https://news.ycombinator.com/item?id=46262513",
     "summary": "I’m looking for critical feedback on follwoing concept:Short pitch video (YouTube): https://www.youtube.com/watch?v=fLwI98huNWM\nFull preprint (Zenodo): https://doi.org/10.5281/zenodo.17288906I’m not trying to sell anything here. I did wrote a book with more details it is on Amazon, but the preprint should be enough to evaluate the concept.I’d especially value:- what you think the weak points are (regulation, project finance, consumer acceptance, deployment constraints, or something else), - whether it could work on its own,- how you would improve it.Zenodo shows traction (views/downloads), but I’m not getting feedback on what people actually think. I’d appreciate your thoughts.Thanks.\n\nComments URL: https://news.ycombinator.com/item?id=46262513\nPoints: 1\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.005691"
+    "timestamp": "2025-12-22T06:22:40.459128"
   },
   {
     "source": "HackerNews",
@@ -133,7 +149,7 @@
     "url": "https://techxplore.com/news/2025-11-interlaced-origami-enables-compact-storage.html",
     "summary": "Article URL: https://techxplore.com/news/2025-11-interlaced-origami-enables-compact-storage.html\nComments URL: https://news.ycombinator.com/item?id=46250818\nPoints: 2\n# Comments: 0",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.005890"
+    "timestamp": "2025-12-22T06:22:40.459329"
   },
   {
     "source": "HackerNews",
@@ -141,23 +157,23 @@
     "url": "https://perladvent.org/2025/2025-12-12.html",
     "summary": "Article URL: https://perladvent.org/2025/2025-12-12.html\nComments URL: https://news.ycombinator.com/item?id=46245056\nPoints: 1\n# Comments: 1",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.006087"
+    "timestamp": "2025-12-22T06:22:40.459502"
   },
   {
     "source": "HackerNews",
-    "title": "AI, DevOps, and Kubernetes: Kelsey Hightower on What's Next [video]",
-    "url": "https://www.youtube.com/watch?v=HdUbTyvrfKo",
-    "summary": "Article URL: https://www.youtube.com/watch?v=HdUbTyvrfKo\nComments URL: https://news.ycombinator.com/item?id=46236022\nPoints: 5\n# Comments: 1",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.006281"
+    "title": "<![CDATA[Show HN: deeploy 0.1 – Terminal-first deployment platform (self-hosted)]]>",
+    "url": "https://github.com/deeploy-sh/deeploy",
+    "summary": "I built a self-hosted alternative to Heroku/Vercel that runs entirely in the terminal.Why? I wanted deployments to feel native to my terminal workflow. No browser tabs, no dashboards.Stack: Go, Bubble Tea (TUI), Docker, Traefik, Let's Encrypt, PostgreSQL.You install a daemon on your VPS (one curl), run the TUI on your machine, and deploy via git push. Zero downtime, auto SSL.Early release (0.1). Would love feedback on the approach.https://github.com/deeploy-sh/deeploy\n\nComments URL: https://news.ycombinator.com/item?id=46344614\nPoints: 1\n# Comments: 0",
+    "type": "🚀 Product Updates",
+    "timestamp": "2025-12-21T13:15:14"
   },
   {
     "source": "HackerNews",
-    "title": "Skydiver suspended below aircraft after accidental reserve chute deployment",
-    "url": "https://www.atsb.gov.au/media/news-items/2025/skydiver-suspended-below-jump-aircrafts-tailplane-after-snagged-handle-deploys-reserve-chute",
-    "summary": "Article URL: https://www.atsb.gov.au/media/news-items/2025/skydiver-suspended-below-jump-aircrafts-tailplane-after-snagged-handle-deploys-reserve-chute\nComments URL: https://news.ycombinator.com/item?id=46231506\nPoints: 2\n# Comments: 1",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:48.006491"
+    "title": "<![CDATA[Show HN: Mushak – Zero config zero downtime Docker/Compose to server deployment]]>",
+    "url": "https://mushak.sh",
+    "summary": "Article URL: https://mushak.sh\nComments URL: https://news.ycombinator.com/item?id=46344546\nPoints: 24\n# Comments: 12",
+    "type": "📰 General",
+    "timestamp": "2025-12-21T13:02:29"
   },
   {
     "source": "HackerNews",
@@ -280,28 +296,12 @@
     "timestamp": "2025-12-15T13:36:04"
   },
   {
-    "source": "HackerNews",
-    "title": "<![CDATA[Ask HN: Can a two-phase tariff accelerate renewable deployment?]]>",
-    "url": "https://www.youtube.com/watch?v=fLwI98huNWM",
-    "summary": "I’m looking for critical feedback on follwoing concept:Short pitch video (YouTube): https://www.youtube.com/watch?v=fLwI98huNWM\nFull preprint (Zenodo): https://doi.org/10.5281/zenodo.17288906I’m not trying to sell anything here. I did wrote a book with more details it is on Amazon, but the preprint should be enough to evaluate the concept.I’d especially value:- what you think the weak points are (regulation, project finance, consumer acceptance, deployment constraints, or something else), - whether it could work on its own,- how you would improve it.Zenodo shows traction (views/downloads), but I’m not getting feedback on what people actually think. I’d appreciate your thoughts.Thanks.\n\nComments URL: https://news.ycombinator.com/item?id=46262513\nPoints: 1\n# Comments: 0",
-    "type": "📰 General",
-    "timestamp": "2025-12-14T12:11:13"
-  },
-  {
     "source": "GitLabBlog",
     "title": "<p>GitLab 18.7 delivers development, operations, and security capabilities that strengthen control, ",
     "url": "https://about.gitlab.com/blog/gitlab-18-7-advancing-ai-automation/",
     "summary": "GitLab 18.7 delivers development, operations, and security capabilities that strengthen control, improve consistency, and build confidence as teams integrate AI further into their workflows. These improvements arrive as GitLab approaches a major milestone. GitLab Duo Agent Platform will reach general availability in January 2026 with our 18.8 release, pending we continue to meet the exceptionally high quality standards we set for ourselves in service to our customers worldwide across all industries.GitLab Duo Agent Platform's GA is designed to introduce a unified, governed way for organizations to orchestrate agentic AI across their software lifecycle. With foundational agents, custom agents, and automated flows working together inside GitLab, teams will be able to adopt agentic workflows that help accelerate work while staying aligned to organizational standards. At GA, we also plan to include expanded AI Catalog functionality, stronger administrative controls, reliability enhancements, and a flexible usage-based billing model designed to provide flexibility for agentic AI usage across many roles and projects.The 18.7 release adds important building blocks to support GitLab Duo Agent Platform’s upcoming GA. New automation features, stronger governance controls, and enhancements across security and pipeline authoring help teams streamline their work and lay the groundwork for an even more reliable agentic experience in 18.8 and beyond.On February 10, 2026, we will host a global event that brings our vision of GitLab as the intelligent orchestration platform to life, where software teams and their AI agents stay in flow. You will hear how customers are tackling the AI paradox in software delivery, see intelligent orchestration in action across DevSecOps workflows, and get a jump start on what this next chapter means for your own modernization journey. Reserve your spot to see how GitLab’s next chapter comes together.Here's what is new in 18.7:GitLab Duo Agent PlatformAs more teams bring AI into their development and security workflows, GitLab continues to focus on making adoption powerful and predictable. The updates in 18.7 strengthen the foundation for guided, governed AI experiences that will become fully realized when GitLab Duo Agent Platform reaches GA, as planned for 18.8.Custom FlowsCustom Flows introduce a new way for teams to automate multistep workflows using YAML-defined sequences that orchestrate agents to complete repetitive development tasks. Custom Flows help eliminate manual effort for scenarios that follow predictable patterns — such as diagnosing and fixing failed pipelines, updating dependencies, or running policy checks when reviewers are assigned. Instead of handling these tasks interactively, teams can define flows that automatically trigger from GitLab events like mentions and assignments. This capability supports developers who want tailored automations for their own projects, as well as administrators who need consistent, organization-wide workflows for compliance and operational efficiency.SAST False Positive Detection FlowAI-powered false positive management for Static Application Security Testing (SAST) works to introduce a faster, more accurate way for teams to assess and act on potential false positives. GitLab now uses AI to help identify which findings may be false positives earlier in the review process, reducing the time developers and security teams spend triaging noise. Users can see an overview of how many vulnerabilities may warrant review, track their analysis progress, and dismiss false positives directly from the vulnerability report. Once dismissed, these findings stay dismissed across future pipelines and continue to reflect the correct dismissed status in merge request widgets. This assists with a consistent and reliable signal as code evolves and helps teams focus on real risks, streamline remediation, and cut down on unnecessary security review cycles.Custom Agent VersioningCustom Agent Versioning gives teams control over which version of an AI Catalog agent or flow they use in their projects. Instead of automatically inheriting updates from the creator, GitLab now pins each project to the exact version of the agent and flow enabled for the team. This helps prevent breaking changes, security risks, and workflow disruptions, especially in production pipelines or security-sensitive environments. Teams can upgrade when they choose, test new versions in staging before promoting them, and clearly see which version is running to avoid confusion. It also enables safer customization by letting users fork an agent at a specific version and evolve it independently. The result is a more predictable, stable, and secure way to adopt custom agents across development and CI/CD workflows.New Settings for Foundational AgentsAdmins now have the ability to turn foundational agents on or off, giving teams greater control over how AI is used across their organization. With this update, admins can enable or disable these agents at the instance or group level, choose default availability, and control how new agents are introduced while still providing access to the core agent. The result is more flexible AI adoption with the governance, consistency, and control enterprise teams need.Data Analyst AgentThe Data Analyst Agent gives teams a simple way to explore GitLab data using natural language, automatically generating GitLab Query Language (GLQL)  queries, retrieving relevant information, and presenting clear insights without requiring dashboards or manual query writing. Users can analyze work volume, understand team activity, identify development trends, monitor issue and merge request status, and quickly discover work items by labels, authors, milestones, or other criteria. It also creates reusable GLQL queries that can be embedded anywhere GitLab Flavored Markdown is supported, making it easier to share findings and answer everyday questions about project activity directly within GitLab.Core DevOpsInnovations with GitLab Duo Agent Platform are most effective when the underlying DevOps experience is equally streamlined and dependable. The improvements in 18.7 to core GitLab workflows help ensure that automation, pipelines, and reusable components operate with highest levels of clarity and consistency.Dynamic Input Selection in GitLab PipelinesDynamic Input Selection in GitLab Pipelines introduces a more intuitive way to trigger pipelines through dynamic, cascading dropdown fields in the GitLab UI. This allows cross-functional teams to run pipelines without editing YAML or relying on developers, while ensuring that only valid, context-aware options are shown as they make selections. The feature supports complex workflows, assists with reducing misconfigured runs, and removes a key blocker for teams migrating from Jenkins Active Choice, helping organizations standardize their CI/CD processes entirely on GitLab.CI/CD Catalog Publication GuardrailsAdministrators of GitLab Self-Managed and GitLab Dedicated can now control which projects are allowed to publish components to the CI/CD Catalog. This new setting helps organizations maintain a curated, trusted ecosystem by ensuring only approved sources can add components. It strengthens governance for enterprise customers who want to preserve control over their CI/CD landscape while still enabling teams to discover and reuse sanctioned components.Platform SecurityAs automation and pipeline workflows become more efficient, it remains essential that teams maintain strong visibility and control over how code changes meet organizational standards. The Platform Security update in 18.7 reinforces this balance by giving teams a more flexible way to introduce and refine policy guidance without interrupting delivery.Warn Mode for MR Approval PoliciesWarn Mode for MR Approval Policies allows violations to be surfaced without blocking merges, giving teams a lower-friction way to introduce or adjust policies while assessing their impact before full enforcement. It also supports a guidance-based approach, where developers can review or dismiss violations with all actions audited to help AppSec refine policy effectiveness. Beyond merge requests, violations already present or introduced into the default branch now appear with a visual badge in the Vulnerability Report, making it easier to identify and prioritize issues that break policy.Elevating how teams build, secure, and deliver softwareThe 18.7 release is about strengthening the foundation for reliable, flexible automation across your GitLab environment.GitLab Premium and Ultimate users can start using these capabilities today on GitLab.com and self-managed environments, with availability for GitLab Dedicated customers planned for next month.GitLab Duo Agent Platform is currently in beta — enable beta and experimental features to experience how full-context AI can transform the way your teams build software. New to GitLab? Start your free trial and see why the future of development is AI-powered, secure, and orchestrated through the world’s most comprehensive DevSecOps platform.Note: Platform capabilities that are in beta are available as part of the GitLab Beta program. They are free to use during the beta period, and when generally available, they will be made available with a paid add-on option for GitLab Duo Agent Platform.Stay up to date with GitLabTo make sure you’re getting the latest features, security updates, and performance improvements, we recommend keeping your GitLab instance up to date. The following resources can help you plan and complete your upgrade:Upgrade Path Tool – enter your current version and see the exact upgrade steps for your instanceUpgrade Documentation – detailed guides for each supported version, including requirements, step-by-step instructions, and best practicesBy upgrading regularly, you’ll ensure your team benefits from the newest GitLab capabilities and remains secure and supported.For organizations that want a hands-off approach, consider GitLab’s Managed Maintenance service. With Managed Maintenance, your team stays focused on innovation while GitLab experts keep your Self-Managed instance reliably upgraded, secure, and ready to lead in DevSecOps. Ask your account manager for more information.This blog post contains \"forward‑looking statements\" within the meaning of Section 27A of the Securities Act of 1933, as amended, and Section 21E of the Securities Exchange Act of 1934. Although we believe that the expectations reflected in these statements are reasonable, they are subject to known and unknown risks, uncertainties, assumptions and other factors that may cause actual results or outcomes to differ materially. Further information on these risks and other factors is included under the caption \"Risk Factors\" in our filings with the SEC. We do not undertake any obligation to update or revise these statements after the date of this blog post, except as required by law.",
     "type": "🛡️ Security Alert",
     "timestamp": "2025-12-18T00:00:00"
-  },
-  {
-    "source": "GitLabBlog",
-    "title": "<p>When Dr. James Quilty began developing engineering project management courses at Victoria Univers",
-    "url": "https://about.gitlab.com/blog/taming-tool-sprawl-how-to-boost-university-it-productivity/",
-    "summary": "When Dr. James Quilty began developing engineering project management courses at Victoria University of Wellington's School of Engineering and Computer Science, he didn't find an organized system for delivering course content. Instead, he was faced with chaos.The problem was that back in 2015 learning materials were scattered across a dozen different tools, like the Blackboard platform, customized Wiki pages, personal websites, and shared Google Docs. On top of that, students were left to choose their own tools for coursework. All of this led to a constant state of confusion. As if that weren’t enough, few of these disparate systems provided proper version history or reliable issue tracking.This all-too-familiar lack of standardization was creating massive headaches for both lecturers and students.\"Information was fragmented across multiple files, multiple formats — sitting often on file systems, not necessarily under good version control,\" says Quilty, who is now program director for engineering at the New Zealand university.After consolidating on GitLab Self-Managed Ultimate in 2017, Victoria University saw 483% growth in student users by 2021. They also added 35 GitLab-enabled courses and now host more than 8,000 projects. The university also deployed GitLab as a unified DevSecOps platform for academic coursework, replacing what had become a fragmented and complicated toolchain. More importantly, they've redirected faculty time from administration to actual education.This pattern isn't unique. Across higher education, IT teams struggle with the same tool sprawl — multiple tools and incompatible systems that lead to hours lost to context switching and administering disparate and costly tools. Simplifying how teams build and deliver software is the answer to this widespread problem.The teams making real progress are reducing complexity instead of creating it.Facing the complexity problemHigher education IT teams are faced with managing aging infrastructure, legacy systems, and resource constraints that force difficult tradeoffs with every technology decision they have to make.Development workflows exist in silos since many departments use different version control systems, CI/CD tools, and security scanners. That means teams struggle to collaborate on cross-functional projects because they're working with incompatible toolchains and a lack of shared visibility.Legacy technology compounds these problems. Many institutions run development environments that are outdated and incompatible with modern DevSecOps practices. But replacing them isn't realistic when budgets are tight and IT staff are already stretched thin.To take on these problems, institutions need to modernize, but because of administrative processes, budget constraints, and the reality of managing critical systems, they have to do it in phases, not overnight. For instance, some workloads may move to the cloud while others remain on-premises. A research department, for instance, might shift large datasets off-site while central IT functions stay in-house.Organizations need the flexibility to be able to do that, and that’s what they get with GitLab Ultimate, the enterprise-ready DevSecOps platform that delivers the same capabilities whether you deploy on GitLab.com or self-host on your own infrastructure: on-premises servers, data centers, or cloud providers, including AWS, GCP, Azure, or even multi-cloud. Self-hosted deployments include all features, including air-gapped support for sensitive environments.This means, with GitLab Ultimate, institutions can modernize on their own timeline without abandoning governance requirements or forcing wholesale infrastructure changes.Moving from manual compliance to automated enforcementIT teams also have to work with regulatory mandates and that adds another layer of complexity. Student privacy requirements, research grant stipulations, and institutional security policies all demand audit trails and governance controls. For institutions supporting U.S. Department of Defense research or contractors, CMMC 2.0 compliance requirements add stringent cybersecurity controls based on NIST SP 800-171. Meeting these obligations while modernizing traditionally meant manually documenting everything — a process that didn't scale easily.In conversations with team members from educational institutions at events like EDUCAUSE we've learned it's all too common for dedicated compliance staff to spend the majority of their time gathering evidence for audits, instead of actually improving security. Not building better software. Just proving that policies were followed. This administrative burden extends to development teams, as well. According to Forrester Consulting’s study The Total Economic Impact™ of GitLab Ultimate, which was commissioned by GitLab, software development team members save 90% of the time previously spent on annual auditing and compliance efforts after adopting GitLab's end-to-end platform.GitLab saves all of that time and effort by enabling automation through custom compliance frameworks that map multiple, overlapping controls from different standards and regulations into a single, unified structure. They then cascade automatically from the instance level to all subgroups and projects, ensuring consistent enforcement without manual configuration.Pipeline execution policies enforce compliance directly in CI/CD pipelines where development work happens. Rather than operating disparate governance, risk, and compliance tools, compliance validation occurs automatically as code moves through the pipeline. To make all of this easier, GitLab’s Compliance Center provides oversight through dashboards that show where projects fail to meet framework requirements — whether due to failed security scans or other control gaps.Complete audit trails also capture every code change with timestamps and attribution. And policy-as-code enforces security rules that can't be bypassed. When an auditor asks who changed what code and when, you have the answer instantly — without weeks spent manually gathering evidence. Every pipeline execution automatically generates compliance documentation, enabling teams to instantly prove adherence to requirements and quickly identify any control gaps.AI: Governance over guessworkThis visibility across the entire security posture matters now more than ever. Artificial intelligence (AI) is changing how software gets built with many teams testing AI code generation tools to enable them to move faster. But higher education institutions are uniquely positioned to lead on a critical question: How do you adopt AI responsibly?Cornell University and Cal State Fullerton already are developing ethical frameworks for AI use, asking essential questions about transparency, explainability, and bias. The University of California San Diego is adapting its existing data governance framework — originally built for analytics platforms — to secure its on-premises AI assistants, ensuring the same access controls and approval workflows that protect institutional data now extend to AI-driven tools. Educational institutions understand that AI adoption requires more than just enabling new tools — it requires proper oversight and protection.The problem isn't AI itself. It's AI without guardrails integrated into development workflows. Most organizations haven't considered what secure AI development looks like — what governance is needed for AI-generated code, how to maintain visibility into what gets committed to repositories, or how to ensure the same rigor applies whether code comes from a human or AI.This is exactly where platform-level AI integration becomes essential. GitLab Duo Agent Platform goes beyond fragmented AI tools and coding assistants alone to provide an orchestration layer that integrates AI across the entire software development lifecycle.AI agents handle planning, testing, security remediation, and deployment tasks, while working alongside developers rather than just generating code on command. When security scans identify vulnerabilities, for example, AI agents explain findings, assess risks, and prioritize issues to reduce noise and accelerate mean time to recovery (MTTR). This platform approach ensures AI accelerates development without compromising the security standards and governance controls institutions require.The benefits extend beyond technical capabilities. Through GitLab's AI Transparency Center, institutions get clear documentation of data privacy protections, AI ethics principles, and vendor selection processes. This means schools can adopt AI tools while maintaining the governance standards they're developing institution-wide.AI will change how we build software. The question is whether institutions can do it with the same responsible approach they're bringing to AI adoption across campus.See results in your education environmentThe universities making real progress aren't adding more tools to manage complexity. They're consolidating onto platforms that prevent problems rather than just detecting them, creating visibility and automation across their development workflows.Forrester's The Total Economic Impact™ of GitLab Ultimate study found that a composite organization representative of interviewed customers reclaimed up to 305 hours per developer year through automated testing within a single interface, eliminating constant context switching between tools. New hires ramped to full productivity 75% faster — in 1.5 weeks instead of 1.5 months. Teams spend their time building rather than maintaining fragmented toolchains.Your institution can achieve similar results. Learn more about how GitLab Ultimate can help your institution deliver secure software faster while meeting compliance requirements. Talk to our team about platform approaches for higher education IT.",
-    "type": "🛡️ Security Alert",
-    "timestamp": "2025-12-15T00:00:00"
   },
   {
     "source": "HarnessBlog",
@@ -357,31 +357,7 @@
     "summary": "Dependency analysis reveals critical paths and single points of failure within software architectures. During incidents, SBOM data accelerates forensic analysis ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.288891"
-  },
-  {
-    "title": "GitLab Recently Released",
-    "url": "https://about.gitlab.com/releases/whats-new/",
-    "summary": "GitLab 18.5 reduces friction across planning, security, and deployment with intelligent orchestration across the software lifecycle — keeping teams in control ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.288947"
-  },
-  {
-    "title": "Automating Business-Critical Scenarios for UAT - aqua cloud",
-    "url": "https://aqua-cloud.io/automating-business-critical-scenarios-for-uat/",
-    "summary": "aqua integrates with Jira, Jenkins, Azure DevOps, Selenium, Playwright, and other dev tools for complete ecosystem compatibility.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.288989"
-  },
-  {
-    "title": "The Top 8 Tools to Build a Zero-Toil PaaS on Your Cloud - Qovery",
-    "url": "https://www.qovery.com/blog/top-8-tools-to-build-your-own-paas",
-    "summary": "Top 10 Jenkins Alternatives: The DevOps Guide to Escaping \"Plugin Chaos\". Tired of Jenkins maintenance and broken pipelines? Discover the top 10 alternatives ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.289026"
+    "timestamp": "2025-12-22T06:22:44.766006"
   },
   {
     "title": "Top 10 DAST Tools for API and Web App Security (2025) - Levo.ai",
@@ -389,7 +365,31 @@
     "summary": "Explore the 10 best DAST tools for dynamic application and API security in 2025. Learn how Levo leads with proactive, runtime aware API protection.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.289062"
+    "timestamp": "2025-12-22T06:22:44.766058"
+  },
+  {
+    "title": "GitLab Recently Released",
+    "url": "https://about.gitlab.com/releases/whats-new/",
+    "summary": "GitLab 18.5 reduces friction across planning, security, and deployment with intelligent orchestration across the software lifecycle — keeping teams in control ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:44.766097"
+  },
+  {
+    "title": "Automating Business-Critical Scenarios for UAT - aqua cloud",
+    "url": "https://aqua-cloud.io/automating-business-critical-scenarios-for-uat/",
+    "summary": "aqua integrates with Jira, Jenkins, Azure DevOps, Selenium, Playwright, and other dev tools for complete ecosystem compatibility.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:44.766131"
+  },
+  {
+    "title": "Top 10 Terraform Cloud Alternatives: The DevOps Guide to ... - Qovery",
+    "url": "https://www.qovery.com/blog/top-10-terraform-cloud-alternatives",
+    "summary": "Top 10 Jenkins Alternatives: The DevOps Guide to Escaping \"Plugin Chaos\". Tired of Jenkins maintenance and broken pipelines? Discover the top 10 alternatives ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:44.766165"
   },
   {
     "title": "Platform Engineering & Internal Developer Platforms | Curotec",
@@ -397,15 +397,7 @@
     "summary": "We design self-service infrastructure, golden paths, and developer portals that reduce friction instead of adding another tool to ignore. You get a platform ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.289096"
-  },
-  {
-    "title": "BrowserStack vs. Sauce Labs Comparison for QA Testing - Panto AI",
-    "url": "https://www.getpanto.ai/blog/browserstack-vs-sauce-labs-comparison",
-    "summary": "BrowserStack integrates smoothly with popular CI/CD platforms like Jenkins, GitHub Actions, and Bitbucket. The setup is straightforward, enabling teams to ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.289131"
+    "timestamp": "2025-12-22T06:22:44.766198"
   },
   {
     "title": "Stop Struggling with Manual AI Deployment—Let NuML Toolkit Do ...",
@@ -413,7 +405,15 @@
     "summary": "• Compatibility Issues: • Solution: Standardize data formats and protocols for smooth interoperability. • Privacy Concerns: • Solution: Incorporate end-to ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.289203"
+    "timestamp": "2025-12-22T06:22:44.766231"
+  },
+  {
+    "title": "BrowserStack vs. Sauce Labs Comparison for QA Testing - Panto AI",
+    "url": "https://www.getpanto.ai/blog/browserstack-vs-sauce-labs-comparison",
+    "summary": "BrowserStack integrates smoothly with popular CI/CD platforms like Jenkins, GitHub Actions, and Bitbucket. The setup is straightforward, enabling teams to ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:44.766281"
   },
   {
     "title": "I got hacked: My Hetzner server started mining Monero - Hacker News",
@@ -421,15 +421,15 @@
     "summary": "But hiccups may occur and firewall rules may briefly disappear (sync issues, upgrades, vm mobility issues) and you services then may become exposed.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.289259"
+    "timestamp": "2025-12-22T06:22:44.766315"
   },
   {
-    "title": "29 Best Software Composition Analysis Tools of 2025 - The CTO Club",
-    "url": "https://thectoclub.com/tools/best-software-composition-analysis-tools/",
-    "summary": "The best software composition analysis tools help teams detect vulnerabilities early, track open source licensing risks, and keep dependencies updated ...",
+    "title": "Palo Alto Networks and Google Cloud Forge Landmark Agreement ...",
+    "url": "https://www.wvnews.com/news/around_the_web/partners/pr_newswire/subject/licensing_marketing_agreements/palo-alto-networks-and-google-cloud-forge-landmark-agreement-to-help-customers-securely-accelerate-cloud/article_46221675-b1b2-5644-bf96-1ea3d634ff35.html",
+    "summary": "... friction that can slow down security teams. This allows customers to deploy protection faster, simplify compliance and gain a single, comprehensive view of ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.289320"
+    "timestamp": "2025-12-22T06:22:44.766348"
   },
   {
     "title": "Migrating from self-hosted runners to GitHub-hosted runners",
@@ -437,7 +437,7 @@
     "summary": "Learn how to assess your current CI infrastructure and migrate workflows from self-hosted runners to GitHub-hosted runners.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888682"
+    "timestamp": "2025-12-22T06:22:45.343210"
   },
   {
     "title": "Migrating from self-hosted runners to GitHub-hosted runners",
@@ -445,7 +445,15 @@
     "summary": "Learn how to assess your current CI infrastructure and migrate workflows from self-hosted runners to GitHub-hosted runners.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888734"
+    "timestamp": "2025-12-22T06:22:45.343275"
+  },
+  {
+    "title": "Let's talk about GitHub Actions · community · Discussion #181437",
+    "url": "https://github.com/orgs/community/discussions/181437",
+    "summary": "My enterprise recently started migrating towards self hosted runners. Not because it's cheaper or faster but because that was the best/only way for us to get ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:45.343313"
   },
   {
     "title": "Github Actions introducing a per-minute fee for self-hosted runners",
@@ -453,15 +461,15 @@
     "summary": "Github have just sent out an email announcing a $0.002/minute fee for self-hosted runners. Just ran the numbers, and for us, that's close to $3.5k a month ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888773"
+    "timestamp": "2025-12-22T06:22:45.343347"
   },
   {
-    "title": "Pricing Changes for GitHub Actions - Hacker News",
+    "title": "Pricing Changes for GitHub Actions | Hacker News",
     "url": "https://news.ycombinator.com/item?id=46291156",
-    "summary": "If you write most of your CICD in some kind of script, then you can run it locally, and do some basic checks around environment etc before deploying. If you ...",
+    "summary": "Jenkins has been rock solid, we are trying to migrate to Argo Workflows/Events, but there are a complaints (like deploying argo workflows with helm, such ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888808"
+    "timestamp": "2025-12-22T06:22:45.343380"
   },
   {
     "title": "What is Jenkins? A Guide to CI/CD - CloudBees",
@@ -469,15 +477,7 @@
     "summary": "Jenkins operates as a continuous integration and continuous delivery (CI/CD) automation server, helping developers build, test, and deploy applications ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888844"
-  },
-  {
-    "title": "Attendees - Technical Council - FOLIO Wiki - Atlassian",
-    "url": "https://folio-org.atlassian.net/wiki/spaces/TC/pages/1485373442/2025-12-15+Meeting+Notes",
-    "summary": "The migration of maven builds from Jenkins to GitHub Actions (https://folio-org.atlassian.net/browse/FOLIO-4126 ) blocks Trillium. It's in progress: https ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888878"
+    "timestamp": "2025-12-22T06:22:45.343412"
   },
   {
     "title": "GitHub is planning to charge for self-hosted runners starting March 1 ...",
@@ -485,7 +485,15 @@
     "summary": "Heads up: GitHub is planning to charge for self-hosted runners starting March 1, 2026. Meaning that you're paying for your server + $0.002 per build minute.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888912"
+    "timestamp": "2025-12-22T06:22:45.343444"
+  },
+  {
+    "title": "DevOps Engineer - Sharp Decisions - Charlotte, NC - Dice",
+    "url": "https://www.dice.com/job-detail/423b7c4a-d904-4248-8150-5db20ba4044d",
+    "summary": "This person will serve as the subject matter expert responsible for migrating existing Jenkins jobs (CI) to GitHub Actions workflows (CI). The ideal ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:45.343475"
   },
   {
     "title": "Changelog - Jenkins",
@@ -493,15 +501,39 @@
     "summary": "Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888947"
+    "timestamp": "2025-12-22T06:22:45.343510"
   },
   {
-    "title": "The Broken Business Case For Migration - CloudBees",
-    "url": "https://www.cloudbees.com/blog/hidden-costs-platform-migration",
-    "summary": "Platform migrations are meant to enable fewer tools, lower operational overhead, faster delivery, and improved governance. In practice, those efficiencies ...",
+    "title": "Installing and configuring your tools | IBM Z DevOps Guide",
+    "url": "https://ibm.github.io/z-devops-acceleration-program/docs/install-configure/",
+    "summary": "This page contains installation and setup instructions for the components of our recommended CI/CD pipeline (described in our Introduction to CI/CD for z/OS)",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:52.888983"
+    "timestamp": "2025-12-22T06:22:45.343542"
+  },
+  {
+    "title": "Rollout Joins CloudBees Family",
+    "url": "https://www.cloudbees.com/blog/cloudbees-acquires-rollout",
+    "summary": "Today we are incredibly excited to announce that CloudBees Feature Management.io has been acquired by CloudBees.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:45.947462"
+  },
+  {
+    "title": "What is DevSecOps? - CloudBees",
+    "url": "https://www.cloudbees.com/blog/what-is-devsecops",
+    "summary": "CloudBees has the only DevSecOps solution that integrates with your entire toolchain to secure the code in development, secure the delivery of the code and keep ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:45.947546"
+  },
+  {
+    "title": "Infrastructure as Code: Everything You Need to Know - CloudBees",
+    "url": "https://www.cloudbees.com/blog/infrastructure-as-code",
+    "summary": "Optimize your operational environment with Infrastructure as Code (IaC). Automate provisioning, reduce errors, and boost efficiency by applying IaC ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:45.947584"
   },
   {
     "title": "CloudBees Jenkins Platform on Amazon Web Services",
@@ -509,15 +541,7 @@
     "summary": "This screencast shows how to install a CloudBees Jenkins Enterprise VM on Amazon Web Services using the AWS Marketplace.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552228"
-  },
-  {
-    "title": "The 7 Deadly Diseases of DevOps: #1 - \"Invisible Work\" - CloudBees",
-    "url": "https://www.cloudbees.com/blog/7-deadly-diseases-devops-1-invisible-work",
-    "summary": "In this seven-part blog series, we will take a deep dive into each of the “diseases” laid out by Wallgren and Willis including common symptoms and remedies for ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552298"
+    "timestamp": "2025-12-22T06:22:45.947632"
   },
   {
     "title": "Meet the Bees: Tracy Kennedy - CloudBees",
@@ -525,7 +549,23 @@
     "summary": "My name is Tracy Kennedy and I'm a solutions architect/sherpa at CloudBees. My primary role is to reach out to customers on our continuous delivery cloud ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552351"
+    "timestamp": "2025-12-22T06:22:45.947680"
+  },
+  {
+    "title": "Orchestrating Deployments with Jenkins Workflow and Kubernetes",
+    "url": "https://www.cloudbees.com/blog/orchestrating-deployments-jenkins-workflow-and-kubernetes",
+    "summary": "In a nutshell, the CloudBees Docker Workflow plugin adds a special entry point named Docker that can be used in any Workflow Groovy script. It offers a number ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:45.947733"
+  },
+  {
+    "title": "Accelerating Software Delivery By Unifying CI/CD and Observability",
+    "url": "https://www.cloudbees.com/blog/accelerating-software-delivery-by-unifying-ci-cd-and-observability",
+    "summary": "Our platform unifies the CI/CD with observability to provide the ability to developers and testers to fix the build, deploy, and test failures quickly.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:45.947786"
   },
   {
     "title": "Why most migrations fail: The untold costs impacting platform teams",
@@ -533,39 +573,15 @@
     "summary": "In this webinar, we will cover: Why migrations frequently lead to increased tool sprawl, integration friction, and new security gaps; The human cost of ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552390"
+    "timestamp": "2025-12-22T06:22:45.947839"
   },
   {
-    "title": "Run Jenkins as a Service with Private SaaS Edition - CloudBees",
-    "url": "https://www.cloudbees.com/blog/run-jenkins-service-pse",
-    "summary": "Private SaaS Edition is an elastic, scalable Jenkins-based CD as a service solution for growing organizations.",
+    "title": "The 7 Deadly Diseases of DevOps: #1 - \"Invisible Work\" - CloudBees",
+    "url": "https://www.cloudbees.com/blog/7-deadly-diseases-devops-1-invisible-work",
+    "summary": "In this seven-part blog series, we will take a deep dive into each of the “diseases” laid out by Wallgren and Willis including common symptoms and remedies for ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552427"
-  },
-  {
-    "title": "Copying Heroku Databases Between Apps - CloudBees",
-    "url": "https://www.cloudbees.com/blog/heroku-copy-database-between-apps",
-    "summary": "Heroku provides some great tools to mirror your production data to your staging database. We will give you a quick guide on how to set this up.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552487"
-  },
-  {
-    "title": "Google Security Operations release notes",
-    "url": "https://docs.cloud.google.com/chronicle/docs/secops/release-notes",
-    "summary": "This migration unifies your SOAR experience with your existing cloud environment. For more information, see SOAR migration overview and FAQ. September 11 ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552530"
-  },
-  {
-    "title": "Put Gosec in Your Pipeline to Spot Source Code Security Problems",
-    "url": "https://www.cloudbees.com/blog/put-gosec-pipeline-spot-source-code-security-problems",
-    "summary": "Setting it up. Using this in CloudBees CodeShip is super easy, of course. CloudBees CodeShip has some pretty good Golang support “out of the box”, so ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:53.552567"
+    "timestamp": "2025-12-22T06:22:45.947899"
   },
   {
     "title": "20+ Best CI/CD Tools for DevOps in 2026 - Spacelift",
@@ -573,7 +589,7 @@
     "summary": "Common CI/CD tools include Jenkins, GitHub Actions, Spacelift, CircleCI, and Azure DevOps. Top CI/CD tools and platforms. Here's a quick comparison table for ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.383957"
+    "timestamp": "2025-12-22T06:22:46.547088"
   },
   {
     "title": "14 Must-Know CI/CD Tools for DevOps Teams in 2025",
@@ -581,7 +597,7 @@
     "summary": "Jenkins: An open-source, highly extensible automation server with a vast plugin ecosystem, ideal for building, deploying, and automating projects across various ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384013"
+    "timestamp": "2025-12-22T06:22:46.547148"
   },
   {
     "title": "How do you compare CI/CD providers? : r/devops - Reddit",
@@ -589,7 +605,7 @@
     "summary": "If GitHub is your main source repo, GitHub Actions is usually the most practical choice because it integrates tightly with PRs, checks, permissions, and the ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384053"
+    "timestamp": "2025-12-22T06:22:46.547185"
   },
   {
     "title": "Why Platform Engineering Demands Two Different CI Worlds - Medium",
@@ -597,7 +613,7 @@
     "summary": "Most CI/CD conversations start with tools: GitHub Actions or GitLab CI? Tekton or Jenkins? Which one scales better? But in Platform Engineering, these ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384090"
+    "timestamp": "2025-12-22T06:22:46.547220"
   },
   {
     "title": "32 Cutting-Edge DevOps Tools to Watch in 2026 - Simplilearn.com",
@@ -605,15 +621,7 @@
     "summary": "32 Top DevOps Tools 1. Git (GitLab, GitHub, Bitbucket) · 2. Maven · 3. Jenkins · 4. Chef · 5. Puppet · 6. Ansible · 7. Docker · 8. Kubernetes.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384126"
-  },
-  {
-    "title": "10 Best DevOps Automation Tools for Startups in 2025 - ET CIO",
-    "url": "https://cio.economictimes.indiatimes.com/amp/tools/10-best-devops-automation-tools-for-startups-in-2025/126003762",
-    "summary": "Built directly into GitHub repositories, it eliminates the complexity of connecting external CI/CD systems. GitHub Actions excels at event-driven automation.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384161"
+    "timestamp": "2025-12-22T06:22:46.547254"
   },
   {
     "title": "Guide: How to Unify GitHub Actions, Jenkins & GitLab ... - CloudBees",
@@ -621,15 +629,15 @@
     "summary": "Learn how to connect GitHub Actions, Jenkins, and GitLab into one unified DevOps control plane without replatforming or rewriting workflows.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384195"
+    "timestamp": "2025-12-22T06:22:46.547301"
   },
   {
-    "title": "Jenkins vs GitHub Actions: Bravado Solutions DevOps Guide",
-    "url": "https://bravadosolutions.com/jenkins-vs-github-actions-devops-automation/",
-    "summary": "Jenkins is ideal for complex, highly customizable pipelines. GitHub Actions is better for simpler, GitHub-native workflows. 2. Can GitHub Actions replace ...",
+    "title": "Which Is Better for Production Microservices (Decision Tree Explained)",
+    "url": "https://www.youtube.com/watch?v=5vrn9SLaWzg",
+    "summary": "Choosing between Jenkins and GitLab CI/CD is one of the most important DevOps decisions you'll make in a production microservices architecture — and most ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384231"
+    "timestamp": "2025-12-22T06:22:46.547334"
   },
   {
     "title": "Jenkins: The Heart of Continuous Integration in DevSecOps",
@@ -637,15 +645,23 @@
     "summary": "Jenkins acts as the automation backbone: Pulls code from Git. Builds applications. Runs automated tests. Deploys to servers or cloud platforms.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384266"
+    "timestamp": "2025-12-22T06:22:46.547367"
   },
   {
-    "title": "Why CI/CD Pipelines Are Essential for Modern Development",
-    "url": "https://www.wildnetedge.com/blogs/why-ci-cd-pipelines-are-essential-for-modern-development",
-    "summary": "Jenkins, GitLab CI, GitHub Actions, and CircleCI are among the most popular tools that are used for building CI/CD Pipelines, and they are often integrated with ...",
+    "title": "What Is a CI/CD Pipeline? Complete Guide to Faster, Safer Software ...",
+    "url": "https://middleware.io/blog/what-is-a-ci-cd-pipeline/",
+    "summary": "Common tools used here include Jenkins, GitHub Actions, GitLab runners, CircleCI, and AWS CodeBuild. For cloud-native projects, the build process typically ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:54.384318"
+    "timestamp": "2025-12-22T06:22:46.547399"
+  },
+  {
+    "title": "Popular CI/CD tools for automation",
+    "url": "https://www.facebook.com/groups/1568081096611944/posts/25413181535008566/",
+    "summary": "Here's a complete, step-by-step guide to building a real -world DevOps pipeline using: ✓ GitHub Actions ✓ Docker ✓ Kubernetes Whether you're a beginner or ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:46.547432"
   },
   {
     "title": "GitHub Actions vs Harness: DevOps Tools Comparison…",
@@ -653,7 +669,15 @@
     "summary": "Compare GitHub Actions and Harness to choose the best DevOps tool. Explore features, ease of use, automation, and deployment options.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:55.181746"
+    "timestamp": "2025-12-22T06:22:47.403798"
+  },
+  {
+    "title": "Jenkins vs GitHub Actions: Bravado Solutions DevOps Guide",
+    "url": "https://bravadosolutions.com/jenkins-vs-github-actions-devops-automation/",
+    "summary": "Jenkins is ideal for complex, highly customizable pipelines. GitHub Actions is better for simpler, GitHub-native workflows. 2. Can GitHub Actions replace ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:47.403849"
   },
   {
     "title": "Watch this before using GitHub Actions in 2026. - YouTube",
@@ -661,7 +685,7 @@
     "summary": "Perfect for beginners and DevOps engineers who want to avoid billing surprises and ... Day-20 | GitHub Actions | Actions vs Jenkins | 3 Projects with examples | ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:55.181802"
+    "timestamp": "2025-12-22T06:22:47.403886"
   },
   {
     "title": "GitHub self-hosted runners cost increase and alternatives (2026)",
@@ -669,23 +693,31 @@
     "summary": "GitHub is charging $0.002/minute for self-hosted runners starting March 2026. Here are the alternatives.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:55.181844"
+    "timestamp": "2025-12-22T06:22:47.403921"
   },
   {
-    "title": "Alternatives to GitHub Actions for self-hosted runners",
-    "url": "https://dev.to/r0bbie/alternatives-to-github-actions-for-self-hosted-runners-5eaj",
-    "summary": "Somewhat the veteran CI/CD platform, Jenkins is free and open-source for self-hosting. A major pro is certainly its significant plugin ecosystem, with broad ...",
+    "title": "I Reviewed the Top 5 Test Management Tools for 2026",
+    "url": "https://learn.g2.com/best-test-management-tools?hsLang=en",
+    "summary": "Its seamless connections with Jenkins, GitHub Actions, GitLab CI, Bitbucket, and Azure DevOps make it a reliable choice for continuous testing at scale.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:55.181884"
+    "timestamp": "2025-12-22T06:22:47.403956"
   },
   {
-    "title": "Rajesh Ramaswami's Post",
-    "url": "https://www.linkedin.com/posts/rajesh-ramaswami-70895923_platformengineering-internaldeveloperplatform-activity-7406182258270859266-NZM5",
-    "summary": "... engineering, data and AI work. What platform engineering is • a small team building and running an internal developer platform • a curated stack with self ...",
+    "title": "Moving from GitHub Actions? Software binary management for any ...",
+    "url": "https://dev.to/buildstash/moving-from-github-actions-software-binary-management-for-any-cicd-4gg8",
+    "summary": "Jenkins is a widely used, time-tested, and open source CI/CD platform which allows full self-hosting. Find the Buildstash plugin in the Jenkins Plugin Index, to ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.026064"
+    "timestamp": "2025-12-22T06:22:47.403989"
+  },
+  {
+    "title": "Unlocking Developer Happiness and Productivity in 2025",
+    "url": "https://www.baytechconsulting.com/blog/unlocking-developer-happiness-productivity-2025",
+    "summary": "To support autonomy without chaos, many organizations are adopting Platform Engineering. They're building internal developer platforms (“IDP”) with standardized ...Read more",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:48.191415"
   },
   {
     "title": "7 Best Developer Portals for Enterprise Engineering Teams | Roadie",
@@ -693,15 +725,7 @@
     "summary": "This guide evaluates the seven platforms that enterprise engineering leaders are actually deploying at scale, focusing on the strategic tradeoffs that matter ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854550"
-  },
-  {
-    "title": "Sustaining AI Adoption on Your Team: Moving from Launch to Long ...",
-    "url": "https://fleishmanhillard.com/2025/12/ai-adoption-long-term-success-overcome-challenges/",
-    "summary": "Move AI from launch to lasting practice. Discover strategies to maintain momentum, overcome adoption challenges, and drive real impact.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854607"
+    "timestamp": "2025-12-22T06:22:48.811546"
   },
   {
     "title": "Reimagining the value proposition of tech services for agentic AI",
@@ -709,23 +733,7 @@
     "summary": "As enterprise customers seek support with agentic AI, tech services providers have a chance to turn a potential threat into an even bigger opportunity.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854647"
-  },
-  {
-    "title": "Kubernetes in the Enterprise Trend Report - Nutanix",
-    "url": "https://www.nutanix.com/go/kubernetes-in-the-enterprise-trend-report",
-    "summary": "DZone's 2025 Trend Report, sponsored by Nutanix, reveals how enterprises are tackling tool sprawl, rising costs, and cultural shifts with platform ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854683"
-  },
-  {
-    "title": "Stack Overflow: The invisible platform engineer: why developers still ...",
-    "url": "https://www.computerweekly.com/blog/CW-Developer-Network/Stack-Overflow-The-invisible-platform-engineer-why-developers-still-need-human-interaction",
-    "summary": "Successful platform engineering teams treat their platforms like products, complete with roadmaps, user research and feedback loops. They embed themselves ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854718"
+    "timestamp": "2025-12-22T06:22:48.811603"
   },
   {
     "title": "Announcing the State of Platform Engineering Report Vol 4",
@@ -733,23 +741,47 @@
     "summary": "A concerning 29.6% of platform teams report that they do not measure success at all. This lack of feedback loops cripples a team's ability to prove ROI ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854754"
+    "timestamp": "2025-12-22T06:22:48.811640"
   },
   {
-    "title": "Why Enterprises Are Adopting Low-Code and No-Code Platforms",
-    "url": "https://dev.to/parthspan/why-enterprises-are-adopting-low-code-and-no-code-platforms-2doc",
-    "summary": "One of the biggest hidden benefits is cultural. When business teams can prototype solutions and IT teams can refine and scale them, collaboration improves.",
+    "title": "From Azure “wild west” to enterprise governance — afraid we might ...",
+    "url": "https://www.reddit.com/r/AZURE/comments/1prhjxe/from_azure_wild_west_to_enterprise_governance/",
+    "summary": "We support many applications, but our team simply can't afford managing a large number of subscriptions — subscription-level RBAC alone is painful and doesn't ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854789"
+    "timestamp": "2025-12-22T06:22:48.811675"
   },
   {
-    "title": "The 2026 AppDev Inflection Point for AI, Platforms, and Operations",
-    "url": "https://thecuberesearch.com/the-2026-appdev-inflection-point-for-ai-platforms-and-operations/",
-    "summary": "The 2026 AppDev inflection point reshapes software around AI agents, platforms, observability, and automation-driven operations.",
+    "title": "The hidden cost of not training your platform team - YouTube",
+    "url": "https://www.youtube.com/watch?v=Kq5wrNqOneM",
+    "summary": "... adoption, and frustrated developers. Your team needs more than just tech skills; they need to master product thinking, stakeholder management, and change ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854823"
+    "timestamp": "2025-12-22T06:22:48.811707"
+  },
+  {
+    "title": "Locking Down GitHub Enterprise: A Security-First Approach That ...",
+    "url": "https://github.com/orgs/community/discussions/182182",
+    "summary": "This post is my attempt to codify the security practices that actually work in the real world – the ones I walk through with customers who are serious about ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:48.811739"
+  },
+  {
+    "title": "Your Data-Backed 2026 Engineering Roadmap is Built on Waydev",
+    "url": "https://waydev.co/data-driven-2026-engineering-roadmap-waydev/",
+    "summary": "Discover how Waydev's Engineering Intelligence empowers data-driven software teams to boost ROI, eliminate bottlenecks, and build a predictable 2026 ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:48.811769"
+  },
+  {
+    "title": "Enterprise Software Development Considerations for Businesses",
+    "url": "https://tech.us/blog/enterprise-software-development-key-considerations-2026",
+    "summary": "Understand the critical enterprise software development considerations for 2026, including modernization, AI integration, cloud scalability, and compliance.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:48.811798"
   },
   {
     "title": "Platform Engineering Without a Platform Team: The Third Path Most ...",
@@ -757,415 +789,7 @@
     "summary": "The numbers tell an interesting story. Over 60% of enterprises building on Kubernetes in 2025 have formed or plan to form a dedicated platform engineering team.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854858"
-  },
-  {
-    "title": "AI doesn't mean your developers are obsolete — if anything you're ...",
-    "url": "https://www.itpro.com/software/development/ai-doesnt-mean-your-developers-are-obsolete-if-anything-youre-probably-going-to-need-bigger-teams",
-    "summary": "Software development will never be fully automated, so you're going to need humans in the loop – and probably more of them.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:56.854893"
-  },
-  {
-    "title": "20+ Top Most Popular DevOps Platforms in 2026 - Spacelift",
-    "url": "https://spacelift.io/blog/devops-platforms",
-    "summary": "It integrates seamlessly with CI/CD tools, cloud providers like AWS and Azure, and container platforms such as Kubernetes and ECS.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:57.509762"
-  },
-  {
-    "title": "Defining needs based environment variables at job level in CloudBees",
-    "url": "https://stackoverflow.com/questions/79851867/defining-needs-based-environment-variables-at-job-level-in-cloudbees",
-    "summary": "Stack Internal Implement a knowledge platform layer to power your enterprise and AI tools. ... See similar questions with these tags. CI/CD Collective See more.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:57.509816"
-  },
-  {
-    "title": "InfoWorld's 2025 Technology of the Year Award winners",
-    "url": "https://www.infoworld.com/article/4104098/infoworlds-2025-technology-of-the-year-award-winners.html",
-    "summary": "It integrates into the CI/CD pipeline on devops platforms for automated, continuous code inspections. Deployable on-prem or in the cloud, it scans repositories ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:57.509860"
-  },
-  {
-    "title": "Platform Engineering | LinkedIn",
-    "url": "https://www.linkedin.com/company/platform-engineering-org",
-    "summary": "Policies are enforced directly in CI/CD rather than through reviews and tickets. The distinction matters. Shifting security left helps teams see issues earlier.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:57.509898"
-  },
-  {
-    "title": "Featured Archives - SD Times",
-    "url": "https://sdtimes.com/category/magazine-issue/",
-    "summary": "CloudBees has a new DevSecOps platform specifically for platform engineering ... CI/CD workflows. With experts like CTO Scott Robertson and Product ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:57.509931"
-  },
-  {
-    "title": "Designing Microsoft Azure Infrastructure Solutions ‍   Trainer: Industry ...",
-    "url": "https://www.facebook.com/groups/1443368372418560/posts/25345147208480675/",
-    "summary": "Become a Cloud & Infrastructure Professional with hands-on, job-oriented Microsoft Azure training, aligned with real-world enterprise requirements. ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:57.509971"
-  },
-  {
-    "title": "Atlassian Solutions - SPK and Associates",
-    "url": "https://www.spkaa.com/software/atlassian",
-    "summary": "SPK has certified experts that can provide guidance, strategy, and do the work needed to protect your Atlassian investment.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:57.510007"
-  },
-  {
-    "title": "Top 8 Proven DevOps Security Best Practices of 2025",
-    "url": "https://www.moontechnolabs.com/qanda/devops-security-best-practices/",
-    "summary": "A quick guide to DevOps Security Best Practices—covering challenges, solutions, and strategies to secure development and deployment processes.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206369"
-  },
-  {
-    "title": "A Practical Guide to Implementing DevSecOps in Your Organization",
-    "url": "https://www.veracode.com/blog/implementing-devsecops-in-your-organization/",
-    "summary": "A 6-Step Framework for Implementing DevSecOps · Step 1: Discover and Assess Your Application Risk · Step 2: Establish and Automate Prevention Methods · Step 3: ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206422"
-  },
-  {
-    "title": "Top CI/CD Pipeline Security Best Practices for AI-Powered ... - Snyk",
-    "url": "https://snyk.io/articles/ai-ci-cd-security-best-practices/",
-    "summary": "Always establish cryptographic validation for every model artifact before deployment. Digital signatures ensure models haven't been tampered with during the CI/ ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206462"
-  },
-  {
-    "title": "10 DevOps best practices for speed and security - Appfire",
-    "url": "https://appfire.com/resources/blog/devops-best-practices",
-    "summary": "1. Prioritize continuous integration and continuous delivery (CI/CD) · 2. Adopt a microservices architecture · 3. Build with the right tools · 4. Integrate ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206498"
-  },
-  {
-    "title": "DevSecOps Testing: Automated and Manual - Spacelift",
-    "url": "https://spacelift.io/blog/devsecops-code-testing",
-    "summary": "Learn what code testing is in the DevSecOps lifecycle and the shift-left strategy. Explore why you should implement it and how to do it.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206533"
-  },
-  {
-    "title": "Three Encryption Resolutions for DevSecOps in 2026 - DevOps.com",
-    "url": "https://devops.com/three-encryption-resolutions-for-devsecops-in-2026/",
-    "summary": "As supply chain attacks surge and AI-powered threats grow, DevSecOps teams must strengthen CI/CD security.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206566"
-  },
-  {
-    "title": "Top DevSecOps Tools for 2025: Comprehensive Guide to Must ...",
-    "url": "https://devseccops.ai/top-devsecops-tools-for-2025-comprehensive-guide-to-must-have-security-solutions/",
-    "summary": "CI/CD Pipelines: Set up and manage secure continuous integration and deployment pipelines, embedding security automation in software delivery. Platform ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206603"
-  },
-  {
-    "title": "Secure Artifact Storage Practices - Harness",
-    "url": "https://www.harness.io/harness-devops-academy/secure-artifact-storage-practices",
-    "summary": "Vulnerability scanning stands at the forefront of DevSecOps best practices. The idea is to continuously scan artifacts for known security vulnerabilities, ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206638"
-  },
-  {
-    "title": "What Should You Know About DevSecOps Practices? - Innoraft",
-    "url": "https://www.innoraft.ai/blog/what-should-you-know-about-devsecops-practices",
-    "summary": "Set a baseline for minimum security. After you've established your requirements, decide the metrics you want to monitor in order to keep track of your progress.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.206673"
-  },
-  {
-    "title": "6 Best Practices to Automate DevSecOps in Days, Not Months",
-    "url": "https://www.qovery.com/blog/6-best-practices-for-implementing-devsecops",
-    "summary": "Define security policies as code using tools like Open Policy Agent (OPA) or AWS Config to automate checks for misconfigurations, such as ensuring encryption is ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874208"
-  },
-  {
-    "title": "Scaling CI/CD Templates: The Pipeline Reuse Maturity Model…",
-    "url": "https://www.harness.io/harness-devops-academy/scaling-ci-cd-templates-the-pipeline-reuse-maturity-model",
-    "summary": "Policy-as-Code, Input Sets. Requires balanced fence building. Embedded Policy-as-Code (OPA). The goal is simple: High autonomy for developers, high governance ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874266"
-  },
-  {
-    "title": "Enterprise DevOps Services for Fortune 500 | SquareOps",
-    "url": "https://squareops.com/knowledge/enterprise-devops-services-how-fortune-500s-scale-ci-cd/",
-    "summary": "Policy-driven automation ensures only compliant code reaches production. Tools like OPA, Conftest, and Policy-as-Code enforce security throughout CI/CD.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874328"
-  },
-  {
-    "title": "Scaling Cloud Governance: The Definitive Guide to Enterprise ...",
-    "url": "https://vikumjayalath.com/scaling-cloud-governance-the-definitive-guide-to-enterprise-policy-as-code-pac-56bd85b3f9a0",
-    "summary": "The Enterprise Policy as Code (EPAC) framework is critical because it introduces Desired State Management (DSM) - a feature often missing in generic IaC ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874373"
-  },
-  {
-    "title": "How to create FedRAMP compliant cloud environments with IaC for ...",
-    "url": "https://www.reddit.com/r/devops/comments/1po0swi/how_to_create_fedramp_compliant_cloud/",
-    "summary": "Is it possible to build a full cloud environment using Infrastructure as Code and make it FedRAMP compliant from the start? The goal would be to offer ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874440"
-  },
-  {
-    "title": "90 Days Inside Enterprise DevOps: Failures, Fixes & Frameworks",
-    "url": "https://medium.com/@vinoji2005/90-days-inside-enterprise-devops-failures-fixes-frameworks-29eb15c954d5",
-    "summary": "This is not another “learn DevOps tools” series. This is a 90-day journey through how real enterprises fail, fix, and scale delivery systems.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874509"
-  },
-  {
-    "title": "The 24/7 data pipeline: Architecting the always-on data platform",
-    "url": "https://www.deloitte.com/in/en/services/consulting/perspectives/architecting-the-always-on-data-platform.html",
-    "summary": "The orchestration layer ensures that the pipelines remain event-driven and responsive, thus supporting the 24/7 data state that modern businesses require.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874572"
-  },
-  {
-    "title": "2026 DevOps Predictions - Part 6 - DEVOPSdigest",
-    "url": "https://www.devopsdigest.com/2026-devops-predictions-6",
-    "summary": "DevOps Will Evolve from Automation to Autonomous Operations: In 2026, I think we'll see DevOps move into AI-embedded, intelligence-driven adaptive ecosystems.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:58.874631"
-  },
-  {
-    "title": "Top 10 Infrastructure as Code (IaC) Scanning Tools - Spacelift",
-    "url": "https://spacelift.io/blog/iac-scanning-tools",
-    "summary": "CI/CD integration: Easily integrates into CI/CD pipelines to perform security checks during the development process. Open-source and extensible: Provides ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:59.605992"
-  },
-  {
-    "title": "Best GitHub Security Tools for Secure Repositories - Aikido",
-    "url": "https://www.aikido.dev/blog/top-github-security-tools",
-    "summary": "CI/CD Integration: Easily integrates into GitHub Actions and other CI systems to act as a security gate, failing builds when secrets are detected.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:59.606047"
-  },
-  {
-    "title": "Top 15 AWS Infrastructure Automation Tools in 2026 - nOps",
-    "url": "https://www.nops.io/blog/aws-infrastructure-automation-tools/",
-    "summary": "Terraform, developed by HashiCorp, is a cloud-agnostic Infrastructure-as-Code (IaC) tool that automates provisioning and management across AWS and other major ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:59.606086"
-  },
-  {
-    "title": "How to Implement Infrastructure as Code: A Comprehensive Guide…",
-    "url": "https://www.harness.io/harness-devops-academy/how-to-implement-infrastructure-as-code",
-    "summary": "Also, ensure you incorporate scanning tools into your CI/CD pipeline to detect security vulnerabilities or misconfigurations early.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:59.606122"
-  },
-  {
-    "title": "How Often Should Security Tests Run in CI/CD? | by Harold Finch",
-    "url": "https://medium.com/@haroldfinch01/how-often-should-security-tests-run-in-ci-cd-f637ebf920f6",
-    "summary": "Security testing in CI/CD refers to embedding automated checks throughout the pipeline to detect vulnerabilities, misconfigurations, or malicious code before ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:59.606160"
-  },
-  {
-    "title": "Introducing QonQrete — A Local-First, Secure Multi-Agent Pipeline ...",
-    "url": "https://www.reddit.com/r/devops/comments/1pporaa/introducing_qonqrete_a_localfirst_secure/",
-    "summary": "QonQrete is a local-first, multi-agent AI orchestration system that behaves more like a CI pipeline than an LLM helper. Instead of generating code on your host ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:35:59.606194"
-  },
-  {
-    "title": "AI Roadmap 2026 for DevOps and Cloud Engineers - Talent500",
-    "url": "https://talent500.com/blog/ai-roadmap-2026-devops-cloud-engineers/",
-    "summary": "Workflow automation platforms can connect AI capabilities to pipelines, alerts, and collaboration tools. This stage focuses on wiring AI into real-time DevOps ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249039"
-  },
-  {
-    "title": "From CI/CD to AI/CD: Why DevOps Pipelines Are Learning to Think ...",
-    "url": "https://medium.com/@opsdev36/from-ci-cd-to-ai-cd-why-devops-pipelines-are-learning-to-think-in-2025-a0326547f7c4",
-    "summary": "We've automated execution — but we still rely on humans for judgment. CI/CD made delivery faster. But it didn't make it smarter. And in 2025, that gap is ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249094"
-  },
-  {
-    "title": "6 Ways to Enhance Developer Productivity with—and Beyond—AI",
-    "url": "https://www.ibm.com/think/insights/developer-productivity",
-    "summary": "Automate the smart way. Some parts of the software development process can benefit from AI-assisted automation. DevOps is a prime example, automating an ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249133"
-  },
-  {
-    "title": "Surprise! Everybody Uses AI Tools for Software Development, Few ...",
-    "url": "https://devops.com/surprise-everybody-uses-ai-tools-for-software-development-few-do-so-securely/",
-    "summary": "AI is generating code faster than teams can secure it, widening software supply chain risk and exposing major gaps in AppSec and governance.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249169"
-  },
-  {
-    "title": "Best DevOps Automation Tools to Streamline Software Delivery…",
-    "url": "https://www.harness.io/harness-devops-academy/best-devops-automation-tools",
-    "summary": "In this article, you will explore the best DevOps automation tools that help teams accelerate software delivery, reduce human error, and improve system ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249204"
-  },
-  {
-    "title": "AWS Debuts “DevOps Agent” to Automate Incident Response ... - InfoQ",
-    "url": "https://www.infoq.com/news/2025/12/aws-devops-agents/",
-    "summary": "Their platform claims to use agentic AI to help reduce toil and automate incident management - integrating with monitoring, alerting, and deployment tooling ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249238"
-  },
-  {
-    "title": "Operationalize generative AI workloads and scale to hundreds of ...",
-    "url": "https://aws.amazon.com/blogs/machine-learning/operationalize-generative-ai-workloads-and-scale-to-hundreds-of-use-cases-with-amazon-bedrock-part-1-genaiops/",
-    "summary": "Implementing the four steps outlined in this post can transform your baseline DevOps solution into a robust GenAIOps solution that follows best practices. This ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249271"
-  },
-  {
-    "title": "AI-Assisted Development Workflows - DEV Community",
-    "url": "https://dev.to/sunny7899/ai-assisted-development-workflows-3723",
-    "summary": "In this blog, we explore how developers can integrate AI tools and practices into their day-to-day processes, and how companies can build smarter, faster, more ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249323"
-  },
-  {
-    "title": "From Autonomous DevOps to AI-Driven Dark Patterns - @VMblog",
-    "url": "https://vmblog.com/archive/2025/12/19/from-autonomous-devops-to-ai-driven-dark-patterns-the-enterprise-shifts-ahead.aspx",
-    "summary": "For example, CI/CD pipelines will become self-governing systems that dynamically adjust based on telemetry, security, and compliance data. AI-powered code ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:00.249359"
-  },
-  {
-    "title": "Prompt tuning: optimize your AI model for better performance",
-    "url": "https://www.hostinger.com/au/tutorials/prompt-tuning",
-    "summary": "Prompt tuning is a technique for teaching AI models to perform better by optimizing learnable vectors called soft prompts. Instead of retraining and ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.077750"
-  },
-  {
-    "title": "Building at AI speed: Why the next leap in CI/CD is autonomous ...",
-    "url": "https://www.linkedin.com/pulse/building-ai-speed-why-next-leap-cicd-autonomous-validation-circleci-dntzc",
-    "summary": "Autonomous validation analyzes the diff, traces dependencies, and draws on historical patterns to run only the parts of the validation pipeline that matter.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.077803"
-  },
-  {
-    "title": "Build and deploy scalable AI agents with NVIDIA NeMo, Amazon ...",
-    "url": "https://aws.amazon.com/blogs/machine-learning/build-and-deploy-scalable-ai-agents-with-nvidia-nemo-amazon-bedrock-agentcore-and-strands-agents/",
-    "summary": "Agent performance optimization. After profiling, refine the agent's parameters to balance quality, performance, and cost. Manual tuning of LLM settings like ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.077842"
-  },
-  {
-    "title": "How Evolutionary Optimization Outperforms Manual Tuning for LLM ...",
-    "url": "https://www.turintech.ai/blog/how-evolutionary-optimization-outperforms-manual-tuning-for-llm-based-agents",
-    "summary": "The Mini-SWE Agent demonstrated a statistically significant 10.1% performance improvement (p < 0.05), with apply rate and correctness maintained at 92.1% and ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.077881"
-  },
-  {
-    "title": "What's working to automate the code review process in your ci/cd ...",
-    "url": "https://www.reddit.com/r/devops/comments/1pndos3/whats_working_to_automate_the_code_review_process/",
-    "summary": "If you want to automate so real people don't have to review code, then just remove needing approvals from the ruleset and merge directly. No AI automation ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.077917"
-  },
-  {
-    "title": "Beyond lift-and-shift: Using agentic AI for continuous cloud ... - CIO",
-    "url": "https://www.cio.com/article/4105794/beyond-lift-and-shift-using-agentic-ai-for-continuous-cloud-modernization.html",
-    "summary": "Agentic AI makes cloud modernization an ongoing tune-up instead of a giant, stressful overhaul, keeping apps faster, cheaper and more secure every day.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.077950"
-  },
-  {
-    "title": "The Silent Killer in Your CI/CD Pipeline: Why “It Works on My ...",
-    "url": "https://medium.com/@robertgo8/the-silent-killer-in-your-ci-cd-pipeline-why-it-works-on-my-machine-isnt-enough-4d4e7e29e0a7",
-    "summary": "The prompt forces the AI to separate the build environment from the runtime environment. The result? Images that are often 90% smaller and infinitely more ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.077984"
-  },
-  {
-    "title": "20 Best AI-Powered Coding Assistant Tools in 2026 - Spacelift",
-    "url": "https://spacelift.io/blog/ai-coding-assistant-tools",
-    "summary": "Hyperparameter tuning: SageMaker offers automatic hyperparameter tuning, ensuring that the models used for AI coding assistance are optimized for performance.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.078017"
-  },
-  {
-    "title": "Predictable AI Cloud Performance at Scale | NVIDIA Exemplar Cloud",
-    "url": "https://www.nvidia.com/en-us/data-center/ai-cloud-performance/",
-    "summary": "NVIDIA Exemplar Cloud delivers predictable AI performance at scale with standardized DGX Cloud benchmarks, tools, and recipes that improve workload speed, ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.078048"
-  },
-  {
-    "title": "How to Build and Optimize High-Performance Deep Neural ...",
-    "url": "https://mltechniques.com/2025/12/20/how-to-build-and-optimize-high-performance-deep-neural-networks-from-scratch/",
-    "summary": "With explainable AI, intuitive parameters easy to fine-tune, versatile, robust, fast to train, without any library other than Numpy.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.078080"
-  },
-  {
-    "title": "15 Best AI Tools for Developers in 2026 [Free and Paid] - Openxcell",
-    "url": "https://www.openxcell.com/blog/ai-tools-for-developers/",
-    "summary": "Learn how AI tools for software development help developers build smarter apps. Explore the best AI tools for developers, free and paid.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772250"
+    "timestamp": "2025-12-22T06:22:48.811828"
   },
   {
     "title": "2026 Forecast: The Autonomous Enterprise and the Four Pillars of ...",
@@ -1173,7 +797,407 @@
     "summary": "Unlock how autonomous AI agents will reshape DevOps and platform engineering in 2026, using Golden Paths, Guardrails, Safety Nets, and Manual Review to ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772319"
+    "timestamp": "2025-12-22T06:22:48.811858"
+  },
+  {
+    "title": "20+ Top Most Popular DevOps Platforms in 2026 - Spacelift",
+    "url": "https://spacelift.io/blog/devops-platforms",
+    "summary": "It integrates seamlessly with CI/CD tools, cloud providers like AWS and Azure, and container platforms such as Kubernetes and ECS.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343077"
+  },
+  {
+    "title": "10 Steps to Improving Developer Experience Across Your ...",
+    "url": "https://www.spkaa.com/blog/10-steps-to-improving-developer-experience-across-your-organization",
+    "summary": "Start by mapping every tool your developers touch. This includes but is not limited to…IDEs, code repos, CI/CD pipelines, issue trackers, service desks, ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343129"
+  },
+  {
+    "title": "Defining needs based environment variables at job level in CloudBees",
+    "url": "https://stackoverflow.com/questions/79851867/defining-needs-based-environment-variables-at-job-level-in-cloudbees",
+    "summary": "Stack Internal Implement a knowledge platform layer to power your enterprise and AI tools. ... See similar questions with these tags. CI/CD Collective See more.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343164"
+  },
+  {
+    "title": "Premium Archives - SD Times",
+    "url": "https://sdtimes.com/category/premium/",
+    "summary": "This month's issue includes a look at CI/CD pipelines, how tools are now crucial to implementing Agile, and whether AI can really be a developer. … continue ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343197"
+  },
+  {
+    "title": "Devops Jobs - Reddit",
+    "url": "https://www.reddit.com/r/devopsjobs/",
+    "summary": "A privacy focussed skills-first platform where employers discover candidates based on skills, experience, and proficiency, not job titles or CV keywords.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343228"
+  },
+  {
+    "title": "InfoWorld's 2025 Technology of the Year Award winners",
+    "url": "https://www.infoworld.com/article/4104098/infoworlds-2025-technology-of-the-year-award-winners.html",
+    "summary": "It integrates into the CI/CD pipeline on devops platforms for automated, continuous code inspections. Deployable on-prem or in the cloud, it scans repositories ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343274"
+  },
+  {
+    "title": "DevOps Engineer - GitHub/Google Cloud Platform",
+    "url": "https://in.talent.com/view?id=9a3eb12084c5",
+    "summary": "We are seeking a highly experienced DevOps Engineer with deep technical expertise in Google Cloud Platform (GCP), CI / CD automation using GitHub Actions, and ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343308"
+  },
+  {
+    "title": "Creating environment variables across jobs - Stack Overflow",
+    "url": "https://stackoverflow.com/questions/79850492/creating-environment-variables-across-jobs",
+    "summary": "I'm trying to write a CloudBees workflow and it uses GitHub Actions syntax. I'm looking for some advice with environment variables. I want to dynamically create ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:49.343340"
+  },
+  {
+    "title": "Top 5 DevSecOps Practices That Prevent Costly Security Failures",
+    "url": "https://www.modernsecurity.io/pages/blog?p=top-5-devsecops-practices-that-prevent-costly-security-failures",
+    "summary": "By embedding security checks directly into CI/CD workflows, teams ensure that every change is reviewed consistently. Automated checks run the same way every ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152013"
+  },
+  {
+    "title": "Top CI/CD Pipeline Security Best Practices for AI-Powered ... - Snyk",
+    "url": "https://snyk.io/articles/ai-ci-cd-security-best-practices/",
+    "summary": "Always establish cryptographic validation for every model artifact before deployment. Digital signatures ensure models haven't been tampered with during the CI/ ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152076"
+  },
+  {
+    "title": "Top 8 Proven DevOps Security Best Practices of 2025",
+    "url": "https://www.moontechnolabs.com/qanda/devops-security-best-practices/",
+    "summary": "A quick guide to DevOps Security Best Practices—covering challenges, solutions, and strategies to secure development and deployment processes.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152113"
+  },
+  {
+    "title": "A Practical Guide to Implementing DevSecOps in Your Organization",
+    "url": "https://www.veracode.com/blog/implementing-devsecops-in-your-organization/",
+    "summary": "A 6-Step Framework for Implementing DevSecOps · Step 1: Discover and Assess Your Application Risk · Step 2: Establish and Automate Prevention Methods · Step 3: ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152147"
+  },
+  {
+    "title": "What are the best practices for implementing security monitoring in a ...",
+    "url": "https://www.reddit.com/r/AskNetsec/comments/1psa4bg/what_are_the_best_practices_for_implementing/",
+    "summary": "I'm looking for insights on effective practices for implementing security monitoring in such environments. Specifically, what tools or frameworks have you found ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152180"
+  },
+  {
+    "title": "DevSecOps Testing: Automated and Manual - Spacelift",
+    "url": "https://spacelift.io/blog/devsecops-code-testing",
+    "summary": "Learn what code testing is in the DevSecOps lifecycle and the shift-left strategy. Explore why you should implement it and how to do it.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152212"
+  },
+  {
+    "title": "Three Encryption Resolutions for DevSecOps in 2026 - DevOps.com",
+    "url": "https://devops.com/three-encryption-resolutions-for-devsecops-in-2026/",
+    "summary": "As supply chain attacks surge and AI-powered threats grow, DevSecOps teams must strengthen CI/CD security.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152243"
+  },
+  {
+    "title": "Top DevSecOps Tools for 2025: Comprehensive Guide to Must ...",
+    "url": "https://devseccops.ai/top-devsecops-tools-for-2025-comprehensive-guide-to-must-have-security-solutions/",
+    "summary": "CI/CD Pipelines: Set up and manage secure continuous integration and deployment pipelines, embedding security automation in software delivery. Platform ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152292"
+  },
+  {
+    "title": "Secure Artifact Storage Practices - Harness",
+    "url": "https://www.harness.io/harness-devops-academy/secure-artifact-storage-practices",
+    "summary": "Vulnerability scanning stands at the forefront of DevSecOps best practices. The idea is to continuously scan artifacts for known security vulnerabilities, ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.152350"
+  },
+  {
+    "title": "6 Best Practices to Automate DevSecOps in Days, Not Months",
+    "url": "https://www.qovery.com/blog/6-best-practices-for-implementing-devsecops",
+    "summary": "Define security policies as code using tools like Open Policy Agent (OPA) or AWS Config to automate checks for misconfigurations, such as ensuring encryption is ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772277"
+  },
+  {
+    "title": "Scaling CI/CD Templates: The Pipeline Reuse Maturity Model…",
+    "url": "https://www.harness.io/harness-devops-academy/scaling-ci-cd-templates-the-pipeline-reuse-maturity-model",
+    "summary": "To scale CI/CD pipelines, templates should be referenced - not copied. Reuse by reference enables more efficient maintenance.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772338"
+  },
+  {
+    "title": "Infrastructure as Code (IaC) Security: 10 Best Practices - Spacelift",
+    "url": "https://spacelift.io/blog/infrastructure-as-code-iac-security",
+    "summary": "Policy as code transforms static security policies and compliance rules into executable code that enforces standards automatically during infrastructure ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772381"
+  },
+  {
+    "title": "90 Days Inside Enterprise DevOps: Failures, Fixes & Frameworks",
+    "url": "https://medium.com/@vinoji2005/90-days-inside-enterprise-devops-failures-fixes-frameworks-29eb15c954d5",
+    "summary": "This is not another “learn DevOps tools” series. This is a 90-day journey through how real enterprises fail, fix, and scale delivery systems.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772426"
+  },
+  {
+    "title": "How to create FedRAMP compliant cloud environments with IaC for ...",
+    "url": "https://www.reddit.com/r/devops/comments/1po0swi/how_to_create_fedramp_compliant_cloud/",
+    "summary": "Is it possible to build a full cloud environment using Infrastructure as Code and make it FedRAMP compliant from the start? The goal would be to offer ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772465"
+  },
+  {
+    "title": "Scaling Cloud Governance: The Definitive Guide to Enterprise ...",
+    "url": "https://vikumjayalath.com/scaling-cloud-governance-the-definitive-guide-to-enterprise-policy-as-code-pac-56bd85b3f9a0",
+    "summary": "The Enterprise Policy as Code (EPAC) framework is critical because it introduces Desired State Management (DSM) - a feature often missing in generic IaC ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772501"
+  },
+  {
+    "title": "Enterprise DevOps Services for Fortune 500 | SquareOps",
+    "url": "https://squareops.com/knowledge/enterprise-devops-services-how-fortune-500s-scale-ci-cd/",
+    "summary": "Policy-driven automation ensures only compliant code reaches production. Tools like OPA, Conftest, and Policy-as-Code enforce security throughout CI/CD.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772538"
+  },
+  {
+    "title": "2026 DevOps Predictions - Part 6 - DEVOPSdigest",
+    "url": "https://www.devopsdigest.com/2026-devops-predictions-6",
+    "summary": "DevOps Will Evolve from Automation to Autonomous Operations: In 2026, I think we'll see DevOps move into AI-embedded, intelligence-driven adaptive ecosystems.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:50.772573"
+  },
+  {
+    "title": "Top 10 Infrastructure as Code (IaC) Scanning Tools - Spacelift",
+    "url": "https://spacelift.io/blog/iac-scanning-tools",
+    "summary": "CI/CD integration: Easily integrates with CI/CD pipelines to enforce security and configuration best practices automatically. Extensible and open source: As an ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:51.656966"
+  },
+  {
+    "title": "Best GitHub Security Tools for Secure Repositories - Aikido",
+    "url": "https://www.aikido.dev/blog/top-github-security-tools",
+    "summary": "Pros: Free and open-source, very fast, highly customizable, and easy to integrate into CI/CD. Cons: It is a command-line tool and lacks a central management UI.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:51.657033"
+  },
+  {
+    "title": "How to Implement Infrastructure as Code: A Comprehensive Guide…",
+    "url": "https://www.harness.io/harness-devops-academy/how-to-implement-infrastructure-as-code",
+    "summary": "When your infrastructure is defined in code, it becomes easier to check for security vulnerabilities and compliance issues at every stage of development.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:51.657083"
+  },
+  {
+    "title": "How We Found a Security Flaw in Our CI/CD Pipeline - Medium",
+    "url": "https://medium.com/@sajitharasathurai2/how-we-found-a-security-flaw-in-our-ci-cd-pipeline-c905a6b69118",
+    "summary": "Except masking is not security. It's formatting. CI/CD pipelines are code execution environments with: Network access; Credentials; Artifact storage; Often…",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:51.657127"
+  },
+  {
+    "title": "Infrastructure as Code : Best Practices, Benefits & Examples - Spacelift",
+    "url": "https://spacelift.io/blog/infrastructure-as-code",
+    "summary": "The best Infrastructure as Code tool​​ Spacelift is an Infrastructure as Code automation tool that allows you to audit, secure, and continuously deliver your ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:51.657168"
+  },
+  {
+    "title": "AI Roadmap 2026 for DevOps and Cloud Engineers - Talent500",
+    "url": "https://talent500.com/blog/ai-roadmap-2026-devops-cloud-engineers/",
+    "summary": "Workflow automation platforms can connect AI capabilities to pipelines, alerts, and collaboration tools. This stage focuses on wiring AI into real-time DevOps ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444044"
+  },
+  {
+    "title": "From CI/CD to AI/CD: Why DevOps Pipelines Are Learning to Think ...",
+    "url": "https://medium.com/@opsdev36/from-ci-cd-to-ai-cd-why-devops-pipelines-are-learning-to-think-in-2025-a0326547f7c4",
+    "summary": "We've automated execution — but we still rely on humans for judgment. CI/CD made delivery faster. But it didn't make it smarter. And in 2025, that gap is ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444101"
+  },
+  {
+    "title": "Surprise! Everybody Uses AI Tools for Software Development, Few ...",
+    "url": "https://devops.com/surprise-everybody-uses-ai-tools-for-software-development-few-do-so-securely/",
+    "summary": "AI is generating code faster than teams can secure it, widening software supply chain risk and exposing major gaps in AppSec and governance.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444139"
+  },
+  {
+    "title": "Best DevOps Automation Tools to Streamline Software Delivery…",
+    "url": "https://www.harness.io/harness-devops-academy/best-devops-automation-tools",
+    "summary": "In this article, you will explore the best DevOps automation tools that help teams accelerate software delivery, reduce human error, and improve system ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444176"
+  },
+  {
+    "title": "AWS Debuts “DevOps Agent” to Automate Incident Response ... - InfoQ",
+    "url": "https://www.infoq.com/news/2025/12/aws-devops-agents/",
+    "summary": "Their platform claims to use agentic AI to help reduce toil and automate incident management - integrating with monitoring, alerting, and deployment tooling ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444212"
+  },
+  {
+    "title": "73 Most Useful DevOps Tools to Use in 2026 - Spacelift",
+    "url": "https://spacelift.io/blog/devops-tools",
+    "summary": "AI & Automation for DevOps. This section looks into AI-powered assistants and automation tools that promise to improve developers' productivity dramatically ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444253"
+  },
+  {
+    "title": "Operationalize generative AI workloads and scale to hundreds of ...",
+    "url": "https://aws.amazon.com/blogs/machine-learning/operationalize-generative-ai-workloads-and-scale-to-hundreds-of-use-cases-with-amazon-bedrock-part-1-genaiops/",
+    "summary": "Implementing the four steps outlined in this post can transform your baseline DevOps solution into a robust GenAIOps solution that follows best practices. This ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444307"
+  },
+  {
+    "title": "The Future of Quality Engineering in an AI-Driven DevOps World",
+    "url": "https://www.wizwebitsolutions.com/tech-pulse/engineering-in-an-ai-driven-devops",
+    "summary": "With AI-Driven DevOps, tests run automatically as code changes, monitoring information flows back into the pipeline, and smart tools point out the riskiest ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444344"
+  },
+  {
+    "title": "Nearshore Engineering Trends 2026 to 2030: How AI, Automation ...",
+    "url": "https://www.amplifistaffing.com/articles/nearshore-engineering-trends-2026-to-2030-how-ai-automation-and-devops-will-shape-latam-talent",
+    "summary": "They will differentiate through AI assisted delivery, strong automation, and mature DevOps practices. For US companies, this means rethinking what to expect ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:52.444379"
+  },
+  {
+    "title": "Building at AI speed: Why the next leap in CI/CD is autonomous ...",
+    "url": "https://www.linkedin.com/pulse/building-ai-speed-why-next-leap-cicd-autonomous-validation-circleci-dntzc",
+    "summary": "Autonomous validation analyzes the diff, traces dependencies, and draws on historical patterns to run only the parts of the validation pipeline that matter.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160623"
+  },
+  {
+    "title": "Prompt tuning: optimize your AI model for better performance",
+    "url": "https://www.hostinger.com/au/tutorials/prompt-tuning",
+    "summary": "Prompt tuning is a technique for teaching AI models to perform better by optimizing learnable vectors called soft prompts. Instead of retraining and ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160680"
+  },
+  {
+    "title": "8 Artificial Intelligence Optimization Techniques You Must Know ...",
+    "url": "https://www.chatbench.org/artificial-intelligence-optimization-techniques/",
+    "summary": "AI optimization is critical for deploying models that are fast, efficient, and cost-effective in real-world applications. Data quality and model architecture ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160725"
+  },
+  {
+    "title": "Build and deploy scalable AI agents with NVIDIA NeMo, Amazon ...",
+    "url": "https://aws.amazon.com/blogs/machine-learning/build-and-deploy-scalable-ai-agents-with-nvidia-nemo-amazon-bedrock-agentcore-and-strands-agents/",
+    "summary": "Agent performance optimization. After profiling, refine the agent's parameters to balance quality, performance, and cost. Manual tuning of LLM settings like ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160765"
+  },
+  {
+    "title": "What's working to automate the code review process in your ci/cd ...",
+    "url": "https://www.reddit.com/r/devops/comments/1pndos3/whats_working_to_automate_the_code_review_process/",
+    "summary": "No AI automation needed for the same result. AI reviews should be supplemental, not a replacement.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160804"
+  },
+  {
+    "title": "How Evolutionary Optimization Outperforms Manual Tuning for LLM ...",
+    "url": "https://www.turintech.ai/blog/how-evolutionary-optimization-outperforms-manual-tuning-for-llm-based-agents",
+    "summary": "The Mini-SWE Agent demonstrated a statistically significant 10.1% performance improvement (p < 0.05), with apply rate and correctness maintained at 92.1% and ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160850"
+  },
+  {
+    "title": "Beyond lift-and-shift: Using agentic AI for continuous cloud ... - CIO",
+    "url": "https://www.cio.com/article/4105794/beyond-lift-and-shift-using-agentic-ai-for-continuous-cloud-modernization.html",
+    "summary": "Agentic AI makes cloud modernization an ongoing tune-up instead of a giant, stressful overhaul, keeping apps faster, cheaper and more secure every day.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160890"
+  },
+  {
+    "title": "Kubernetes DevOps Playbook: CI/CD & Performance at Scale",
+    "url": "https://aiappbuilder.com/insights/kubernetes-devops-playbook-cicd-performance-at-scale",
+    "summary": "This playbook covers ephemeral environments, signed images, Argo Rollouts, and data-safe releases, plus performance tuning for high-traffic apps and cost-aware ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160929"
+  },
+  {
+    "title": "Predictable AI Cloud Performance at Scale | NVIDIA Exemplar Cloud",
+    "url": "https://www.nvidia.com/en-us/data-center/ai-cloud-performance/",
+    "summary": "NVIDIA Exemplar Cloud delivers predictable AI performance at scale with standardized DGX Cloud benchmarks, tools, and recipes that improve workload speed, ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.160968"
+  },
+  {
+    "title": "AI Code Tools: Complete Guide for Developers in 2025 - CodeSubmit",
+    "url": "https://codesubmit.io/blog/ai-code-tools/",
+    "summary": "Discover the best AI coding tools in 2025. Personal curation of 40+ tools including ChatGPT, GitHub Copilot, Cursor, and more. Find your perfect AI coding ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.161009"
+  },
+  {
+    "title": "15 Best AI Tools for Developers in 2026 [Free and Paid] - Openxcell",
+    "url": "https://www.openxcell.com/blog/ai-tools-for-developers/",
+    "summary": "Learn how AI tools for software development help developers build smarter apps. Explore the best AI tools for developers, free and paid.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.720004"
   },
   {
     "title": "What is Artificial Intelligence for IT Operations (AIOps)? - Articsledge",
@@ -1181,23 +1205,7 @@
     "summary": "Discover what AIOps (Artificial Intelligence for IT Operations) is, how it works, key benefits, real-world case studies, and future trends transforming IT ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772360"
-  },
-  {
-    "title": "Generative AI for Autonomous IT Operations & Systems Optimization",
-    "url": "https://www.youtube.com/watch?v=J8DnBeRGo_I",
-    "summary": "Welcome to Next-Gen AIOps 2025, a complete webinar designed for beginners, IT professionals, cloud engineers, DevOps engineers, and AI learners who want to ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772398"
-  },
-  {
-    "title": "Transforming Software Development with AI-DLC - Metastic World",
-    "url": "https://metasticworld.com/en/insights/transforming-software-development-with-ai-dlc",
-    "summary": "AI enhances velocity by creating plans, asking clarifying questions, and implementing solutions efficiently, thus streamlining workflows across development ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772433"
+    "timestamp": "2025-12-22T06:22:53.720053"
   },
   {
     "title": "Home | 11th Edition DevOps Conclave & Awards 2026",
@@ -1205,7 +1213,15 @@
     "summary": "The 11th DevOps Conclave & Awards 2026 will explore how forward-thinking teams are embracing emerging trends like AIOps, MLOps, FinOps, low-code/no-code ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772474"
+    "timestamp": "2025-12-22T06:22:53.720094"
+  },
+  {
+    "title": "Transforming Software Development with AI-DLC - Metastic World",
+    "url": "https://metasticworld.com/en/insights/transforming-software-development-with-ai-dlc",
+    "summary": "AI enhances velocity by creating plans, asking clarifying questions, and implementing solutions efficiently, thus streamlining workflows across development ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.720127"
   },
   {
     "title": "How Is Gen AI Changing DevOps Testing and QA Today?",
@@ -1213,15 +1229,23 @@
     "summary": "Explore how Gen AI is transforming DevOps testing and QA with intelligent automation, predictive defect detection.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772511"
+    "timestamp": "2025-12-22T06:22:53.720160"
   },
   {
-    "title": "Why Your AI Pilots Are Stuck in Purgatory - RTInsights",
-    "url": "https://www.rtinsights.com/why-your-ai-pilot-is-stuck-in-purgatory-and-what-to-do-about-it/",
-    "summary": "Artificial Intelligence (AI) is transforming industrial operations, helping organizations optimize workflows, reduce downtime, and enhance productivity.",
+    "title": "Data Centers Rush: Can Operations Keep Up With the Growth?",
+    "url": "https://inclusioncloud.com/insights/blog/data-centers-new-challenges/",
+    "summary": "Data centers are scaling fast under AI and hybrid cloud pressure. Explore the operational challenges and solutions shaping data center ops by 2026.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772546"
+    "timestamp": "2025-12-22T06:22:53.720193"
+  },
+  {
+    "title": "DevOps - IBM",
+    "url": "https://www.ibm.com/think/devops",
+    "summary": "Explore six AIOps uses cases leveraging natural language processing (NLP), big data and machine learning (ML) models to optimize spending, improve efficiency ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:53.720224"
   },
   {
     "title": "Cloud Roadmap - Atlassian",
@@ -1229,7 +1253,7 @@
     "summary": "Build automated agentic AI build, test, and deployment workflows powered by Rovo Dev and Pipelines. Coming soon. Agile & DevOps. Q1 2026. Bitbucket. Learn more ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:01.772587"
+    "timestamp": "2025-12-22T06:22:53.720271"
   },
   {
     "title": "An End-to-End Cloud Native Observability Framework",
@@ -1237,15 +1261,7 @@
     "summary": "This practical guide walks you through building a unified framework for your applications, Kubernetes clusters and CI/CD pipelines.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347407"
-  },
-  {
-    "title": "Observability for Devops - Reddit",
-    "url": "https://www.reddit.com/r/devops/comments/1pqm9cn/observability_for_devops/",
-    "summary": "I am developer transitioning to Devops, I am trying to learn Observability (Prometheus, Grafana, ELK stack) from YouTube. But I find most of content basic ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347461"
+    "timestamp": "2025-12-22T06:22:54.220678"
   },
   {
     "title": "DevOps Monitoring and Observability 2026 | Practical Guide",
@@ -1253,7 +1269,15 @@
     "summary": "Reduce MTTR with modern DevOps monitoring and observability. Learn pillars, tools, metrics, and implementation strategies for 2026 systems.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347500"
+    "timestamp": "2025-12-22T06:22:54.220742"
+  },
+  {
+    "title": "Observability for Devops - Reddit",
+    "url": "https://www.reddit.com/r/devops/comments/1pqm9cn/observability_for_devops/",
+    "summary": "I am developer transitioning to Devops, I am trying to learn Observability (Prometheus, Grafana, ELK stack) from YouTube. But I find most of content basic ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:54.220791"
   },
   {
     "title": "Top 10 Observability Tools in 2025 - Middleware.io",
@@ -1261,15 +1285,7 @@
     "summary": "Empower your DevOps teams with the top observability tools in 2025. Dive into our guide to discover top solutions like Middleware, Dynatrace, and others.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347536"
-  },
-  {
-    "title": "Six observability predictions for 2026 - Dynatrace",
-    "url": "https://www.dynatrace.com/news/blog/six-observability-predictions-for-2026/",
-    "summary": "Explore six key observability predictions for 2026, focusing on AI, resilience, human-AI collaboration, and reliability.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347570"
+    "timestamp": "2025-12-22T06:22:54.220831"
   },
   {
     "title": "New Relic AWS Integrations Go Deep on Root Cause Observability ...",
@@ -1277,15 +1293,23 @@
     "summary": "When an alert fires, AWS DevOps Agent calls the New Relic MCP Server, which generates and delivers observability, including root cause analysis and business ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347603"
+    "timestamp": "2025-12-22T06:22:54.220872"
   },
   {
-    "title": "Microsoft named a Leader in Gartner® Magic Quadrant™ for AI ...",
-    "url": "https://azure.microsoft.com/en-us/blog/microsoft-named-a-leader-in-gartner-magic-quadrant-for-ai-application-development-platforms/",
-    "summary": "Microsoft is recognized as a Leader in the 2025 Gartner® Magic Quadrant™ for AI Application Development Platforms and is positioned furthest for ...",
+    "title": "2026 Observability Predictions - Part 5 | APMdigest",
+    "url": "https://www.apmdigest.com/2026-observability-predictions-5",
+    "summary": "IT infrastructure monitoring (ITIM) will eventually merge into full-stack observability by 2026, with infrastructure is widening in reach across multi-cloud ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347638"
+    "timestamp": "2025-12-22T06:22:54.220911"
+  },
+  {
+    "title": "When Observability Becomes a Platform: Why SLO-Driven GitOps Is ...",
+    "url": "https://medium.com/@salwan.mohamed/when-observability-becomes-a-platform-why-slo-driven-gitops-is-the-missing-layer-between-devops-8078cfabd342",
+    "summary": "This is the journey from DevOps observability to Platform-level, SLO-driven operations. From DevOps to Platform Engineering: What Actually Changes? DevOps ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:54.220956"
   },
   {
     "title": "How to build a cost-effective observability platform with OpenTelemetry",
@@ -1293,7 +1317,7 @@
     "summary": "Managing millions of concurrent connections during global events like flash sales and online voting requires resilient, scalable observability.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347671"
+    "timestamp": "2025-12-22T06:22:54.220995"
   },
   {
     "title": "Best observability tools in 2025 - Hostinger",
@@ -1301,15 +1325,15 @@
     "summary": "This guide explores 12 of the best observability tools available today, covering everything from full-stack solutions to specialized open-source options. You'll ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347705"
+    "timestamp": "2025-12-22T06:22:54.221033"
   },
   {
-    "title": "73 Most Useful DevOps Tools to Use in 2026 - Spacelift",
-    "url": "https://spacelift.io/blog/devops-tools",
-    "summary": "Amazon CloudWatch is AWS native monitoring and observability tool for infrastructure and applications in the cloud and on-premises. Offers seamless integration ...",
+    "title": "2025 Cloud Observability & Automation Trends: What 50 IT Leaders ...",
+    "url": "https://arctiq.com/blog/2025-cloud-observability-automation-trends-what-50-it-leaders-told-us",
+    "summary": "What 50 IT leaders reveal about cloud observability, automation, AI adoption, tool sprawl, and the trends shaping cloud strategy in 2025 and beyond.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:02.347736"
+    "timestamp": "2025-12-22T06:22:54.221097"
   },
   {
     "title": "What Works in Multi-Cloud Environments for 2026 - Growin",
@@ -1317,7 +1341,7 @@
     "summary": "Cloud cost optimization in multi-cloud environments depends on visibility, automation, and governance across providers.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.442699"
+    "timestamp": "2025-12-22T06:22:54.703608"
   },
   {
     "title": "FinOps for AI Gets Easier with Fixed Monthly Infrastructure Costs",
@@ -1325,7 +1349,7 @@
     "summary": "AI costs jumped 36% to $85K/month while IT leaders struggle with optimization. Fixed infrastructure eliminates budget volatility for AI teams.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.442786"
+    "timestamp": "2025-12-22T06:22:54.703658"
   },
   {
     "title": "How Companies Actually Cut Google Cloud Costs in 2024–2025",
@@ -1333,7 +1357,7 @@
     "summary": "In this article, we look at real Google Cloud cost optimization stories from 2024–2025 and break down what actually worked in practice: which approaches ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.442832"
+    "timestamp": "2025-12-22T06:22:54.703695"
   },
   {
     "title": "low cost cloud management… - Harness",
@@ -1341,7 +1365,7 @@
     "summary": "This article will guide you through the essential steps, practices, and tools for keeping your cloud costs low and your developers happy. Modern software ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.442876"
+    "timestamp": "2025-12-22T06:22:54.703728"
   },
   {
     "title": "Cloud Tagging Best Practices Explained in [current_year] - nOps",
@@ -1349,15 +1373,7 @@
     "summary": "Pair tagging data with your FinOps or cloud cost platform to surface inefficiencies and track changes in spend over time.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.442934"
-  },
-  {
-    "title": "AI-Driven Cloud Patterns That Cut Costs And Boost Engineering ...",
-    "url": "https://www.forbes.com/councils/forbestechcouncil/2025/12/19/ai-driven-cloud-patterns-that-cut-costs-and-boost-engineering-velocity/",
-    "summary": "Cloud bills rising? Here's how AI-powered rightsizing, predictive autoscaling and real-time anomaly detection can lower spend while accelerating ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.442997"
+    "timestamp": "2025-12-22T06:22:54.703763"
   },
   {
     "title": "Multi Cloud Cost Optimization Case Study: Real Results on AWS ...",
@@ -1365,23 +1381,31 @@
     "summary": "Getting Started With Multi-Cloud FinOps: Challenges and Best Practices. Technical Levers: Rightsizing, Commitments, and Elimination of Waste. Once the FinOps ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.443052"
+    "timestamp": "2025-12-22T06:22:54.703795"
   },
   {
-    "title": "Build a Resilient Cloud Cost Strategy for Scalable Growth",
-    "url": "https://www.cloudthrottle.com/articles/how-to-build-a-resilient-cloud-cost-strategy-without-slowing-growth",
-    "summary": "Learn how to build a resilient cloud cost strategy that boosts efficiency, strengthens engineering–finance alignment, and supports sustainable growth at ...",
+    "title": "AI-Driven Cloud Patterns That Cut Costs And Boost Engineering ...",
+    "url": "https://www.forbes.com/councils/forbestechcouncil/2025/12/19/ai-driven-cloud-patterns-that-cut-costs-and-boost-engineering-velocity/",
+    "summary": "Cloud bills rising? Here's how AI-powered rightsizing, predictive autoscaling and real-time anomaly detection can lower spend while accelerating ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.443103"
+    "timestamp": "2025-12-22T06:22:54.703828"
   },
   {
     "title": "Multi-Cloud Strategies in 2026: When, Why, and How to Implement ...",
     "url": "https://www.clustox.com/blog/multi-cloud-strategies/",
-    "summary": "Is your business ready for multi-cloud in 2026? Explore why it matters, when to adopt, and how to implement a multi-cloud strategy successfully.",
+    "summary": "That's why cloud cost optimization with FinOps has become essential for organizations wanting to keep efficiency high and expenses low. It lets you track costs, ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.443140"
+    "timestamp": "2025-12-22T06:22:54.703859"
+  },
+  {
+    "title": "Build a Resilient Cloud Cost Strategy for Scalable Growth",
+    "url": "https://www.cloudthrottle.com/articles/how-to-build-a-resilient-cloud-cost-strategy-without-slowing-growth",
+    "summary": "1. More predictable cloud spend that supports growth · 2. Stronger collaboration between engineering and finance · 3. Faster product and architecture decisions · 4 ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:54.703891"
   },
   {
     "title": "What cost optimisation strategies worked for you in 2025? Lets share",
@@ -1389,7 +1413,7 @@
     "summary": "Our biggest saves this year was AWS S3 Intelligent-Tiering, we cut storage ~42%. We also performed some Oracle database rightsizing based on CPU patterns, which ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:03.443177"
+    "timestamp": "2025-12-22T06:22:54.703923"
   },
   {
     "title": "Log Management & Analytics - Datadog",
@@ -1397,7 +1421,7 @@
     "summary": "Datadog Log Management enables you to collect, monitor, manage, and analyze large volumes of logs as well as unify metrics and traces all in one platform.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:04.181249"
+    "timestamp": "2025-12-22T06:22:55.295212"
   },
   {
     "title": "DevOps Monitoring Tools Explained | by Sarah Thomas - Medium",
@@ -1405,15 +1429,7 @@
     "summary": "A DevOps monitoring tool helps teams track what is happening across their applications, infrastructure and services in real time. It collects data like metrics, ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:04.181329"
-  },
-  {
-    "title": "Top Elastic Observability Competitors & Alternatives 2025 - Gartner",
-    "url": "https://www.gartner.com/reviews/market/observability-platforms/vendor/elastic/product/elastic-observability/alternatives",
-    "summary": "The visualization of logs, metrics, and traces is very helpful, and overall it has improved the stability and performance of our applications. Read Full Review.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:04.181371"
+    "timestamp": "2025-12-22T06:22:55.295276"
   },
   {
     "title": "Real-Time Anomaly Detection: Integrating Log Service With Agentic ...",
@@ -1421,7 +1437,15 @@
     "summary": "Start with streaming ingestion using Kafka or Kinesis to capture logs, metrics and traces in real-time, ensuring sub-second latency for high-volume pipelines ( ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:04.181406"
+    "timestamp": "2025-12-22T06:22:55.295313"
+  },
+  {
+    "title": "Top Elastic Observability Competitors & Alternatives 2025 - Gartner",
+    "url": "https://www.gartner.com/reviews/market/observability-platforms/vendor/elastic/product/elastic-observability/alternatives",
+    "summary": "FusionReactor stands out for its focus on providing actionable data to developers and DevOps teams, helping to quickly identify and resolve performance ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:55.295346"
   },
   {
     "title": "15+ AWS Monitoring Tools You Should Know in [current_year] - nOps",
@@ -1429,15 +1453,15 @@
     "summary": "Coralogix is a modern observability platform built around log analytics, with expanding support for metrics, traces, and security monitoring. Unlike traditional ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:04.181440"
+    "timestamp": "2025-12-22T06:22:55.295378"
   },
   {
-    "title": "7 best AI observability platforms for LLMs in 2025 - Articles - Braintrust",
-    "url": "https://www.braintrust.dev/articles/best-ai-observability-platforms-2025",
-    "summary": "AI observability monitors the traces and logs of your AI systems to tell you how they are behaving in production. Contrary to traditional software observability ...",
+    "title": "What are Observability Tools?… - Harness",
+    "url": "https://www.harness.io/harness-devops-academy/observability-tools",
+    "summary": "Observability tools are software solutions designed to monitor, analyze, and provide insights into the performance, health, and behavior of systems and ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:04.181472"
+    "timestamp": "2025-12-22T06:22:55.295410"
   },
   {
     "title": "Argo CD and Flux use cases - AWS Prescriptive Guidance",
@@ -1445,15 +1469,7 @@
     "summary": "Argo CD often appeals to teams that are transitioning from traditional CI/CD to GitOps because of its intuitive UI. Flux is often favored in cloud-native ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:04.999966"
-  },
-  {
-    "title": "Deploy Argo CD with Terraform on Kubernetes | GitOps Guide",
-    "url": "https://terrateam.io/blog/deploy-argocd-terraform-kubernetes",
-    "summary": "GitOps makes Git the single source of truth for cluster state, and Argo CD implements this by automatically syncing your cluster with repository contents.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000018"
+    "timestamp": "2025-12-22T06:22:55.863428"
   },
   {
     "title": "The Platform Engineer's Guide to Kubernetes Operators: Building ...",
@@ -1461,7 +1477,7 @@
     "summary": "The synergy is obvious: GitOps tools (ArgoCD, Flux) manage what should run, while Operators manage how it runs.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000061"
+    "timestamp": "2025-12-22T06:22:55.863477"
   },
   {
     "title": "4 Data Architecture Decisions That Make or Break Agentic Systems",
@@ -1469,7 +1485,23 @@
     "summary": "AI agents are your new users, and they demand a different approach to data infrastructure. Here's an essential checklist to evaluate your readiness.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000097"
+    "timestamp": "2025-12-22T06:22:55.863513"
+  },
+  {
+    "title": "Cloud native explained: How to build scalable, resilient applications",
+    "url": "https://www.infoworld.com/article/2255318/what-is-cloud-native-the-modern-way-to-develop-software.html",
+    "summary": "GitOps platforms such as Argo CD and Flux bring declarative, version-controlled deployments to cloud-native environments.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:55.863546"
+  },
+  {
+    "title": "Cloud Native Fundamentals: Patterns, Pitfalls, Payoffs",
+    "url": "https://tasrieit.com/blog/cloud-native-fundamentals-patterns-pitfalls-payoffs",
+    "summary": "Without CI/CD, GitOps, observability, policy, and cost controls, day‑2 will be painful. If you are starting on AWS, our walkthrough on using the Terraform EKS ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:55.863580"
   },
   {
     "title": "Learn, Build & Scale | The Testkube Blog",
@@ -1477,7 +1509,7 @@
     "summary": "This is an exploration of the pitfalls of traditional testing approaches and how integrating TestOps and continuous testing into your CI/CD pipelines can ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000133"
+    "timestamp": "2025-12-22T06:22:55.863611"
   },
   {
     "title": "Capabilities - Omni Federal",
@@ -1485,7 +1517,7 @@
     "summary": "Implement DevSecOps pipelines (GitOps, Jenkins, Argo) with ... CASE STUDY: Unified Integration and Transformation Enterprise (UnITE) Prototype Project ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000169"
+    "timestamp": "2025-12-22T06:22:55.863644"
   },
   {
     "title": "Devops project with terraform and kubernetes - Facebook",
@@ -1493,23 +1525,7 @@
     "summary": "GitOps has gained popularity by allowing users to incorporate infrastructure changes within their Continuous Integration and Continuous Delivery pipelines. Ever ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000204"
-  },
-  {
-    "title": "Dockerizing and Migrating Legacy Order System to Cloud for Middle ...",
-    "url": "https://tasrieit.com/insights/stories/ecommerce-legacy-system-migration",
-    "summary": "A CI/CD pipeline was developed to automate the entire deployment process, and ... This case study explores the successful migration of a critical legacy ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000238"
-  },
-  {
-    "title": "Digital.ai Release & Deploy",
-    "url": "https://community.digital.ai/release-deploy",
-    "summary": "Continuous Delivery - ArgoCD and Argo Rollouts facilitate continuous and progressive delivery as well as GitOps workflows.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.000270"
+    "timestamp": "2025-12-22T06:22:55.863676"
   },
   {
     "title": "Enterprise Kubernetes Deployment: A Production-Grade Guide",
@@ -1517,7 +1533,7 @@
     "summary": "Ship production-ready Kubernetes faster. Learn core components, enterprise benefits and a step-by-step AceCloud deployment workflow for secure, ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.566818"
+    "timestamp": "2025-12-22T06:22:56.460573"
   },
   {
     "title": "Kubernetes Management |Complete Guide for 2026 - Devtron",
@@ -1525,15 +1541,31 @@
     "summary": "Complete guide to Kubernetes management: cluster operations, CI/CD, security, cost optimization & observability. Reduce MTTR by 80% & cut costs by 40%.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.566881"
+    "timestamp": "2025-12-22T06:22:56.460645"
   },
   {
-    "title": "Building a Production-Ready DevOps CI/CD Pipeline with Docker ...",
-    "url": "https://dev.to/simran05209891/building-a-production-ready-devops-cicd-pipeline-with-docker-kubernetes-github-actions-djc",
-    "summary": "In this project, I designed and implemented a production-ready DevOps architecture that automates the complete build, containerization, and deployment ...",
+    "title": "Kubernetes Deployment Strategies for DevOps Teams",
+    "url": "https://vettedoutsource.com/blog/kubernetes-deployment-strategies/",
+    "summary": "Automate deployments through CI/CD pipelines with proper DevOps outsourcing services often including Kubernetes CI/CD pipeline design and implementation.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.566922"
+    "timestamp": "2025-12-22T06:22:56.460690"
+  },
+  {
+    "title": "Exploring Cloud Native projects in CNCF Sandbox. Part 5 - Palark",
+    "url": "https://palark.com/blog/cncf-sandbox-2025-jan/",
+    "summary": "It is deployed on Kubernetes as a Deployment or StatefulSet. Its Pod hosts a pack of workers, and the data is stored in a built-in key-value store based on ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:56.460730"
+  },
+  {
+    "title": "How to Build a CI/CD Pipeline on AWS in 2026 (Step-by-Step Guide)",
+    "url": "https://kodekloud.com/blog/how-to-build-a-ci-cd-pipeline-on-aws-in-2026-step-by-step-guide/",
+    "summary": "Build a CI/CD pipeline on AWS using CodePipeline and CodeBuild. Deploy to ECS, EKS, Lambda, or EC2 with tests, rollbacks, and security.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:56.460761"
   },
   {
     "title": "Cloud-Kubernetes and Serverless: How They Fit into Modern ...",
@@ -1541,47 +1573,15 @@
     "summary": "Automate Deployment Processes: Use CI/CD pipelines to automate deployments across Kubernetes and Serverless environments. Monitoring and Logging: Implement ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.566961"
+    "timestamp": "2025-12-22T06:22:56.460793"
   },
   {
-    "title": "What Is a CI/CD Pipeline? Complete Guide to Faster, Safer Software ...",
-    "url": "https://middleware.io/blog/what-is-a-ci-cd-pipeline/",
-    "summary": "CI/CD pipeline is a workflow that automates the build, test, integration, and deployment of high-quality software. It is a sequential process that optimizes the ...",
+    "title": "What is a CI/CD Pipeline?: Complete Guide (2026) - NetCom Learning",
+    "url": "https://www.netcomlearning.com/blog/ci-cd-pipeline",
+    "summary": "A CI/CD pipeline is a series of automated steps that enable developers to deliver new code changes to production quickly and reliably.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.566996"
-  },
-  {
-    "title": "DevOps pipelines with Kubernetes - Red Hat Developer",
-    "url": "https://developers.redhat.com/topics/devops",
-    "summary": "Experts explain how to configure Docker application containers and the Kubernetes cluster manager with OpenShift's developer- and operational-centric tools.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.567031"
-  },
-  {
-    "title": "Taking Back Control of Your Cloud Costs and Agility - Percona",
-    "url": "https://www.percona.com/blog/managed-database-vs-kubernetes-taking-back-control-of-your-cloud-costs-and-agility/",
-    "summary": "Developers often depend on vendor consoles or ticketing systems for provisioning, which creates bottlenecks outside existing CI/CD and GitOps workflows.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:05.567066"
-  },
-  {
-    "title": "Scaling Issues? Here's How Modern Businesses Upgrade Their ...",
-    "url": "https://www.abbacustechnologies.com/scaling-issues-heres-how-modern-businesses-upgrade-their-tech-stack-in-2026/",
-    "summary": "Continuous Integration and Continuous Deployment (CI/CD) pipelines automate code building, testing, and deployment. Tools like Jenkins, GitLab CI, CircleCI ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.170678"
-  },
-  {
-    "title": "Building a Robust CI/CD Pipeline: From Code to Production -Part 2",
-    "url": "https://medium.com/@rashmi18patel/building-a-robust-ci-cd-pipeline-from-code-to-production-part-2-42a0e81aaa25",
-    "summary": "Cloud Build is a fully managed service to build, test, and deploy applications across: serverless (Cloud Run),; Kubernetes (GKE),; VMs,; hybrid / multi-cloud ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.170732"
+    "timestamp": "2025-12-22T06:22:57.130399"
   },
   {
     "title": "From Code to Cloud: Three Labs for Deploying Your AI Agent",
@@ -1589,31 +1589,39 @@
     "summary": "Ready to take your AI agent to production? Explore three hands-on labs to deploy your Google ADK agent on Google Cloud using Vertex AI Agent Engine, ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.170774"
+    "timestamp": "2025-12-22T06:22:57.130459"
   },
   {
-    "title": "Top Cloud Platforms for Python Application Deployment in 2026",
-    "url": "https://ai.exoticaitsolutions.com/blog/top-cloud-platforms-for-python-application-deployment-in-2026",
-    "summary": "Discover the best cloud platforms for Python application deployment in 2026. Compare AWS, Google Cloud, Azure, and more with real-world use cases.",
+    "title": "AWS Cloud Skills That Make You Unstoppable in 2026 - Medium",
+    "url": "https://medium.com/@ravendrakumar22000/aws-cloud-skills-that-make-you-unstoppable-in-2026-e666787748ea",
+    "summary": "1) Cloud-Native Foundations (You Must Automate Everything) · 2) Infrastructure as Code (Terraform Is Mandatory) · 3) AWS CDK (Code > Config) · 4) Serverless ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.170813"
+    "timestamp": "2025-12-22T06:22:57.130503"
   },
   {
-    "title": "How Kaltura Accelerates CI/CD Using AWS CodeBuild-hosted ...",
-    "url": "https://aws.amazon.com/blogs/devops/how-kaltura-accelerates-ci-cd-using-aws-codebuild-hosted-runners/",
-    "summary": "The transformation of Kaltura's CI/CD infrastructure through CodeBuild-hosted runners demonstrates how modern cloud services solves complex enterprise-scale ...",
+    "title": "Building a Robust CI/CD Pipeline: From Code to Production -Part 2",
+    "url": "https://pub.towardsai.net/building-a-robust-ci-cd-pipeline-from-code-to-production-part-2-42a0e81aaa25",
+    "summary": "Cloud Build is a fully managed service to build, test, and deploy applications across: serverless (Cloud Run),; Kubernetes (GKE),; VMs,; hybrid / multi-cloud ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.170848"
+    "timestamp": "2025-12-22T06:22:57.130547"
   },
   {
-    "title": "CI/CD Evolution: From Pipelines to AI-Powered DevOps • Olaf ...",
-    "url": "https://www.youtube.com/watch?v=5QWQioN-aXc",
-    "summary": "... CI/CD practices with AWS's Julian Wood. They explore how modern software delivery has transformed from simple monolithic deployments to complex ...",
+    "title": "I Learned AWS the Expensive Way. Here's How to Do It Free",
+    "url": "https://blog.stackademic.com/i-learned-aws-the-expensive-way-heres-how-to-do-it-free-b9afce137a39",
+    "summary": "“Implemented CI/CD pipeline using AWS CodePipeline, reducing deployment time by 90%”; “Architected cost-optimized infrastructure using Terraform, maintaining ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.170883"
+    "timestamp": "2025-12-22T06:22:57.130589"
+  },
+  {
+    "title": "Scaling Issues? Here's How Modern Businesses Upgrade Their ...",
+    "url": "https://www.abbacustechnologies.com/scaling-issues-heres-how-modern-businesses-upgrade-their-tech-stack-in-2026/",
+    "summary": "Continuous Integration and Continuous Deployment (CI/CD) pipelines automate code building, testing, and deployment. Tools like Jenkins, GitLab CI, CircleCI ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:57.130629"
   },
   {
     "title": "Top 8 GitOps Tools You Should Know [2026 List] - Spacelift",
@@ -1621,7 +1629,7 @@
     "summary": "How to choose the best GitOps tool to benefit your development teams? Explore our list of the top 8 GitOps tools in 2026.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.800059"
+    "timestamp": "2025-12-22T06:22:57.710035"
   },
   {
     "title": "DevOps Trends for 2026: Predictions Every IT Leader Should Know",
@@ -1629,7 +1637,7 @@
     "summary": "In 2026, DevOps will fully absorb the data layer. AIOps and GitOps will merge with DataOps to create unified pipelines that deploy and monitor code, databases, ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.800113"
+    "timestamp": "2025-12-22T06:22:57.710110"
   },
   {
     "title": "AI Code Review Tools: Context & Enterprise Scale [2026] - Qodo",
@@ -1637,15 +1645,7 @@
     "summary": "Compare AI code review tools by context depth, automation, and scalability. Learn what matters for security, governance, and AI-scale development in 2026.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.800152"
-  },
-  {
-    "title": "10 Best DevOps Tools for Startups in 2025",
-    "url": "https://www.devopstraininginstitute.com/blog/10-Best-DevOps-Tools-for-Startups",
-    "summary": "Navigate the complexity of infrastructure and deployment with the 10 best, most scalable, and cost-effective DevOps tools essential for startups in 2025.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.800189"
+    "timestamp": "2025-12-22T06:22:57.710154"
   },
   {
     "title": "Key Web Development Trends for 2026 | by Onix React - Medium",
@@ -1653,15 +1653,23 @@
     "summary": "Web development in 2026 continues its rapid evolution, shaped by server-first architectures, AI-assisted tooling, and performance becoming the default ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:06.800225"
+    "timestamp": "2025-12-22T06:22:57.710196"
   },
   {
-    "title": "The New Stack | DevOps, Open Source, and Cloud Native News",
-    "url": "https://thenewstack.io/",
-    "summary": "The latest news and resources on cloud native technologies, distributed systems and data architectures with emphasis on DevOps and open source projects.",
+    "title": "The Rise of Agent-Driven Infrastructure: Why DevOps Is Quietly ...",
+    "url": "https://medium.com/@sainathmitalakar/the-rise-of-agent-driven-infrastructure-why-devops-is-quietly-being-rewritten-bfa15ad614d0",
+    "summary": "Modern infrastructure is no longer a single system. It's an ecosystem: Git repositories; Cloud providers (AWS, Azure, GCP); Security tools; CI/CD pipelines ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:07.494589"
+    "timestamp": "2025-12-22T06:22:58.390979"
+  },
+  {
+    "title": "CI/CD Environment Overview, News and Analysis - The New Stack",
+    "url": "https://thenewstack.io/ci-cd/",
+    "summary": "This guide breaks down how CI/CD pipelines work, from automated testing to push-button deployments, and explores how tools like Kubernetes, GitOps, and cloud- ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:58.391032"
   },
   {
     "title": "DevOps - The Web's Largest Collection of DevOps Content",
@@ -1669,15 +1677,23 @@
     "summary": "DevOps.com has the largest collection of original content related to DevOps on the web and one of the top result for DevOps-related search terms.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:07.494640"
+    "timestamp": "2025-12-22T06:22:58.391069"
   },
   {
-    "title": "Resistance against implementing \"automation tools\" : r/devops",
-    "url": "https://www.reddit.com/r/devops/comments/1pqk6m6/resistance_against_implementing_automation_tools/",
-    "summary": "CI/CD works great, until it doesn't, and some token gets expired and nobody knows where it is or how to fix it. After we implemented their containerization, our ...",
+    "title": "What's still annoying about CI/CD in your workflow? - Reddit",
+    "url": "https://www.reddit.com/r/webdev/comments/1po185u/whats_still_annoying_about_cicd_in_your_workflow/",
+    "summary": "CI/CD workflows are quite useful, but some pain points are common: time-consuming setup and maintenance, debugging failures and keeping configurations in sync ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:07.494681"
+    "timestamp": "2025-12-22T06:22:58.391107"
+  },
+  {
+    "title": "Why CI/CD Pipelines Are Essential for Modern Development",
+    "url": "https://www.wildnetedge.com/blogs/why-ci-cd-pipelines-are-essential-for-modern-development",
+    "summary": "Jenkins, GitLab CI, GitHub Actions, and CircleCI are among the most popular tools that are used for building CI/CD Pipelines, and they are often integrated with ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:58.391143"
   },
   {
     "title": "Platform Engineering: Empowering Modern Software Delivery",
@@ -1685,31 +1701,7 @@
     "summary": "Platform engineering at Stackoverdrive streamlines workflows, reduces cognitive load, and helps teams ship software faster with secure, scalable platforms.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:07.494717"
-  },
-  {
-    "title": "What is Developer Experience? A Simple Guide. | AWS Builder Center",
-    "url": "https://builder.aws.com/content/373QlEJp1IuN7C15F7qJoN8Lcvb/what-is-developer-experience-a-simple-guide",
-    "summary": "Internal Developer Experience refers to the experience the internal team of a corporation has. The tools, stack, and development process are to support and ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301112"
-  },
-  {
-    "title": "AI Tools for Developer Productivity: Hype vs. Reality in 2025",
-    "url": "https://dev.to/luciench/ai-tools-for-developer-productivity-hype-vs-reality-in-2025-480d",
-    "summary": "A rigorous study from METR in July 2025 found that experienced developers took 19% longer to complete tasks when using AI tools, despite believing they were ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301164"
-  },
-  {
-    "title": "How do you evaluate engineers when everyone's using AI coding ...",
-    "url": "https://www.reddit.com/r/ExperiencedDevs/comments/1pn39gb/how_do_you_evaluate_engineers_when_everyones/",
-    "summary": "Should they use AI, but have low trust in it and therefore use even more time, but having higher quality code. Because many companies will prioritise value ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301202"
+    "timestamp": "2025-12-22T06:22:58.391178"
   },
   {
     "title": "Unlocking Developer Happiness and Productivity in 2025",
@@ -1717,39 +1709,39 @@
     "summary": "This article explores the strategic importance of Developer Experience (DX) in 2025, detailing how superior tooling, infrastructure, and organizational ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301237"
+    "timestamp": "2025-12-22T06:22:59.068141"
   },
   {
-    "title": "4 Developer Experience Challenges (& How to Solve Them)",
-    "url": "https://jellyfish.co/library/developer-experience/challenges/",
-    "summary": "Learn the root causes of DevEx problems. This guide explains common challenges and how engineering teams can resolve them.",
+    "title": "What is Developer Experience? A Simple Guide. | AWS Builder Center",
+    "url": "https://builder.aws.com/content/373QlEJp1IuN7C15F7qJoN8Lcvb/what-is-developer-experience-a-simple-guide",
+    "summary": "Developer Experience (DevEx) refers to the systems, tools, processes, and culture that shape how developers build software. It looks beyond just productivity ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301311"
+    "timestamp": "2025-12-22T06:22:59.068191"
   },
   {
-    "title": "10+ Open-Source Developer Tools That Quietly Boost ... - Medium",
-    "url": "https://medium.com/@curiosen/10-open-source-developer-tools-that-quietly-boost-developer-productivity-c78b68e75a57",
-    "summary": "Storybook enables developers to build and test UI components in isolation. It supports major frontend frameworks and acts as both a development environment and ...",
+    "title": "The Pulse #157: Internal dev tooling at Meta & the “trajectories” feature",
+    "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-157-internal-dev-tooling",
+    "summary": "Internal dev tooling at Meta & “trajectories.” An overview of three different internal AI-coding tools which devs at Meta use. Also, the company has started ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301381"
+    "timestamp": "2025-12-22T06:22:59.068273"
   },
   {
-    "title": "Best AI Tools for Developers to Boost Productivity in 2026 | Futurism",
-    "url": "https://vocal.media/futurism/best-ai-tools-for-developers-to-boost-productivity-in-2026",
-    "summary": "Developer exploring cutting-edge AI tools in 2026, including a Predictive Workflow Mapper and Automated Debugger Agent, designed to enhance productivity and ...",
+    "title": "How do you evaluate engineers when everyone's using AI coding ...",
+    "url": "https://www.reddit.com/r/ExperiencedDevs/comments/1pn39gb/how_do_you_evaluate_engineers_when_everyones/",
+    "summary": "Should they use AI, but have low trust in it and therefore use even more time, but having higher quality code. Because many companies will prioritise value ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301443"
+    "timestamp": "2025-12-22T06:22:59.068322"
   },
   {
-    "title": "Box launches new AI-First developer documentation site",
-    "url": "https://blog.box.com/box-launches-new-ai-first-developer-documentation-site",
-    "summary": "Box's new AI-first developer docs hub features intelligent search, chat, IDE integration, and an interactive API playground to help you ship faster.",
+    "title": "Developer Productivity Engineering Blog - Gradle Inc.",
+    "url": "https://gradle.com/blog/",
+    "summary": "Best practices and case studies in build performance and developer productivity from the Gradle Build Tool and Develocity teams.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301502"
+    "timestamp": "2025-12-22T06:22:59.068372"
   },
   {
     "title": "AI Tools Make Coders More Important, Not Less",
@@ -1757,7 +1749,31 @@
     "summary": "Many leaders are excited about the promise of AI coding tools that can make it easier for novices to write code and, seemingly, make experienced coders less ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:08.301554"
+    "timestamp": "2025-12-22T06:22:59.068422"
+  },
+  {
+    "title": "The AI Developer Productivity Paradox: Why It Feels Fast but ...",
+    "url": "https://hackernoon.com/the-ai-developer-productivity-paradox-why-it-feels-fast-but-delivers-slow",
+    "summary": "AI coding feels fast, but data shows it's slower in reality. Discover why devs overestimate gains, and what it really takes to boost productivity.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:59.068474"
+  },
+  {
+    "title": "Your Dev Software Team Is Quietly Quitting — Here's How Broken ...",
+    "url": "http://agilityportal.io/blog/dev-software-team-workflow-2026",
+    "summary": "Keep feedback loops short and predictable. Fast code reviews prevent tasks from stacking up in a queue. Reviewers stay close to the context because the work is ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:59.068522"
+  },
+  {
+    "title": "Top 20 Platform Engineering Tools to Use in 2026 - Spacelift",
+    "url": "https://spacelift.io/blog/platform-engineering-tools",
+    "summary": "In this article, we're going to explore 20 top platform engineering tools to help you accelerate your IDP delivery.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:22:59.068571"
   },
   {
     "title": "GitHub Actions Pricing Changes and the Future of CI/CD - Cosmic JS",
@@ -1765,7 +1781,7 @@
     "summary": "Consider Total Cost of Ownership: Factor in not just direct costs but engineering time, operational overhead, and opportunity cost of slow iteration cycles.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.110159"
+    "timestamp": "2025-12-22T06:22:59.798563"
   },
   {
     "title": "AEM Implementation Costs: Maximizing ROI - Net Effect",
@@ -1773,7 +1789,7 @@
     "summary": "Preventing technical debt reduces rework, accelerates feature release cycles and ensures platform stability. All of which lower your Total Cost of Ownership.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.110213"
+    "timestamp": "2025-12-22T06:22:59.798632"
   },
   {
     "title": "Why Enterprise AI Still Fails — And Why Platform Architecture Is the ...",
@@ -1781,15 +1797,7 @@
     "summary": "Each tool may be best-of-breed in isolation, but together they form a brittle ecosystem that increases TCO (Total Cost of Ownership), slows CI/CD (Continuous ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.110252"
-  },
-  {
-    "title": "Vercel Alternatives: Escaping Cost, Lock-in, and Frontend Constraints",
-    "url": "https://www.qovery.com/blog/vercel-alternatives",
-    "summary": "This guide evaluates Vercel alternatives by prioritizing full-stack capability, cost control, and ownership, helping you move beyond frontend limitations to ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.110308"
+    "timestamp": "2025-12-22T06:22:59.798675"
   },
   {
     "title": "Integrate code repositories with CI/CD for effective workflows…",
@@ -1797,15 +1805,7 @@
     "summary": "By reading this guide, you will learn how code repository integration with CI/CD streamlines software delivery and ensures consistent quality.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.110348"
-  },
-  {
-    "title": "Master the 2026 DevOps Framework: A 90-Day Roadmap - Nextbridge",
-    "url": "https://nextbridge.com/devops-framework-guide/",
-    "summary": "Implement DevOps framework successfully with our 2026 guide. Get a clear 90-day roadmap, proven strategies, and best practices for faster deployment and ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.110388"
+    "timestamp": "2025-12-22T06:22:59.798715"
   },
   {
     "title": "DevOps services and solutions - Geniusee",
@@ -1813,7 +1813,7 @@
     "summary": "By frequently deploying updates and automating repetitive tasks, you achieve reduced Total Cost of Ownership (TCO) which results in streamlined product time-to- ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.110426"
+    "timestamp": "2025-12-22T06:22:59.798755"
   },
   {
     "title": "State of Test Automation in 2026 - TestDino",
@@ -1821,7 +1821,7 @@
     "summary": "They integrate directly with CI/CD pipelines, support cross-platform testing, and often remove the need for maintaining separate codebases. Target Users.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.901541"
+    "timestamp": "2025-12-22T06:23:00.626294"
   },
   {
     "title": "CI/CD Pipeline Setup Guide — Build, Test, Deploy Fast - alfule.in -",
@@ -1829,23 +1829,7 @@
     "summary": "Practical CI/CD pipeline setup guide that shows step-by-step design, tool choices, and real-world tips to build reliable automation for faster releases.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.901593"
-  },
-  {
-    "title": "CI/CD for Dummies - DEV Community",
-    "url": "https://dev.to/copubah/cicd-for-dummies-29n0",
-    "summary": "CI/CD is a workflow that automatically takes your code from development all the way through testing and ready-to-deploy stages without manual steps. Continuous ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:09.901633"
-  },
-  {
-    "title": "Atlassian Reviews, Ratings & Features 2025 | Gartner Peer Insights",
-    "url": "https://www.gartner.com/reviews/market/devops-platforms/vendor/atlassian",
-    "summary": "Read the latest, in-depth Atlassian reviews from real users verified by Gartner Peer Insights, and choose your business software with confidence.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:10.558555"
+    "timestamp": "2025-12-22T06:23:00.626343"
   },
   {
     "title": "Explore Enterprise Software Categories | Gartner Peer Insights",
@@ -1853,15 +1837,15 @@
     "summary": "Read the latest Gartner-verified reviews covering over 500+ software categories and find the best enterprise software or services for your organization.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:10.558607"
+    "timestamp": "2025-12-22T06:23:01.439928"
   },
   {
-    "title": "GitLab Reviews, Ratings & Features 2025 | Gartner Peer Insights",
-    "url": "https://www.gartner.com/reviews/market/developer-productivity-insight-platforms/vendor/gitlab/product/gitlab-2088161663",
-    "summary": "My overall experience with GitLab has been positive. The platform provides a powerful and unified DevOps solution. GitLab's all-in-one approach minimizes the ...",
+    "title": "Atlassian Reviews, Ratings & Features 2025 | Gartner Peer Insights",
+    "url": "https://www.gartner.com/reviews/market/devops-platforms/vendor/atlassian",
+    "summary": "Read the latest, in-depth Atlassian reviews from real users verified by Gartner Peer Insights, and choose your business software with confidence.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:10.558646"
+    "timestamp": "2025-12-22T06:23:01.439978"
   },
   {
     "title": "Top Microsoft Competitors & Alternatives 2025 | Gartner Peer Insights",
@@ -1869,15 +1853,15 @@
     "summary": "Learn more about the top Microsoft competitors & alternatives. Read the latest reviews and find the best Enterprise Low-Code Application Platforms software.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:10.558689"
+    "timestamp": "2025-12-22T06:23:01.440024"
   },
   {
-    "title": "Top DevOps Outsourcing Companies Worth Your Attention",
-    "url": "https://itoutposts.com/blog/best-devops-outsourcing-companies-to-know-before-you-hire/",
-    "summary": "Every DevOps solutions company on this list has at least 10 verified reviews on Clutch with ratings of 4.7/5 or above. We used Clutch because it's one of the ...",
+    "title": "Top DevOps Managed Services Agencies - Dec 2025 Rankings",
+    "url": "https://clutch.co/it-services/devops/msp",
+    "summary": "Connect with the best Devops Managed Services companies. Compare expert profiles, client success stories & proven results to choose a verified provider ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:10.558724"
+    "timestamp": "2025-12-22T06:23:01.440062"
   },
   {
     "title": "Best Project Management Vendors Compared for 2025 - Planisware",
@@ -1885,87 +1869,111 @@
     "summary": "Analyze 9 leading project management vendors - Planisware, Asana, Monday.com, Wrike, ClickUp, Trello, Zoho, Airtable, Teamwork - by usability, automation, ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:10.558759"
+    "timestamp": "2025-12-22T06:23:01.440096"
   },
   {
-    "title": "What Web Tech Stack Will You Use in 2026? : r/SaaS - Reddit",
-    "url": "https://www.reddit.com/r/SaaS/comments/1pm0pkr/what_web_tech_stack_will_you_use_in_2026/",
-    "summary": "This. I have React with Tanstack tools in the frontend and Django as backend. The ORM is just something else.",
+    "title": "Top 100+ DevOps Consulting Companies in 2025 | Techreviewer.co",
+    "url": "https://techreviewer.co/devops-companies",
+    "summary": "Discover the leading DevOps consulting companies of 2025. Find expert partners to streamline your processes and drive digital transformation in your ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060316"
+    "timestamp": "2025-12-22T06:23:01.440128"
+  },
+  {
+    "title": "Top DevOps Outsourcing Companies Worth Your Attention",
+    "url": "https://itoutposts.com/blog/best-devops-outsourcing-companies-to-know-before-you-hire/",
+    "summary": "Every DevOps solutions company on this list has at least 10 verified reviews on Clutch with ratings of 4.7/5 or above. We used Clutch because it's one of the ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:01.440160"
+  },
+  {
+    "title": "Microsoft vs WSO2 2025 | Gartner Peer Insights",
+    "url": "https://www.gartner.com/reviews/market/access-management/compare/microsoft-vs-wso2inc",
+    "summary": "Microsoft has a rating of 4.4 stars with 709 reviews. WSO2 has a rating of 4.3 stars with 89 reviews. See side-by-side comparisons of product capabilities, ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:01.440190"
+  },
+  {
+    "title": "Sneak peek: How we're thinking about CI/CD for Fabric Warehouse ...",
+    "url": "https://www.reddit.com/r/MicrosoftFabric/comments/1pq5jjv/sneak_peek_how_were_thinking_about_cicd_for/",
+    "summary": "I need to be live with a warehouse by EOY 2026. I've moved to using dbt and one warehouse to avoid the fabric CICD functionality. I just can't cross my fingers ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:02.037243"
+  },
+  {
+    "title": "Agile Development - Reddit",
+    "url": "https://www.reddit.com/r/agile/",
+    "summary": "The problem: Tools like Miro are overkill or overpriced. We just wanted something fast and focused. Fast Retro focuses on the essentials and guides teams ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:02.037322"
   },
   {
     "title": "GitHub: Self-Hosted Action Runners will be billed from March 1, 2026",
     "url": "https://www.reddit.com/r/github/comments/1po8bns/github_selfhosted_action_runners_will_be_billed/",
-    "summary": "Home Science Tools Coupon: Take $10 off your first purchase (Stacks with Home Science Tool 2025 Black Friday Sale). 1 upvote · 1 comment. An open dataset of ...",
+    "summary": "On March 1, 2026, we are introducing a new $0.002 per-minute GitHub Actions cloud platform charge that will apply to self-hosted runner usage.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060380"
+    "timestamp": "2025-12-22T06:23:02.037368"
+  },
+  {
+    "title": "The \"Vibe Coding\" hangover is hitting us hard. - Reddit",
+    "url": "https://www.reddit.com/r/AIcodingProfessionals/comments/1ppe81n/the_vibe_coding_hangover_is_hitting_us_hard/",
+    "summary": "Am I the only one drowning in \"working\" code that nobody actually understands? We spent the first half of 2025 celebrating how fast our juniors were ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:02.037411"
   },
   {
     "title": "what's the project you're most proud of building and why? - Reddit",
     "url": "https://www.reddit.com/r/SideProject/comments/1ppr6gh/as_the_year_wraps_up_whats_the_project_youre_most/",
-    "summary": "Your tool looks super impressive and I think a lot of people are going to love it. One thing that worries me is the one-time payment model while you're ...",
+    "summary": "Your tool looks super impressive and I think ... The call has 4 phases with a health bar like thing at the top : intro, discover pain points, pitch, close.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060423"
+    "timestamp": "2025-12-22T06:23:02.037446"
   },
   {
-    "title": "TestRail Review 2026: Is it still worth it? - aqua cloud",
-    "url": "https://aqua-cloud.io/testrail-review/",
-    "summary": "It provides essential test management functionalities, allowing you to manage test cases, track execution, and integrate with other tools. While the tool covers ...",
+    "title": "4 Developer Experience Challenges (& How to Solve Them)",
+    "url": "https://jellyfish.co/library/developer-experience/challenges/",
+    "summary": "Learn the root causes of DevEx problems. This guide explains common challenges and how engineering teams can resolve them.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060460"
+    "timestamp": "2025-12-22T06:23:02.037477"
   },
   {
-    "title": "How To Create an App in 12 Easy Steps (2026 Guide) - Upwork",
-    "url": "https://www.upwork.com/resources/how-to-develop-an-app",
-    "summary": "Creating an app in 2026 is more accessible and more strategic than ever. Using AI-powered tools and remote-friendly development platforms, small businesses, ...",
+    "title": "B2B marketing turning into systems engineering? : r/b2bmarketing",
+    "url": "https://www.reddit.com/r/b2bmarketing/comments/1po4ed2/b2b_marketing_turning_into_systems_engineering/",
+    "summary": "Verify your lists, keep your enrichment simple, fix the routing issues that cause obvious problems, then stop tinkering and start testing real campaigns.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060494"
+    "timestamp": "2025-12-22T06:23:02.037509"
   },
   {
-    "title": "Top 100+ Web App Ideas 2026 for Entrepreneurs and SMEs",
-    "url": "https://www.manektech.com/blog/web-app-ideas",
-    "summary": "AI SEO Tool Web App. AI SEO Tools analyze keyword strategies along with their corresponding Backlinks and search Rankings. These Tools help Businesses optimize ...",
+    "title": "The Modern Product Leader's Stack: A 2025 Retrospective",
+    "url": "https://yannickmaurice.substack.com/p/the-modern-product-leaders-stack",
+    "summary": "I use it to pull and triangulate user pain from Reddit, App Store / Google Play reviews, and forums—then extract themes at scale. Claude Code • Terminal ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060527"
+    "timestamp": "2025-12-22T06:23:02.037541"
   },
   {
-    "title": "Freshworks to buy FireHydrant to expand AI incident tools - Stock Titan",
-    "url": "https://www.stocktitan.net/news/FRSH/freshworks-to-deepen-its-it-service-and-operations-portfolio-with-iblh07i8o7kb.html",
-    "summary": "IT teams face the immense challenge of managing incident chaos using disparate tools for monitoring, alerting, on-call scheduling, and post-mortem analysis.",
+    "title": "Bridging the divide: Why friction between dev and security persists ...",
+    "url": "https://securityboulevard.com/2025/12/bridging-the-divide-why-friction-between-dev-and-security-persists-and-how-to-fix-it/",
+    "summary": "Nevertheless, it's clear that perceived pain and inconvenience can heavily influence priorities when security and development teams are required to collaborate.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060560"
+    "timestamp": "2025-12-22T06:23:02.037572"
   },
   {
-    "title": "CCS Global Tech | LinkedIn",
-    "url": "https://www.linkedin.com/company/california-creative-solutions-ccs-",
-    "summary": "Veterans solve multiple small prime pain points ... programs translating military experience to cleared contractor roles.",
+    "title": "Using AI Alongside Your UI Tests, Not Instead of Them",
+    "url": "https://dev.to/engroso/using-ai-alongside-your-ui-tests-not-instead-of-them-58pf",
+    "summary": "Common pain points: Rewriting broken selectors every sprint; Creating repetitive assertions; Debugging flaky tests; Maintaining hundreds of UI tests as the ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060593"
-  },
-  {
-    "title": "AI in MVP Development: How Startups Can Accelerate Launch ...",
-    "url": "https://www.naveck.com/blog/ai-mvp-development-startups-accelerate-launch-times/",
-    "summary": "How AI in MVP development can cut your launch time by 60%. Our 2026 guide covers agentic workflows, top tools, and strategies to build faster and validate",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060631"
-  },
-  {
-    "title": "Our Team - Art of Problem Solving",
-    "url": "https://artofproblemsolving.com/company/staff?srsltid=AfmBOooSiBikFwnEqqXRpKJPXUUHLTOa2v8q63ib8WvGXlpuUDsyebP-",
-    "summary": "... pain points in employee experience. Jess Alexander ... She likes to think in spreadsheets and believes it is the superior digital organization tool.",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.060667"
+    "timestamp": "2025-12-22T06:23:02.037602"
   },
   {
     "title": "Newest 'gitlab-ci' Questions - Stack Overflow",
@@ -1973,15 +1981,15 @@
     "summary": "I'm working on a CI script for a gitlab project. The build runs in two stages. The first compiles and packages the code. The second deploys the packaged ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.816956"
+    "timestamp": "2025-12-22T06:23:02.916011"
   },
   {
     "title": "Newest 'linux' Questions - Stack Overflow",
     "url": "https://stackoverflow.com/questions/tagged/linux?tab=Newest",
-    "summary": "On .NET Framework 4.6 (Windows), all logos render correctly. After migrating the same code to NET Core 8 on Linux, only PNG/JPG images work ...",
+    "summary": "I wanna add File System(FS) to my OS's kernel, some simple, not like ext4. My OS have I/O system. What I need to know to do it and which simple FS exists?",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817007"
+    "timestamp": "2025-12-22T06:23:02.916074"
   },
   {
     "title": "Investigate Not found page for user sessions when migrated user ...",
@@ -1989,7 +1997,23 @@
     "summary": "In this report of user session they are hitting the hmm not found page after signing in before the migration modal shows up ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817046"
+    "timestamp": "2025-12-22T06:23:02.916115"
+  },
+  {
+    "title": "1. Internal dev tooling at Meta & “trajectories”",
+    "url": "https://newsletter.pragmaticengineer.com/feed",
+    "summary": "But instead of improving the service, GitHub sought to charge by the minute for using third-party CI/CD solutions. That didn't go down well with devs.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:02.916154"
+  },
+  {
+    "title": "Newest 'github-actions' Questions - Stack Overflow",
+    "url": "https://stackoverflow.com/questions/tagged/github-actions?tab=Newest",
+    "summary": "I'm running a Fastlane pipeline for iOS app builds in CI/CD, and my build fails with the following log output: INFO [2025-11-04 18:09:06.48]: ERROR [2025-11-04 ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:02.916191"
   },
   {
     "title": "Microsoft.Testing.Platform Now Fully Supported in Azure DevOps",
@@ -1997,7 +2021,7 @@
     "summary": "Making sure it works seamlessly with your CI/CD pipelines. Today, we're announcing comprehensive Azure DevOps integration for Microsoft.Testing.Platform.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817083"
+    "timestamp": "2025-12-22T06:23:02.916227"
   },
   {
     "title": "Software Testing Tools: Types, Examples, and How to Choose the ...",
@@ -2005,39 +2029,31 @@
     "summary": "In this article, we'll break down the main categories of software testing tools, discuss how to choose tools that fit your team (skillsets, tech stack, CI/CD ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817118"
+    "timestamp": "2025-12-22T06:23:02.916277"
   },
   {
-    "title": "Newest Questions - Stack Overflow",
-    "url": "https://stackoverflow.com/questions?tab=newest",
-    "summary": "I'm working on building Entra ID into a self-hosted application and while prototyping I've just edited the Application Registration by hand.",
+    "title": "Build and document CI/CD pipelines and IaC workflows · Monitor ...",
+    "url": "https://www.facebook.com/groups/frontenddevelopper/posts/1072528511641295/",
+    "summary": "Troubleshoot and resolve issues related to infrastructure, deployment, and performance. 4. Implement and maintain containerization technologies such as Docker ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817151"
-  },
-  {
-    "title": "I didn't just “do a lot of work.” I replaced: • a backend team • a ...",
-    "url": "https://www.facebook.com/groups/4058828461024029/posts/4154700611436813/",
-    "summary": "**Tool Selection:** Choose appropriate CI/CD tools (e.g., Jenkins, GitLab CI, CircleCI). 2. **Version Control Integration:** Integrate the CI/CD tool with the ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817185"
-  },
-  {
-    "title": "[0.76] React Native DevTools — Issues and Feedback #819 - GitHub",
-    "url": "https://github.com/react-native-community/discussions-and-proposals/discussions/819",
-    "summary": "React Native DevTools features: A completely rebuilt debugger architecture, including an all-new CDP backend, designed for reliability and correctness. Familiar ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817219"
+    "timestamp": "2025-12-22T06:23:02.916315"
   },
   {
     "title": "From Zero to Hero: Docker for Developers - Dometrain",
-    "url": "https://dometrain.com/course/from-zero-to-hero-docker/?srsltid=AfmBOoo-juZrBpFGBCkSYkfnD-wAT6X5f7ILWAh1mw6voXhIZPYZoj3G",
+    "url": "https://dometrain.com/course/from-zero-to-hero-docker/?srsltid=AfmBOopLOqmqyUp4Oz3y3KLBkEKtL0n23n-qNkuOBMXvMfMlYlzQkq-2",
     "summary": "In this course, author Dan Clarke will teach you everything you need to know to get started and master the usage of Docker.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:11.817251"
+    "timestamp": "2025-12-22T06:23:02.916352"
+  },
+  {
+    "title": "Bosch Digital - My Journey Petar Krastanov - LinkedIn",
+    "url": "https://www.linkedin.com/posts/boschdigital_my-journey-petar-krastanov-activity-7406604048872796160-37DP",
+    "summary": "#MyJourney at Bosch: The DevOps Odyssey – From Build to Beyond Some careers are built on curiosity — and Petar Krastanov's journey is exactly that.",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:03.463194"
   },
   {
     "title": "Richard Soares' Post - LinkedIn",
@@ -2045,15 +2061,7 @@
     "summary": "Hiring for heroics is a culture tax — invest in systems and automation to scale performance without burning people out. As a CTO I've been guilty of ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563567"
-  },
-  {
-    "title": "Gene Arnold's Post - LinkedIn",
-    "url": "https://www.linkedin.com/posts/genearnold_ai-devops-claudecode-activity-7406649364162641920-coUm",
-    "summary": "... DevOps ... Gene Arnold's Post. View profile for Gene Arnold. Gene Arnold. Driving partner success with the Atlan data platform | Partner Sales Engineer | Active ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563620"
+    "timestamp": "2025-12-22T06:23:03.463245"
   },
   {
     "title": "Kurtis Welch's Post - LinkedIn",
@@ -2061,15 +2069,23 @@
     "summary": "Deep generalist/Software Developer/Devops remote only, no hybrid mode. Only interested in discussing service offers with managers. No recruiting discussions. 8h.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563658"
+    "timestamp": "2025-12-22T06:23:03.463296"
   },
   {
-    "title": "SUDO Consultants' Post - LinkedIn",
-    "url": "https://www.linkedin.com/posts/sudoconsultants_sudo-devops-digitaltransformation-activity-7406969142534094849-6ljG",
-    "summary": "DevOps success isn't defined by tools or pipelines, it's defined by outcomes that leaders care about. For CIOs, CTOs, and business leaders, the right DevOps ...",
+    "title": "Richard Soares' Post - LinkedIn",
+    "url": "https://www.linkedin.com/posts/richard-soares-rhode-island_leadership-business-technology-activity-7408508156852588544-Iu_E",
+    "summary": "Richard Soares' Post ... Investing in sustainable systems truly pays off in the long run. Here's to reliable success. Like.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563693"
+    "timestamp": "2025-12-22T06:23:03.463331"
+  },
+  {
+    "title": "Gene Arnold's Post - LinkedIn",
+    "url": "https://www.linkedin.com/posts/genearnold_ai-devops-claudecode-activity-7406649364162641920-coUm",
+    "summary": "... DevOps ... Gene Arnold's Post. View profile for Gene Arnold. Gene Arnold. Driving partner success with the Atlan data platform | Partner Sales Engineer | Active ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:03.463364"
   },
   {
     "title": "irissoftware #successstory #automation #efficiency #devops - LinkedIn",
@@ -2077,7 +2093,15 @@
     "summary": "A leading payroll and HR solutions provider aimed to enhance efficiency and support growth. With our automated platform engineering solution, they achieved ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563727"
+    "timestamp": "2025-12-22T06:23:03.463397"
+  },
+  {
+    "title": "Garima Singh's Post - LinkedIn",
+    "url": "https://www.linkedin.com/posts/garima-singh-2ab20017_what-else-could-have-been-a-better-ending-activity-7406656606223880192-uN2w",
+    "summary": "This award is a testament of an arduous journey of a woman who has led the path purely on self belief and loads of resilience. She was told \"Girls can't code\", ...",
+    "source": "Google",
+    "type": "💬 Social Buzz",
+    "timestamp": "2025-12-22T06:23:03.463429"
   },
   {
     "title": "DevOps Success Stories of Top 5 Market Leaders of USA",
@@ -2085,7 +2109,7 @@
     "summary": "Explore the DevOps success stories of the US's top 5 market leaders. Uncover insights into their strategies and the impact on their business performance.",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563761"
+    "timestamp": "2025-12-22T06:23:03.463462"
   },
   {
     "title": "Ayush Gharat's Post - LinkedIn",
@@ -2093,30 +2117,6 @@
     "summary": "Day 17 of 30: Debugging my Definition of Success. After the forced system shutdown of Day 16 (where I crashed from exhaustion), I woke up with a clear head ...",
     "source": "Google",
     "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563795"
-  },
-  {
-    "title": "Sunny Kusawa's Post - LinkedIn",
-    "url": "https://www.linkedin.com/posts/sunnykusawa_artificialintelligence-softwareengineering-activity-7406648238944153623-mXUK",
-    "summary": "Backend engineers, frontend engineers, platform teams, DevOps, SREs, data engineers, QA, security, compliance, and domain specialists are the backbone of ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563829"
-  },
-  {
-    "title": "Common DevOps Roles and Responsibilities Today - DEV Community",
-    "url": "https://dev.to/jumptotech/common-devops-roles-and-responsibilities-today-whos-on-a-devops-team-how-these-roles-work-3clj",
-    "summary": "Platform engineering teams are responsible for deployment and maintenance of internal developer platforms (IDPs) that provide self-service tools for coding, ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563863"
-  },
-  {
-    "title": "Aristotelis Savas' Post - LinkedIn",
-    "url": "https://www.linkedin.com/posts/asavas_engineeringleadership-softwareengineering-activity-7406301001227517953-XZGD",
-    "summary": "Story points per day: Engineers inflate estimates. A 3 becomes a 5. A 5 becomes an 8. One researcher documented a team whose velocity “jumped to the high 80s” ...",
-    "source": "Google",
-    "type": "💬 Social Buzz",
-    "timestamp": "2025-12-21T00:36:12.563897"
+    "timestamp": "2025-12-22T06:23:03.463493"
   }
 ]
